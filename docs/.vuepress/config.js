@@ -4,10 +4,9 @@ module.exports = {
   description: 'Testing',
   themeConfig: {
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Guide', link: '/guide/' },
-      { text: 'Interviews', link: '/interviews/' },
+      { text: 'test', link: '/test/' },
       { text: 'Stories', link: '/stories/' },
+      { text: 'Why is it broken?', link: '/broken/' },
     ],
     sidebar: {
 		'/guide/': ['', 'frontend', 'backend', 'last'],
