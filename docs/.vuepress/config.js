@@ -1,3 +1,4 @@
+const path = require('path')
 module.exports = {
   base: '/',
   title: 'Zano',
@@ -11,5 +12,5 @@ module.exports = {
     sidebar: {
 		'/guide/': ['', 'frontend', 'backend', 'last'],
 	}
-  },
-};
+  }
+}

@@ -1,23 +1,27 @@
 <template>
+<div>
+	<button id="hamburger">🍔</button>
+	<Sidebar/>
 	<div class="main">
-		<Navbar/>
-		<img class="hero-image" :src="$page.frontmatter.heroImage">
-		<h1>Welcome to CSS</h1>
-		<router-link to="/">Home</router-link>
-		<router-link to="/stories/">Stories</router-link>
-		<router-link to="/broken/">Broken</router-link>
-		<pre>{{$page}}</pre>
+		<!-- <Navbar/> -->
+		{{$page.frontmatter.tag}}
+		<img class="hero-image" :src="$page.frontmatter.heroImage" v-if="$page.frontmatter.tag == 'none' " />
+		<h1>Style this</h1>
+
+		<!-- <pre>{{$page}}</pre> -->
 		<transition name="fade" mode="out-in">
-			<Content/>
+			<Content style="text-align:left; width:40rem;"/>
 		</transition>
 	</div>
+</div>
 </template>
 
 <script>
 import Vue from 'vue';
 import Navbar from './Navbar.vue';
+import Sidebar from '../components/Sidebar.vue';
 export default {
-	components: { Navbar },
+	components: { Navbar, Sidebar},
 	data() {
 		return {
 			isSidebarOpen: false,
@@ -82,8 +86,15 @@ function updateMetaTags(meta, current) {
 </script>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Righteous');
+
+#hamburger{
+	position:absolute;
+	left: 1rem;
+}
 .main {
-	text-align: center;
+	display:flex;
+	flex-direction:column;
+	align-items: center;
 	font-family: 'Righteous', cursive;
 }
 
@@ -94,7 +105,7 @@ function updateMetaTags(meta, current) {
 
 .fade-enter-active,
 .fade-leave-active {
-	transition: opacity 15s ease-in;
+	transition: opacity .2s ease-in;
 }
 .fade-enter,
 .fade-leave-to {
