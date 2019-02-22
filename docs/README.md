@@ -1,7 +1,7 @@
 ---
 home: true
-heroImage: /images/bower-logo.png
-heroText: How to CSS
+heroImage: /images/thinktank.svg
+heroText: CSS Think Tank
 tagline: 1001 stories about how CSS can work/not work for you
 actionText: Latest post →
 actionLink: /guide/
@@ -15,6 +15,5 @@ features:
 footer: MIT Licensed | Copyright © 2018-present
 ---
 
-# The markdown
-
-### Badge <Badge text="beta" type="warn"/> <Badge text="0.10.1+"/>
+#But why?
+<Memes />

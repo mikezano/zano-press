@@ -6,6 +6,7 @@
 					<img v-if="post.frontmatter.image" :src="$withBase(post.frontmatter.image)" alt>
 				</div>
 				<h2>{{post.frontmatter.title}}</h2>
+				<Badge text="zano" type="warn"/>
 				<p>{{post.frontmatter.description}}</p>
 			</router-link>
 		</div>
