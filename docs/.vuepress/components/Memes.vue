@@ -1,8 +1,9 @@
 <template lang="pug">
 	.memes
-		.memes__text Funee
+		img.memes__thought-bubble(src="images/thought-bubble.png")
 		.memes__container
-			img.memes__img(v-bind:src="img")
+			transition(name="slide" mode="out-in")
+				img.memes__img(v-if="img" v-bind:src="img" :key="img")
 </template>
 
 <script>
@@ -43,11 +44,48 @@ export default {
 		position: absolute;
 		top:10rem;
 
-		&__text{font-weight: bold;}
+
+		&__thought-bubble{
+			width:30rem;
+		}
+
 		&__container{
-			border:.1rem dashed hsla(0,0%,0%,.5);
-			width:10rem;
-			height:10rem;
+			//border:.1rem dashed hsla(0,0%,0%,.5);
+			width:12rem;
+			height:12rem;
+			display:flex;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+			left:50%;
+			margin-left:-6.5rem;
+			top: 1.2rem;
 		}
 	}
+
+
+	.slide-enter{
+		transform: translateX(-1rem);
+		opacity:0;
+	}
+
+	.slide-leave-to{
+		transform: translateX(1rem);
+		opacity:0;		
+	}
+
+	.slide-enter-active{
+		transition: all .8s cubic-bezier(0.6, 1.6, 0.6, 1);
+	}
+
+	.slide-leave-active{
+		transition: all .8s cubic-bezier(0.33, 0.03, 0.42, -0.37);
+	}
+
+	.slide-enter-to, .slide-leave{
+		transform: translateX(0);
+		opacity:1;
+	}
+
+
 </style>
