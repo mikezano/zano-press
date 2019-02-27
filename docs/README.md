@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /images/thinktank.svg
+heroImage: /images/block.png
 heroText: CSS Think Tank
 tagline: 1001 stories about how CSS can work/not work for you
 actionText: Latest post →

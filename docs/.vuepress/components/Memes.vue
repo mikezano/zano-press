@@ -34,7 +34,7 @@ export default {
 		setInterval(()=>{
 			var nextIdx = this.getRandomInt(this.imgCount);
 			this.img = files[nextIdx];
-		}, 3000);
+		}, 8000);
 	}
 };
 </script>
@@ -42,11 +42,14 @@ export default {
 <style lang="scss">
 	.memes{
 		position: absolute;
-		top:10rem;
+		top:6rem;
+		width:30rem;
+		left:50%;
+		margin-left:-15rem;
 
 
 		&__thought-bubble{
-			width:30rem;
+			
 		}
 
 		&__container{
