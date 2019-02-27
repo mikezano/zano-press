@@ -4,6 +4,7 @@ module.exports = {
   title: 'Zano',
   description: 'Testing',
   themeConfig: {
+	navbar: true,
     nav: [
       { text: 'test', link: '/test/' },
       { text: 'Stories', link: '/stories/' },
