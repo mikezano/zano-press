@@ -29,8 +29,8 @@
 			circle(cx="50" cy="248" r="5" stroke="black" stroke-width="4" fill="none")
 
 	.memes__container
-		//transition(name="slide" mode="out-in" v-on:enter="setAvgColor")
-		img#avgrgb.memes__img(v-if="img" v-bind:src="img" :key="img")
+		transition(name="slide" mode="out-in" v-on:enter="setAvgColor")
+			img#avgrgb.memes__img(v-if="img" v-bind:src="img" :key="img")
 </template>
 
 <script>
@@ -48,26 +48,21 @@ export default {
 	},
 	computed: {},
 	watch: {
-		img: function(newImg, oldImg) {
-			var imgEl = document.getElementById('avgrgb');
-			console.log(imgEl.src);
-			var svg__g = document.getElementById('svg__g');
-			var rgb = this.avgColor(imgEl);
-			svg__g.style.fill = `rgb(${rgb.r},${rgb.g},${rgb.b})`;
-			console.log(`rgb(${rgb.r},${rgb.g},${rgb.b})`);
-		},
+		img: function(newImg, oldImg) {},
 	},
 	methods: {
 		getRandomInt(max) {
 			return Math.floor(Math.random() * max);
 		},
 		setAvgColor() {
-			var imgEl = document.getElementById('avgrgb');
-			console.log(imgEl.src);
-			var svg__g = document.getElementById('svg__g');
-			var rgb = this.avgColor(imgEl);
-			svg__g.style.fill = `rgb(${rgb.r},${rgb.g},${rgb.b})`;
-			console.log(`rgb(${rgb.r},${rgb.g},${rgb.b})`);
+			setTimeout(() => {
+				var imgEl = document.getElementById('avgrgb');
+				console.log(imgEl.src);
+				var svg__g = document.getElementById('svg__g');
+				var rgb = this.avgColor(imgEl);
+				svg__g.style.fill = `rgb(${rgb.r},${rgb.g},${rgb.b})`;
+				console.log(`rgb(${rgb.r},${rgb.g},${rgb.b})`);
+			}, 500);
 		},
 		avgColor(imgEl) {
 			var blockSize = 5, // only visit every 5 pixels
@@ -124,6 +119,11 @@ export default {
 			var nextIdx = this.getRandomInt(this.imgCount);
 			this.img = files[nextIdx];
 		}, 8000);
+
+		var imgEl = document.getElementById('avgrgb');
+		imgEl.onload = function() {
+			alert('done');
+		};
 	},
 };
 </script>
