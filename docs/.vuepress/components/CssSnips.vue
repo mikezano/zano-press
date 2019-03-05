@@ -1,5 +1,5 @@
 <template>
-	<div class="css-snippet language-css extra-class">
+	<div id="css-snippet" class="language-css extra-class">
 		<pre id="code-here"></pre>
 	</div>
 </template>
@@ -67,12 +67,12 @@ export default {
 </script>
 
 <style lang="scss">
-	.css-snippet{
+	#css-snippet{
 		position: absolute;
-		top:10rem;
+		top:6rem;
 		font-size:2rem;
 		width:32rem;
-		height:10rem;
+		height:20rem;
 		left:50%;
 		margin-left:-16rem;
 	}
