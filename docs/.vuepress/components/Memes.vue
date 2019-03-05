@@ -1,6 +1,6 @@
 <template lang="pug">
 .memes
-	svg.memes__thought-bubble(height="270" width="324")
+	svg.memes__thought-bubble
 		g#svg__g(fill="none" stroke="black")
 			path(stroke-width="4" d="	\
 				M20 40					\
@@ -29,14 +29,16 @@
 			circle(cx="50" cy="248" r="5" stroke="black" stroke-width="4" fill="none")
 
 	.memes__container
-		transition(name="slide" mode="out-in" v-on:enter="setAvgColor")
+		transition(name="slide" mode="out-in" v-on:before-enter="setAvgColor")
 			img#avgrgb.memes__img(v-if="img" v-bind:src="img" :key="img")
+
+	
 </template>
 
 <script>
 const ctx = require.context('../public/images', true, /.*.png|.jpg$/);
 var files = ctx.keys().map(ctx);
-console.log(files);
+
 export default {
 	props: ['page'],
 	data() {
@@ -61,6 +63,7 @@ export default {
 				var svg__g = document.getElementById('svg__g');
 				var rgb = this.avgColor(imgEl);
 				svg__g.style.fill = `rgb(${rgb.r},${rgb.g},${rgb.b})`;
+				//document.body.style.backgroundColor = `rgb(${rgb.r},${rgb.g},${rgb.b})`;
 				console.log(`rgb(${rgb.r},${rgb.g},${rgb.b})`);
 			}, 500);
 		},
@@ -113,50 +116,58 @@ export default {
 
 			return rgb;
 		},
-	},
-	mounted() {
-		setInterval(() => {
+		getNextImage(){
 			var nextIdx = this.getRandomInt(this.imgCount);
 			this.img = files[nextIdx];
+		}
+	},
+	created() {
+		this.getNextImage();
+		this.setAvgColor();
+		setInterval(() => {
+			this.getNextImage();
 		}, 8000);
-
-		var imgEl = document.getElementById('avgrgb');
-		imgEl.onload = function() {
-			alert('done');
-		};
 	},
 };
 </script>
 
 <style lang="scss">
+#svg__g{
+	transform: scale(1.4);
+	transition: all 0.5s ease-in;
+}
 .memes {
 	position: absolute;
 	top: 6rem;
-	width: 30rem;
+	width: 29rem;
 	left: 50%;
-	margin-left: -15rem;
+	margin-left: -15.5rem;
 	display: flex;
 	justify-content: center;
 
 	&__thought-bubble {
+		height:23rem;
+		width:100%;
+
 	}
 
 	&__container {
 		//border: 0.1rem dashed hsla(0, 0%, 0%, 0.5);
-		width: 15rem;
-		height: 10rem;
+		width: 20rem;
+		height: 14rem;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		position: absolute;
 		left: 50%;
-		margin-left: -7.5rem;
-		top: 2em;
+		margin-left: -10rem;
+		top: 2.8em;
+
 	}
 
 	&__img {
-		max-height: 10rem;
-		max-width: 13rem;
+		max-height: 14rem;
+		max-width: 20rem;
 	}
 }
 

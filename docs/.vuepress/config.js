@@ -6,9 +6,8 @@ module.exports = {
   themeConfig: {
 	navbar: true,
     nav: [
-      { text: 'test', link: '/test/' },
-      { text: 'Stories', link: '/stories/' },
-      { text: 'Why is it broken?', link: '/broken/' },
+      //{ text: 'Stories', link: '/stories/' },
+      //{ text: 'Why is it broken?', link: '/broken/' },
     ],
     sidebar: {
 		'/guide/': ['', 'frontend', 'backend', 'last'],

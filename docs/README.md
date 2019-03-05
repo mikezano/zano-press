@@ -1,20 +1,19 @@
 ---
 home: true
-heroImage: /images/block.png
+pageClass: z-home
 heroText: CSS Think Tank
-tagline: 1001 stories about how CSS can work/not work for you
+tagline: Getting your CSS to work the way you want
 actionText: Latest post →
-actionLink: /guide/
+actionLink: /broken/
 features:
-  - title: Broken?
+  - title: Why is it not working?
     details: Cases from real life situations that may apply to you!
-  - title: Spotlight
+  - title: You can do that?
     details: Some of the interesting features that exist for you to use
-  - title: FUNdamentals
-    details: Before doing anything else you should know this
+  - title: How do I ... ?
+    details: Before taking a deep dive here of some of the FUNdamentals to help you along the way
 footer: MIT Licensed | Copyright © 2018-present
 ---
 
-#But why?
 <Memes />
-#And now
+<CssSnips />
