@@ -1,6 +1,15 @@
 <template>
-	<div id="css-snippet" class="language-css extra-class">
-		<pre id="code-here"></pre>
+	<div>
+
+		<div id="css-snippet-type-static" class="language-css extra-class">
+			<pre id="typing-static" class="language-css"></pre>
+		</div>
+		<div id="css-snippet-type" class="language-css extra-class">
+			<pre id="typing" class="language-css"></pre>
+		</div>
+		<div id="css-snippet" class="language-css extra-class">
+			<pre id="code-here"></pre>
+		</div>
 	</div>
 </template>
 
@@ -11,6 +20,8 @@ var css = ctx.keys().map(ctx);
 const componentsSource = ctxraw.keys().map(ctxraw);
 console.log(css);
 import Prism from 'prismjs';
+import Typed from 'typed.js';
+
 export default {
 	data() {
 		return {
@@ -56,18 +67,34 @@ export default {
 		this.snippetsLength = this.cssSnippets.length;
 		setInterval(()=>{
 			this.start();
-		},4000);
+		},2000);
+
+
 	},
 	mounted() {
 
+		var options ={
+			strings: this.cssSnippets,
+			typeSpeed: 20,
+			loop: true,
+			onTyping : ()=>{alert('t');},
+		};
+		var elTyped = document.getElementById('typing');
+		debugger;
+		var typed = new Typed('#typing', options);
 
+		setInterval(()=>{
+			Prism.highlightElement(elTyped);
+			var typingStatic = document.getElementById('typing-static');
+			typingStatic.innerHTML = elTyped.innerHTML;
+		}, 10);
 
 	}
 };
 </script>
 
 <style lang="scss">
-	#css-snippet{
+	#css-snippet-type-static{
 		position: absolute;
 		top:6rem;
 		font-size:2rem;
@@ -75,5 +102,17 @@ export default {
 		height:20rem;
 		left:50%;
 		margin-left:-16rem;
+	}
+
+	#css-snippet{
+		display:none;
+	}
+	#css-snippet-type{
+		display:none;
+	}
+	
+	#typing-static{
+		white-space: pre;
+
 	}
 </style>
