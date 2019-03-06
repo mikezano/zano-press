@@ -34,10 +34,6 @@ export default {
 		start(){
 			let nextSnippetIndex = this.getRandomInt(this.snippetsLength);
 			this.currentSnippet = this.cssSnippets[nextSnippetIndex];
-			var el = document.getElementById('code-here');
-			el.innerHTML = this.currentSnippet.substr(2);
-
-			Prism.highlightElement(el);
 		}
 	},
 	created() {
