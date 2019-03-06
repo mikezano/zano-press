@@ -2,16 +2,38 @@
 image: /example-image.jpg
 title: What will specificity do for you?
 description: For all those times you've wondered why an element does not apply your CSS.
-date: 03-25-18 (mm-dd-yy)
+date: 19.03.05
 tag: post
 ---
 
-# h1 Heading 8-)
-## h2 Heading
-### h3 Heading
-#### h4 Heading
-##### h5 Heading
-###### h6 Heading
+# What will specificity do for you <Badge text="post" />
+
+The other day I ran into a situation where a co-worker was not understanding why their css
+rule would not apply. Inspection
+
+## The setup
+
+Here we have an innocent looking table set up...
+```html
+<table class="table">
+	<tr class="row">
+		<td>Apple</td>
+		<td>Banana</td>
+	</tr>
+</table>
+```
+
+...along with the following css rule
+
+```css
+.table .row td{
+	font-weight: bold;
+	border-bottom: 1px solid black;
+}
+```
+
+![An image](../.vuepress/public/images/posts/specifiticy-calcuator-1.png)
+
 
 
 ## Horizontal Rules

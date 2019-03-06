@@ -7,4 +7,4 @@ date: 03-25-18 (mm-dd-yy)
 
 # Stories of CSS
 
-<Posts page="stories" />
+<Posts page="broken" />

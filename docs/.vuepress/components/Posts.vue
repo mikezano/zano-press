@@ -1,14 +1,17 @@
 <template>
 	<div class="posts" v-if="posts.length">
 		<div class="post" v-for="post in posts">
-			<router-link :to="post.path">
-				<div>
-					<img v-if="post.frontmatter.image" :src="$withBase(post.frontmatter.image)" alt>
-				</div>
-				<h2>{{post.frontmatter.title}}</h2>
-				<Badge text="zano" type="warn"/>
-				<p>{{post.frontmatter.description}}</p>
-			</router-link>
+			<div>
+				<router-link :to="post.path">
+					<h2>
+						{{post.frontmatter.title}}
+					</h2>
+				</router-link>
+				<Badge v-bind:text="post.frontmatter.date"/>
+				<Badge v-bind:text="post.frontmatter.tag" type="warn"/>
+			</div>
+
+			<p>{{post.frontmatter.description}}</p>
 		</div>
 	</div>
 </template>
@@ -36,3 +39,10 @@ export default {
 	}
 };
 </script>
+
+<style lang="scss">
+.dark-date{
+	color: black;
+	font-weight:bold;
+}
+</style>

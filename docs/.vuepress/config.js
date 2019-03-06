@@ -6,7 +6,7 @@ module.exports = {
   themeConfig: {
 	navbar: true,
     nav: [
-      //{ text: 'Stories', link: '/stories/' },
+      { text: 'Posts', link: '/posts/' },
       //{ text: 'Why is it broken?', link: '/broken/' },
     ],
     sidebar: {
