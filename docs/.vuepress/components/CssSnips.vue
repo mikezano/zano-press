@@ -32,17 +32,17 @@ export default {
 			return Math.floor(Math.random() * max);
 		},
 		start(){
-			let nextSnippetIndex = this.getRandomInt(this.snippetsLength);
-			this.currentSnippet = this.cssSnippets[nextSnippetIndex];
+			setInterval(()=>{
+				let nextSnippetIndex = this.getRandomInt(this.snippetsLength);
+				this.currentSnippet = this.cssSnippets[nextSnippetIndex];
+			}, 2000);
 		}
 	},
 	created() {
+
 		this.cssSnippets = componentsSource[0].split("/**/");
 		this.snippetsLength = this.cssSnippets.length;
 
-		setInterval(()=>{
-			this.start();
-		},2000);
 	},
 	mounted() {
 
@@ -54,6 +54,8 @@ export default {
 		
 		var elTyped = document.getElementById('typing');
 		var typed = new Typed('#typing', options);
+
+		this.start();
 
 		setInterval(()=>{
 			Prism.highlightElement(elTyped);
