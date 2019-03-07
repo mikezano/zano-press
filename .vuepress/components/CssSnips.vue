@@ -72,10 +72,10 @@ export default {
 		position: absolute;
 		top:6rem;
 		font-size:2rem;
-		width:32rem;
+		width:28rem;
 		height:20rem;
 		left:50%;
-		margin-left:-16rem;
+		margin-left:-14rem;
 	}
 
 	#css-snippet{

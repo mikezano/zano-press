@@ -9,15 +9,13 @@ html, body
 
 	height 100%
 	font-family 'Fira Sans', sans-serif
-	background-color blue
+
+
+$color1 = hsla(360, 0, 100%, 1)
+$color2 = hsla(360, 0, 98%, 1)
+$color3 = hsla(360, 0, 96%, 1)
 
 body
-	background-color blue
-
-$color1 = hsla(360, 0, 99%, 1)
-$color2 = hsla(360, 0, 96%, 1)
-$color3 = hsla(360, 0, 93%, 1)
-#app
 	background-color $color1
 	background-image linear-gradient(30deg, $color2 12%, transparent 12.5%, transparent 87%, $color2 87.5%, $color2),
 	linear-gradient(150deg, $color2 12%, transparent 12.5%, transparent 87%, $color2 87.5%, $color2),
@@ -29,10 +27,13 @@ $color3 = hsla(360, 0, 93%, 1)
 	background-position 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px
 
 header.navbar
-	//background-color #ddd
+	background-color: hsla(0, 0, 100%, .6);
 
 header.navbar .links
 	background-color transparent
 
 .z-home .hero
 	margin-top 25rem
+
+.home .feature h2 
+	font-style italic
