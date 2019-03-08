@@ -1,9 +1,9 @@
 <template>
 	<div class="posts" v-if="posts.length">
 		<div class="post" v-for="post in posts">
-			<div>
+			<div class="post__header">
 				<router-link :to="post.path">
-					<h2>
+					<h2 class="post__title">
 						{{post.frontmatter.title}}
 					</h2>
 				</router-link>
@@ -44,5 +44,17 @@ export default {
 .dark-date{
 	color: black;
 	font-weight:bold;
+}
+
+.post{
+
+	&__header{
+		display : flex;
+		border-bottom:1px solid lightgray;
+	}
+
+	&__title{
+		margin:0 .4rem 0 0;
+	}
 }
 </style>
