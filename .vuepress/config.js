@@ -12,5 +12,8 @@ module.exports = {
     sidebar: {
 		'/guide/': ['', 'frontend', 'backend', 'last'],
 	}
-  }
+  },
+  head:[
+    ['link', {rel: 'icon', href: '/images/favicon.ico'}]
+  ]
 }
