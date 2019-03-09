@@ -1,6 +1,5 @@
 <template>
 	<div>
-
 		<div id="css-snippet-type-static" class="language-css extra-class">
 			<pre id="typing-static" class="language-css"></pre>
 		</div>
@@ -24,7 +23,8 @@ export default {
 		return {
 			cssSnippets: [],
 			currentSnippet: "",
-			snippetsLength: 0
+			snippetsLength: 0,
+			interval: null,
 		};
 	},
 	methods:{
@@ -48,7 +48,10 @@ export default {
 
 		var options ={
 			strings: this.cssSnippets,
-			typeSpeed: 40,
+			typeSpeed: 50,
+			backDelay: 1000,
+			backSpeed: 5000,
+			smartBackspace: false,
 			loop: true,
 		};
 		
@@ -57,13 +60,17 @@ export default {
 
 		this.start();
 
-		setInterval(()=>{
-			Prism.highlightElement(elTyped);
-			var typingStatic = document.getElementById('typing-static');
-			typingStatic.innerHTML = elTyped.innerHTML;
-		}, 10);
+		// this.interval = setInterval(()=>{
+		// 	Prism.highlightElement(elTyped);
+		// 	var typingStatic = document.getElementById('typing-static');
+		// 	typingStatic.innerHTML = elTyped.innerHTML;
+		// }, 10);
 
+	},
+	beforeDestroy(){
+		clearInterval(this.interval);
 	}
+
 };
 </script>
 
@@ -82,7 +89,7 @@ export default {
 		display:none;
 	}
 	#css-snippet-type{
-		display:none;
+		//display:none;
 	}
 	
 	#typing-static{

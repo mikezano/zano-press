@@ -6,4 +6,5 @@ description: This is the example description for our first post.
 
 # Stories of CSS
 
-<Posts page="broken" />
+
+<Posts all="true" />

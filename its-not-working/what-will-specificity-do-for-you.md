@@ -2,11 +2,11 @@
 image: /example-image.jpg
 title: What will specificity do for you?
 description: For all those times you've wondered why an element does not apply your CSS.
-date: 19.03.05
+date: 19.03.06
 tag: post
 ---
 
-# What will specificity do for you <Badge text="post" />
+# What will specificity do for you
 
 The other day I ran into a situation where a co-worker was not understanding why their css
 rule would not apply. Instead of restoring to the eveil !important, we took a deeper look at the code to undertand why.
@@ -70,7 +70,7 @@ But what was the result? NOTHING HAPPENED. Ahhhh...one of those moments where yo
 ## ...whats the problem?
 
 First, let's use this awesome [Specificity Calculator](https://specificity.keegan.st/) that can
-help us determine what rules would take precedent. In case you didn't know, all the rules you write in css have a secret value to them. When two different styles affect the same element, the one that is more 'specific' a.k.a has the higher value, wins. Plugging in the tfirst value we
+help us determine what rules would take precedent. In case you didn't know, all the rules you write in css have a secret value (cardinality) to them. When two different styles affect the same element, the one that is more 'specific' a.k.a has the higher value, wins. Plugging in the tfirst value we
 
 ![An image](../.vuepress/public/images/posts/specifiticy-calcuator-1.png)
 

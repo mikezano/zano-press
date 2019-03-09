@@ -6,9 +6,9 @@
 </template>
 
 <style lang="scss">
-	.sidebar{
-		position:absolute;
-		list-style-type: none;
-		text-align:left;
-	}
+.sidebar{
+	position:absolute;
+	list-style-type: none;
+	text-align:left;
+}
 </style>
