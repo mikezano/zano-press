@@ -1,16 +1,8 @@
-<template>
-	<div>
-		<!-- <div id="css-snippet-type-static" class="language-css extra-class">
-			<pre id="typing-static" class="language-css"></pre>
-		</div>
-		<div id="css-snippet-type" class="language-css extra-class">
-			<pre id="typing" class="language-css"></pre>
-		</div>-->
-		<div id="css-snippets" class="language-css extra-class"></div>
-		<div id="typed-container" class="language-css extra-class">
-			<pre id="typed" class="language-css"></pre>
-		</div>
-	</div>
+<template lang="pug">
+div
+	#css-snippets.language-css.extra-class
+	#typed-container.language-css.extra-class
+		pre#typed.language-css
 </template>
 
 <script>
@@ -45,15 +37,7 @@ export default {
 				preTag.innerHTML = html;
 				cssSnippets.appendChild(preTag);
 			});
-			// setInterval(() => {
-			// 	let nextSnippetIndex = this.getRandomInt(this.snippetsLength);
-			// 	this.currentSnippet = this.cssSnippets[nextSnippetIndex];
-			// 	//var prismEl = document.getElementById('allStrings');
-			// 	//prismEl.innerHTML =
-
-			// }, 2000);
 		},
-		beforeTyping(arrayPos, self) {},
 	},
 	created() {
 		this.cssSnippets = componentsSource[0].split('/**/');
@@ -63,27 +47,16 @@ export default {
 		var options = {
 			stringsElement: '#css-snippets',
 			strings: this.cssSnippets,
-			typeSpeed: 50,
+			typeSpeed: 30,
 			backDelay: 1000,
-			backSpeed: 30,
+			backSpeed: 10,
 			smartBackspace: false,
 			loop: true,
-			preStringTyped: this.beforeTyping,
 		};
-
-		//var elTyped = document.getElementById('typing');
-		//var typed = new Typed('#typing', options);
 
 		this.start();
 
-		// this.interval = setInterval(()=>{
-		// 	Prism.highlightElement(elTyped);
-		// 	var typingStatic = document.getElementById('typing-static');
-		// 	typingStatic.innerHTML = elTyped.innerHTML;
-		// }, 10);
-
 		var typed = new Typed('#typed', options);
-		//typed.options.backSpaceHtmlChars = this.myOwn;
 	},
 	beforeDestroy() {
 		clearInterval(this.interval);
@@ -96,25 +69,24 @@ export default {
 	position: absolute;
 	top: 6rem;
 	font-size: 2rem;
-	width: 28rem;
-	height: 20rem;
+	width: 26rem;
+	padding: 1rem;
+	height: 18rem;
 	left: 50%;
 	margin-left: -14rem;
-	white-space: pre;
-	pre {
-		white-space: pre;
-	}
-}
-
-#css-snippet {
-	display: none;
-}
-#css-snippet-type {
-	//display:none;
 }
 
 #typing-static {
 	white-space: pre;
 	font-family: 'Roboto Slab', serif;
+}
+#typed {
+	display: inline;
+	padding: 0; //added it to the #typed-container
+}
+
+.typed-cursor {
+	color: white;
+	padding-left: -2rem;
 }
 </style>

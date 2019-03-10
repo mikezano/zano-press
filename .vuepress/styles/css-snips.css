@@ -1,20 +1,20 @@
 #titanic {
-	float: none;
+  float: none;
 }
 /**/
 .sniper-mode-engaged {
-	cursor: crosshair;
+  cursor: crosshair;
 }
 /**/
 #periodic {
-	display: table;
+  display: table;
 }
 /**/
 #nsa {
-	opacity: 1;
+  opacity: 1;
 }
 /**/
 .ninja {
-	visibility: hidden;
-	color: black;
+  visibility: hidden;
+  color: black;
 }
