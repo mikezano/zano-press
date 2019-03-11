@@ -1,6 +1,6 @@
 const path = require('path')
 module.exports = {
-  base: '/zano-press/',
+  base: '/',
   title: 'Zano',
   description: 'Testing',
   themeConfig: {
