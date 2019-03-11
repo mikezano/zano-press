@@ -6,10 +6,11 @@ date: 19.03.06
 tag: post
 ---
 
-# What will specificity do for you
+# What will specificity do for you <Badge text="#it's not working" />
 
-The other day I ran into a situation where a co-worker was not understanding why their css
-rule would not apply. Instead of restoring to the eveil !important, we took a deeper look at the code to undertand why.
+###### 19.03.06
+
+The other day I ran into a situation where a co-worker was not understanding how to override existing styles of an element. Instead of restoring to the evil !important statement, we took a deeper look at the code to undertand why.
 
 ## The setup
 
@@ -27,7 +28,7 @@ Here we have an innocent looking table set up...
 ...along with the following css rule
 
 ```css
-.table .row td {
+.table tr td {
   font-weight: bold;
   border-bottom: 1px solid black;
 }
@@ -51,7 +52,7 @@ Which would result in something like this
 
 ## ...there was an attempt
 
-Co-worker wanted to remove the the first underline on the apple and at first added a class to the table cell in question as so
+Co-worker wanted to remove the the first underline on the apple and at first added a class to the table cell in question as so...
 
 ```html
 <td class="custom-cell">Apple</td>
@@ -65,7 +66,7 @@ Co-worker wanted to remove the the first underline on the apple and at first add
 }
 ```
 
-But what was the result? NOTHING HAPPENED. Ahhhh...one of those moments where you might be tempted to resort to !important , but NO! There's a better way, let me show you how :)
+But what was the result? NOTHING HAPPENED. Ahhhh...one of those moments where you might be tempted to flip your table (╯°□°）╯︵ ┻━┻ but NO! There's a better way!
 
 ## ...whats the problem?
 
