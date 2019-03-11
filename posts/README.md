@@ -1,6 +1,5 @@
 ---
-image: /example-image.jpg
-title: Example section sdfs
+title: All Posts
 description: This is the example description for our first post.
 ---
 

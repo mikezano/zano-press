@@ -1,7 +1,7 @@
 const path = require('path')
 module.exports = {
   base: '/',
-  title: 'Zano',
+  title: 'zan0',
   description: 'Testing',
   themeConfig: {
 	navbar: true,

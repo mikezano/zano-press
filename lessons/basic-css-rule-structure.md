@@ -1,9 +1,9 @@
 ---
 image: /example-image.jpg
-title: The basic structre of CSS
+title: Just beyond the basics
 description: This is the example description for our first post.
 date: 19.03.01
-tag: lesson
+tag: "#lesson"
 ---
 
 # Just beyond the basics

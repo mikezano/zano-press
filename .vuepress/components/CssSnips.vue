@@ -69,11 +69,11 @@ export default {
 	position: absolute;
 	top: 6rem;
 	font-size: 2rem;
-	width: 26rem;
+	width: 24rem;
 	padding: 1rem;
 	height: 18rem;
 	left: 50%;
-	margin-left: -14rem;
+	margin-left: -13rem;
 }
 
 #typing-static {

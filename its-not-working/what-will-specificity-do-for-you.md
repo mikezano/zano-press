@@ -3,7 +3,7 @@ image: /example-image.jpg
 title: What will specificity do for you?
 description: For all those times you've wondered why an element does not apply your CSS.
 date: 19.03.06
-tag: post
+tag: "#it's not working"
 ---
 
 # What will specificity do for you <Badge text="#it's not working" />
