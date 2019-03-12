@@ -1,21 +1,21 @@
 ---
+layout: Zano
 home: true
 pageClass: z-home
-heroText: CSS Think Tank
-tagline: Getting your CSS to work the way you want
-actionText: Latest post →
+heroText: A better way to CSS
+tagline: Getting answers to your CSS questions with a light touch of humor along the way
+actionText: Latest thought →
 actionLink: /posts/
-features:
-  - title:   '"Why isnt it working!?"'
-    details: |
-        - you, just before using !important
-        
-  - title: '"You can do that?"'
-    details: >
-        all the time
-        Some of the interesting features that exist for you to use
-  - title: '"How do I ... ?"'
-    details: Before taking a deep dive here of some of the FUNdamentals to help you along the way
+#features:
+#  - title: '"Why isnt it working!?"'
+#    details: |
+#      Check out the #itsnotworking posts to answer some
+#  - title: '"You can do that?"'
+#    details: |
+#      Find important #lessons
+#  - title: '"How do I ... ?"'
+#    details: |
+#      A seemingly never ending statement you say about css.
 footer: MIT Licensed | Copyright © 2018-present
 ---
 
