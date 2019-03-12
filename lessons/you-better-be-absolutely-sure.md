@@ -6,7 +6,9 @@ date: 19.03.05
 tag: "#lesson"
 ---
 
-# You better be absolutely sure <Badge text="post" type="warn"/>
+# {{$page.frontmatter.title}}
+<Badge :text="$page.frontmatter.date" />
+<Badge :text="$page.frontmatter.tag" />
 
 How many times have you been tasked with putting something on the page
 

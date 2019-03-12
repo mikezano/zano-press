@@ -4,9 +4,8 @@ description: This is the example description for our first post.
 tag: none
 ---
 
-# Is your CSS always broken?
+# Why isin't my CSS working !?
 
-There's always some seemingly edge case situation we run into that makes
-working with CSS a nightmare. But fear not, this collection of posts
-are based on true stories of what I've seen when all was lost which may
-help you in finding a solution to your problem
+You know you've yelled this and a lot worse when trying to work with CSS.  This collection of posts are related to all the things that I've actually seen happen which at one point or another almost caused me or somebody elses rage meter to fill to the max.
+
+<Posts page="its-not-working" />

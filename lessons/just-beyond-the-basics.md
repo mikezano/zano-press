@@ -6,7 +6,9 @@ date: 19.03.01
 tag: '#lesson'
 ---
 
-# Just beyond the basics
+# {{$page.frontmatter.title}}
+<Badge :text="$page.frontmatter.date" />
+<Badge :text="$page.frontmatter.tag" />
 
 It seems like people stop right after they figure out how to style an element and never take a deep dive because they don't care or didn't know
 

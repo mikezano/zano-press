@@ -5,7 +5,9 @@ date: 19.03.06
 tag: "#it's not working"
 ---
 
-# What will specificity do for you <Badge text="#it's not working" />
+# {{$page.frontmatter.title}}
+<Badge :text="$page.frontmatter.date" />
+<Badge :text="$page.frontmatter.tag" />
 
 ###### 19.03.06
 
