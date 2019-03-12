@@ -78,6 +78,7 @@ export default {
 
 	&__title::before{
 		position:absolute;
+
 		width:0%;
 		height:100%;
 		content: '';

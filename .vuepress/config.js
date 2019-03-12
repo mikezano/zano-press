@@ -6,9 +6,7 @@ module.exports = {
   themeConfig: {
     navbar: true,
     nav: [
-      { text: 'Posts', link: '/posts/' },
-      { text: 'NotWorking', link: '/its-not-working/' },
-      { text: 'Lessons', link: '/lessons/' },
+      { text: 'Posts', link: '/posts/' }
     ],
   },
   head: [['link', { rel: 'icon', href: '/images/favicon.ico' }]],
