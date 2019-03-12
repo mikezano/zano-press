@@ -1,17 +1,16 @@
 <template>
 	<div class="posts" v-if="posts.length">
 		<div class="post" v-for="post in posts">
+			<Badge v-bind:text="post.frontmatter.date"/>
+			<Badge v-bind:text="post.frontmatter.tag" type="warn"/>
 			<div class="post__header">
 				<router-link :to="post.path" class="post__link">
 					<h2 class="post__title">
 						{{post.frontmatter.title}}
 					</h2>
 				</router-link>
-				<Badge v-bind:text="post.frontmatter.date"/>
-				<Badge v-bind:text="post.frontmatter.tag" type="warn"/>
 			</div>
-
-			<p>{{post.frontmatter.description}}</p>
+			<p class="post__description">{{post.frontmatter.description}}</p>
 		</div>
 	</div>
 </template>
@@ -83,6 +82,11 @@ export default {
 		height:100%;
 		content: '';
 		border-bottom: .2rem solid hsla(206, 100%, 39%, 1);
+	}
+
+	&__description{
+		margin: 0.2rem 0 2rem 0;
+
 	}
 }
 </style>
