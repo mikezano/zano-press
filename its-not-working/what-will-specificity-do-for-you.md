@@ -9,57 +9,55 @@ tag: "#it's not working"
 <Badge :text="$page.frontmatter.date" />
 <Badge :text="$page.frontmatter.tag" />
 
-###### 19.03.06
-
-The other day I ran into a situation where a co-worker was not understanding how to override existing styles of an element. Instead of restoring to the evil !important statement, we took a deeper look at the code to undertand why.
+The other day I ran into a situation where a co-worker was not understanding how to override existing styles of an element. Instead of restoring to the evil **!important** statement, we took a deeper look at the code to undertand what could be done.
 
 ## The setup
 
 Here we have an innocent looking table set up...
 
 ```html
-<table class="table">
-  <tr class="row">
+<table class="my-table">
+  <tr>
     <td>Apple</td>
     <td>Banana</td>
   </tr>
 </table>
 ```
 
-...along with the following css rule
+...along with the following css rule...
 
 ```css
-.table tr td {
+.my-table tr td {
   font-weight: bold;
   border-bottom: 1px solid black;
 }
 ```
 
-Which would result in something like this
+Which would result in something like this...
 
-<table class="table">
-  <tr class="row">
+<table class="my-table">
+  <tr>
     <td>Apple</td>
     <td>Banana</td>
   </tr>
 </table>
 
 <style>
-.table .row td {
+.my-table tr td {
   font-weight: bold;
   border-bottom: 1px solid black;
 }
 </style>
 
-## ...there was an attempt
+## ...the change attempt
 
-Co-worker wanted to remove the the first underline on the apple and at first added a class to the table cell in question as so...
+Co-worker wanted to remove the the first bottom border on the `apple` cell and added a class to the `td` element in question as so...
 
 ```html
 <td class="custom-cell">Apple</td>
 ```
 
-...and the css
+...and the css...
 
 ```css
 .custom-cell {
@@ -67,16 +65,21 @@ Co-worker wanted to remove the the first underline on the apple and at first add
 }
 ```
 
-But what was the result? NOTHING HAPPENED. Ahhhh...one of those moments where you might be tempted to flip your table (╯°□°）╯︵ ┻━┻ but NO! There's a better way!
+But what was the result? NOTHING HAPPENED. Ahhhhhh.....(╯°□°）╯︵ ┻━┻
+
+You put a class DIRECTLY on the table cell you want to change and it didnt work! So infuriating, right?  Well guess what?  You did it wrong....
 
 ## ...whats the problem?
 
-First, let's use this awesome [Specificity Calculator](https://specificity.keegan.st/) that can
-help us determine what rules would take precedent. In case you didn't know, all the rules you write in css have a secret value (cardinality) to them. When two different styles affect the same element, the one that is more 'specific' a.k.a has the higher value, wins. Plugging in the tfirst value we
+First, let's use this awesome [Specificity Calculator](https://specificity.keegan.st/) to help understand whats taking priority.  In case you didn't know, all the rules you write in css have a secret value (cardinality) to them. When two different styles affect the same element, the one that is more 'specific' a.k.a has the higher value, wins. Plugging in the first style selector of `.table tr td` we get...
 
 ![An image](../.vuepress/public/images/posts/specifiticy-calcuator-1.png)
 
-What you ca infer from the selector use here is that it has a value of 12. When compared to just the class rule being applied a value of 10, the first rule 'wins' as it has a higher value and is more 'specific'
+What you can infer from the selector use here is that it has a value of 12. One class and two elements.  Whats the value of the `custom-cell` class you added?
+
+![An image](../.vuepress/public/images/posts/specifiticy-calcuator-2.png)
+
+... 10 ! and because 12 > 10 your conflicting properties will be overwritten, hence why `border: none` doesn't work.
 
 ## ...and the solution?
 
