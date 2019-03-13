@@ -60,30 +60,36 @@ Co-worker wanted to remove the the first bottom border on the `apple` cell and a
 ...and the css...
 
 ```css
-.custom-cell {
-  border: none;
-}
+.custom-cell { border: none; }
 ```
 
-But what was the result? NOTHING HAPPENED. Ahhhhhh.....(╯°□°）╯︵ ┻━┻
+But what was the result? NOTHING CHANGED. The border was still there...
+
+Ahhhhhh.....(╯°□°）╯︵ ┻━┻
 
 You put a class DIRECTLY on the table cell you want to change and it didnt work! So infuriating, right?  Well guess what?  You did it wrong....
 
 ## ...whats the problem?
 
-First, let's use this awesome [Specificity Calculator](https://specificity.keegan.st/) to help understand whats taking priority.  In case you didn't know, all the rules you write in css have a secret value (cardinality) to them. When two different styles affect the same element, the one that is more 'specific' a.k.a has the higher value, wins. Plugging in the first style selector of `.table tr td` we get...
+First, let's use this awesome [Specificity Calculator](https://specificity.keegan.st/) to help understand whats taking priority.  In case you didn't know, all the rules you write in css have a secret value (cardinality) to them. When two different styles affect the same element, the one that is more 'specific' a.k.a has the higher value, wins. Plugging in the first style selector of `.table tr td` to the calculator we get...
 
-![An image](../.vuepress/public/images/posts/specifiticy-calcuator-1.png)
+![An image](../.vuepress/public/images/posts/specificity-calculator-1.png)
 
-What you can infer from the selector use here is that it has a value of 12. One class and two elements.  Whats the value of the `custom-cell` class you added?
+What you can infer from the selector is that it produces a value of 12. One class and two elements.  Whats the value of the `.custom-cell` class ?
 
-![An image](../.vuepress/public/images/posts/specifiticy-calcuator-2.png)
+![An image](../.vuepress/public/images/posts/specificity-calculator-2.png)
 
 ... 10 ! and because 12 > 10 your conflicting properties will be overwritten, hence why `border: none` doesn't work.
 
 ## ...and the solution?
 
-Understanding that you already have a rule that is in place requires a deeper understanding of what the intention was, perhaps your table should not be applying such generic and deep specificity. What you can do in this case is write a rule that is more specific sch as
+Understanding that you already have a rule is as simple as inspecting the element in your browser.  Once you identify the prob you can write a rule is in place requires a deeper understanding of what the intention was, perhaps your table should not be applying such generic and deep specificity. What you can do in this case is write a rule that is more specific sch as
+
+```css
+.my-table tr td.custom-cell{ border: none;}
+```
+
+![An image](../.vuepress/public/images/posts/specificity-calculator-3.png)
 
 ## Moral of the story
 
