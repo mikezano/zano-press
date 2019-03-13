@@ -2,7 +2,7 @@
 home: true
 pageClass: z-home
 heroText: A better way to CSS
-tagline: Getting answers to your CSS questions with a light touch of humor along the way
+tagline: Getting answers to your CSS questions with a touch of humor along the way
 actionText: Latest post →
 actionLink: /posts/
 features:
@@ -18,5 +18,4 @@ features:
 footer: MIT Licensed | Copyright © 2018-present
 ---
 
-<Menu />
 <CssSnips />

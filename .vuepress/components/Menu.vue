@@ -14,6 +14,7 @@
 			></path>
 		</svg>
 		<ul class="zano-menu__list" v-if="isShowing">
+			<router-link class="zano-menu__item" tag="li" to="/">Home</router-link>
 			<router-link class="zano-menu__item" tag="li" to="/its-not-working">#itsnotworking</router-link>
 			<router-link class="zano-menu__item" tag="li" to="/lessons">#lessons</router-link>
 			<router-link class="zano-menu__item" tag="li" to="/howdoi">#howdoi</router-link>
@@ -25,7 +26,7 @@
 export default{
 	data(){
 		return{
-			isShowing: true
+			isShowing: false
 		};
 	},
 	methods:{ 

@@ -6,7 +6,14 @@ module.exports = {
   themeConfig: {
     navbar: true,
     nav: [
-      { text: 'Posts', link: '/posts/' }
+	  { 
+		text: 'Posts', 
+		items:[
+			{ text: '#latest', link: '/posts/'},
+			{ text: '#itsnotworking', link: '/its-not-working/'},
+			{ text: '#lessons', link: '/lessons/'},
+		]
+	 }
     ],
   },
   head: [['link', { rel: 'icon', href: '/images/favicon.ico' }]],
