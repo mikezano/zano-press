@@ -79,20 +79,25 @@ What you can infer from the selector is that it produces a value of 12. One clas
 
 ![An image](../.vuepress/public/images/posts/specificity-calculator-2.png)
 
-... 10 ! and because 12 > 10 your conflicting properties will be overwritten, hence why `border: none` doesn't work.
+... 10 ! and because 12 > 10 your conflicting properties between the two rules will have the `.table tr td` selector ones take effect , hence why `border: none` doesn't work.
 
 ## ...and the solution?
 
-Understanding that you already have a rule is as simple as inspecting the element in your browser.  Once you identify the prob you can write a rule is in place requires a deeper understanding of what the intention was, perhaps your table should not be applying such generic and deep specificity. What you can do in this case is write a rule that is more specific sch as
+You don't need to know your entire CSS code base to understand whats the conflicting situations.  These days ites easy enough to use the 'inspect element' functionality of any browser and see what ruels are being appled.  For example..
+
+Here you can see the rule is crossed out because the other rule specifies the same property and with its higher specificy it wins.  To get the rule you wrote to take effect you would have to do something like...
 
 ```css
 .my-table tr td.custom-cell{ border: none;}
 ```
+...and now its value in the specifity calculator...
 
 ![An image](../.vuepress/public/images/posts/specificity-calculator-3.png)
 
+As you can see 22 > 12 and and properties you write here will work
+
 ## Moral of the story
 
-Don't go for the easy solution. Be more specific so you're not breaking the code for the next person. This especially happens when we use third party UI frameworks that pretty much establish all the rules to be used, leaving it up to you to figure out how to write custom selectors that will place nice with everything.
+There's always a reason why your rules don't take effect.  It's almost always a specificity issue that needs some element inspection to determine.  A better way of getting around these situations is to use an establish methodoly such as B.E.M  to help componentize your css blocks and affect only certain items.  When you need to customize the element you can then just add to the existing scoped block.
 
 -Zano
