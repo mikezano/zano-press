@@ -10,11 +10,11 @@ tag: "#lesson"
 <Badge :text="$page.frontmatter.date" />
 <Badge :text="$page.frontmatter.tag" />
 
-How many times have you been tasked with putting something on the page and end up in this cycle
+How many times have you been tasked with positioning something on a page and end up in this cycle...
 
 ![An image](../.vuepress/public/images/posts/family-guy.gif)
 
-Let's say you have this setup
+Typical, right ? Let's look a little more closely at a similar situation to understand how these things happen.  Let's start with this markup...
 
 ```html
 <div class="container">
@@ -23,27 +23,32 @@ Let's say you have this setup
 </div>
 ```
 
-with this css..
+and this css...
 
 ```css
-.container{
-	border:1px solid black;
+.container {
+	border: 1px solid black;
+	position: relative;
+	width: 100px;
 }
 ```
+
+To acheive the following...
+
 <style>
-.my-container{
+.my-container1{
 	position:relative;
 	border:1px solid black;
 	width:100px;
 }
 </style>
-<div class="my-container">
-	<div class="a">A</div>
-	<div class="b">B</div>
+<div class="my-container1">
+	<div class="a1">A</div>
+	<div class="b1">B</div>
 </div>
-Now heere's your task.  Move B to the far right of the page
 
-Your first attempt might go as follows
+
+Now here's your task.  Move `B` to the far right of the page outside of its containing black rectangle.  Your first attempt might go as follows...
 
 ```css
 .b {
@@ -51,15 +56,27 @@ Your first attempt might go as follows
 	right: 0;
 }
 ```
+
+You've declare a rule for the `B` element in which you are saying it is absolutely positioned `position: absolute` element that will go to the far right `right: 0` of the page. 
+
+And the result...
+
 <style>
-.b {
+.my-container2{
+	position:relative;
+	border:1px solid black;
+	width:100px;
+}
+.b2 {
 	position: absolute;
 	right: 0;
 }
 </style>
-<div class="my-container">
-	<div class="a">A</div>
-	<div class="b">B</div>
+<div class="my-container2">
+	<div class="a2">A</div>
+	<div class="b2">B</div>
 </div>
 
-Huh?  B should have moved to the far right of the page, ya?
+<br/>
+<br/>
+Huh?  B should have moved to the far right of the page, ya? Noooope.  A rule of thumb is 
