@@ -1,11 +1,12 @@
 ---
-title: You better be absolutely sure 
+title: You better be absolutely sure
 description: Placing things on the right spot of the page is hard!
 date: 19.03.05
-tag: "#lesson"
+tag: '#lessons'
 ---
 
 # {{$page.frontmatter.title}}
+
 <Badge :text="$page.frontmatter.date" />
 <Badge :text="$page.frontmatter.tag" />
 
@@ -17,8 +18,8 @@ How many times have you been tasked with positioning an element on a page and en
 
 ```html
 <div class="container">
-	<div class="a">A</div>
-	<div class="b">B</div>
+  <div class="a">A</div>
+  <div class="b">B</div>
 </div>
 ```
 
@@ -26,9 +27,9 @@ How many times have you been tasked with positioning an element on a page and en
 
 ```css
 .container {
-	border: 1px solid black;
-	position: relative;
-	width: 100px;
+  border: 1px solid black;
+  position: relative;
+  width: 100px;
 }
 ```
 
@@ -46,17 +47,16 @@ Which will result in the following...
 	<div class="b1">B</div>
 </div>
 
-
-Now here's your task.  Move `B` to the far right of the page outside of its containing black rectangle.  Your first attempt might go as follows...
+Now here's your task. Move `B` to the far right of the page outside of its containing black rectangle. Your first attempt might go as follows...
 
 ```css
 .b {
-	position: absolute;
-	right: 0;
+  position: absolute;
+  right: 0;
 }
 ```
 
-You've declare a rule for the `B` element in which you are saying it's now an absolutely positioned `position: absolute` element that will go to the far right `right: 0` of the page. 
+You've declare a rule for the `B` element in which you are saying it's now an absolutely positioned `position: absolute` element that will go to the far right `right: 0` of the page.
 
 And the result...
 
@@ -80,22 +80,24 @@ And the result...
 <br/>
 
 # Huh?
-`B` should have moved to the far right of the page, right ? _Noooope._  You see, absolutely positioned elements are constrained to the confines of its closest positioned (meaning it uses the `position` property) element.  In this case the `.container` rule has a `position: relative;` statement in it meaning that B will only move about the confines of the black rectangle. Side note: The black rectangle no longer appears around the `B` element as well because its no longer in the normal document flow of the markup with its `position: absolute;` property.
 
+`B` should have moved to the far right of the page, right ? _Noooope._ You see, absolutely positioned elements are constrained to the confines of its closest positioned (meaning it uses the `position` property) element. In this case the `.container` rule has a `position: relative;` statement in it meaning that B will only move about the confines of the black rectangle. Side note: The black rectangle no longer appears around the `B` element as well because its no longer in the normal document flow of the markup with its `position: absolute;` property.
 
 # ... now what ?
+
 If you want the `B` element to move to the far right of the page you need the element to exist outside of the `.container` in a place where an ancestor elements are not using the `position` property in any style definitions. **OR**, in this very simple example, take away the `position` property from the `.container` style (which was only there for demonstration purposes) to end up with this...
 
 ```css
 .container {
-	border: 1px solid black;
-	width: 100px;
+  border: 1px solid black;
+  width: 100px;
 }
 .b {
-	position: absolute;
-	right: 0;
+  position: absolute;
+  right: 0;
 }
 ```
+
 With the html markup we started with you would then see...
 
 <style>
@@ -118,6 +120,6 @@ With the html markup we started with you would then see...
 
 # ... and the moral
 
-There are better solutiosn like flex layouts to help you control positioning which each proabaly have their own +/-  Hopefully this article helps better explain the reason you may have been stuck doing a similar thing. Be aware of what elements define the `position` property in their styles to know how anything you position will behave
+There are better solutiosn like flex layouts to help you control positioning which each proabaly have their own +/- Hopefully this article helps better explain the reason you may have been stuck doing a similar thing. Be aware of what elements define the `position` property in their styles to know how anything you position will behave
 
 ~Zano

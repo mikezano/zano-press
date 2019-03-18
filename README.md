@@ -8,13 +8,13 @@ actionLink: /posts/
 features:
   - title: '"Why isnt it working !?"'
     details: |
-      Check out the #itsnotworking posts to see some real life use cases that you may have faced yourself
+      Check the #itsnotworking posts for real life use cases you may have run into yourself.
   - title: '"You can do that ?"'
     details: |
-      Find important '#lessons' to teach you some of the powerful unkown abilities.
+      Find important '#lessons' to teach you about not-so-secret CSS abilities.
   - title: '"How do I ... ?"'
     details: |
-      A seemingly never ending statement you say about css that might be answered in the #didyouknow section
+      End your never ending google searching here in the #didyouknow section !
 footer: MIT Licensed | Copyright © 2018-present
 ---
 
