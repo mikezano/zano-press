@@ -81,7 +81,7 @@ And the result...
 
 # Huh?
 
-`B` should have moved to the far right of the page, right ? _Noooope._ You see, absolutely positioned elements are constrained to the confines of its closest positioned (meaning it uses the `position` property) element. In this case the `.container` rule has a `position: relative;` statement in it meaning that B will only move about the confines of the black rectangle. Side note: The black rectangle no longer appears around the `B` element as well because its no longer in the normal document flow of the markup with its `position: absolute;` property.
+`B` should have moved to the far right of the page, right ? _Noooope._ You see, absolutely positioned elements are constrained to the confines of its closest ancestor element with a `position` property declared. In this case the `.container` rule has a `position: relative;` statement in it meaning that `B` will only move about within the limits of the black rectangle. Side note: The black rectangle no longer appears around the `B` element as well because its no longer considered to be part of the normal document flow as a result of its `position: absolute;` property.
 
 # ... now what ?
 
@@ -118,8 +118,8 @@ With the html markup we started with you would then see...
 
 <p>The element is now at the far right! <span style=" display: inline-block;transform:rotateY(180deg);">👀</span></p>
 
-# ... and the moral
+# ... and finally
 
-There are better solutiosn like flex layouts to help you control positioning which each proabaly have their own +/- Hopefully this article helps better explain the reason you may have been stuck doing a similar thing. Be aware of what elements define the `position` property in their styles to know how anything you position will behave
+The solution presented here hopefully sheds some light on explaining the reason you may have been stuck trying the same thing in a different scenario. The better solution here is to use features like [flex layouts](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) and [grid layouts](https://css-tricks.com/snippets/css/complete-guide-grid/) to help you control positioning of elements.   Be aware of what elements define a `position` property in their styles and you'll have a better idea of how element positioning will work.
 
 ~Zano

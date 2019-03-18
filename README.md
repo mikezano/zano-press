@@ -11,7 +11,7 @@ features:
       Check the #itsnotworking posts for real life use cases you may have run into yourself.
   - title: '"You can do that ?"'
     details: |
-      Find important '#lessons' to teach you about not-so-secret CSS abilities.
+      Find important #lessons to teach you about not-so-secret CSS abilities.
   - title: '"How do I ... ?"'
     details: |
       End your never ending google searching here in the #didyouknow section !

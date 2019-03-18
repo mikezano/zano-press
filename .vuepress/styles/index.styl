@@ -15,7 +15,7 @@ $color1 = hsla(360, 0, 100%, 1)
 $color2 = hsla(360, 0, 98%, 1)
 $color3 = hsla(360, 0, 96%, 1)
 
-#app,body
+#app .z-home
 	background-color $color1
 	background-image linear-gradient(30deg, $color2 12%, transparent 12.5%, transparent 87%, $color2 87.5%, $color2),
 	linear-gradient(150deg, $color2 12%, transparent 12.5%, transparent 87%, $color2 87.5%, $color2),
@@ -23,6 +23,22 @@ $color3 = hsla(360, 0, 96%, 1)
 	linear-gradient(150deg, $color2 12%, transparent 12.5%, transparent 87%, $color2 87.5%, $color2),
 	linear-gradient(60deg, $color3 25%, transparent 25.5%, transparent 75%, $color3 75%, $color3),
 	linear-gradient(60deg, $color3 25%, transparent 25.5%, transparent 75%, $color3 75%, $color3)
+	background-size 80px 140px;
+	background-position 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px
+	background-attachment fixed
+
+$_color1 = hsla(360, 0, 100%, 1)
+$_color2 = hsla(360, 0, 98.5%, 1)
+$_color3 = hsla(360, 0, 97.5%, 1)
+
+#app,body
+	background-color $_color1
+	background-image linear-gradient(30deg, $_color2 12%, transparent 12.5%, transparent 87%, $_color2 87.5%, $_color2),
+	linear-gradient(150deg, $_color2 12%, transparent 12.5%, transparent 87%, $_color2 87.5%, $_color2),
+	linear-gradient(30deg, $_color2 12%, transparent 12.5%, transparent 87%, $_color2 87.5%, $_color2),
+	linear-gradient(150deg, $_color2 12%, transparent 12.5%, transparent 87%, $_color2 87.5%, $_color2),
+	linear-gradient(60deg, $_color3 25%, transparent 25.5%, transparent 75%, $_color3 75%, $_color3),
+	linear-gradient(60deg, $_color3 25%, transparent 25.5%, transparent 75%, $_color3 75%, $_color3)
 	background-size 80px 140px;
 	background-position 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px
 	background-attachment fixed

@@ -12,6 +12,7 @@ module.exports = {
 			{ text: '#latest', link: '/posts/'},
 			{ text: '#itsnotworking', link: '/its-not-working/'},
 			{ text: '#lessons', link: '/lessons/'},
+			{ text: '#didyouknow', link: '/did-you-know/'},
 		]
 	 }
     ],
