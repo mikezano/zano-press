@@ -15,7 +15,8 @@ module.exports = {
 			{ text: '#didyouknow', link: '/did-you-know/'},
 		]
 	 }
-    ],
+	],
+	lastUpdated: 'Last Updated',
   },
   head: [['link', { rel: 'icon', href: '/images/favicon.ico' }]],
 };
