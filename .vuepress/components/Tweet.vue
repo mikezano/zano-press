@@ -1,5 +1,5 @@
 <template>
-	<div id="tweet-me">
+	<div class="tweet-me">
 		<a
 			href="https://twitter.com/share?ref_src=twsrc%5Etfw"
 			class="twitter-share-button"
@@ -15,7 +15,7 @@
 </template>
 
 <style>
-#tweet-me {
+.tweet-me {
 	display: inline;
 }
 </style>

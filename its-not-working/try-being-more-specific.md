@@ -110,4 +110,3 @@ Here you can see the rule is crossed out because the other rule specifies the sa
 There's always a reason why your rules don't take effect. It's almost always a specificity issue that needs some element inspection to determine. A better way of getting around these situations is to use an establish methodoly such as B.E.M to help componentize your css blocks and affect only certain items. When you need to customize the element you can then just add to the existing scoped block.
 
 -Zano
-<Tweet />

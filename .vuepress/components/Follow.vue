@@ -3,8 +3,10 @@
 		<a
 			href="https://twitter.com/_zan0?ref_src=twsrc%5Etfw"
 			class="twitter-follow-button"
+			data-size="large"
+			data-show-screen-name="false"
 			data-show-count="false"
-		>Follow</a>
+		>Follow @_zan0</a>
 		<script
 			type="application/javascript"
 			async
@@ -16,10 +18,14 @@
 
 <style>
 #follow-me {
-	text-align: center;
-	margin-bottom: -2rem;
+	position: absolute;
+	top: 1rem;
+	left: 5rem;
+	z-index: 100;
 }
-#follow-me .label {
-	display: none;
+@media screen and (max-width: 719px) {
+	#follow-me {
+		left: 7.2rem;
+	}
 }
 </style>
