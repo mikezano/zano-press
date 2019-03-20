@@ -9,6 +9,7 @@ tag: '#itsnotworking'
 
 <Badge :text="$page.frontmatter.date" />
 <Badge :text="$page.frontmatter.tag" type="tag"/>
+<Tweet />
 
 The other day I ran into a situation where a co-worker was having problems getting their styles (you've probably heard this before 🙄) to appear on an element. Instead of to restorting evil **!important** statements, lets re-create a similar situation to resolve these types of problems.
 
@@ -30,7 +31,7 @@ Here we have an innocent looking table set up...
 ```css
 .my-table tr td {
   font-weight: bold;
-  border-bottom: 4px solid black;
+  border-bottom: 1px solid black;
 }
 ```
 
@@ -38,7 +39,7 @@ Which would result in something like this...
 
 <table class="my-table">
   <tr>
-    <td class="custom-td">Apple</td>
+    <td>Apple</td>
     <td>Banana</td>
   </tr>
 </table>
@@ -46,16 +47,13 @@ Which would result in something like this...
 <style>
 .my-table tr td {
   font-weight: bold;
-  border-bottom: 4px solid black;
-}
-.custom-td{
-	border-bottom: none;
+  border-bottom: 1px solid black;
 }
 </style>
 
 ## ...the change attempt
 
-Let's say our co-worker wanted to remove the bottom border on the `apple` cell by adding a class to the `td` element as so...
+Let's say our co-worker wanted to remove the the bottom border on the `apple` cell by adding a class to the `td` element as so...
 
 ```html
 <td class="custom-td">Apple</td>
@@ -69,7 +67,7 @@ Let's say our co-worker wanted to remove the bottom border on the `apple` cell b
 }
 ```
 
-What wold be the net result ? NOTHING WILL CHANGE. The border will still exist...
+What wold be the net result ? NOTHING WILL CHANGED. The border will still exist...
 
 Ahhhhhh.....(╯°□°）╯︵ ┻━┻
 
@@ -89,7 +87,7 @@ You can infer from the calculator that this produces a value of 12. One class an
 
 ## ...and the solution ?
 
-We need to write a selector that has a higher specifcity value than 12. In the calculator we saw that classes are more 'valuable' then plain element rules meaning if we make a more descriptive rule with classes we might be in better shape. Let's try:
+We need to write a selector that has a higher specifcity value than 12. In the calculator we saw that classes are more 'valuable' then plain element rules meaning if we make a strong rule with classes we might be in better shape. Let's try:
 
 ```css
 .my-table .custom-td {
@@ -101,33 +99,15 @@ This will first select the `.my-table` element and look for `.custom-td` in it. 
 
 ![An image](../.vuepress/public/images/posts/specificity-calculator-3.png)
 
-...results in 20 which is greater than the 12 coming from `.my-table tr td`.  This means our `border: none;` statement will actually work!
+...results in 20 which is greater than 12 from `.my-table tr td` meaning that our `border: none;` statement will actually work!
 
-<table class="my-table2">
-  <tr>
-    <td class="custom-td">Apple</td>
-    <td>Banana</td>
-  </tr>
-</table>
+## What did you learn ?
 
-<style>
-.my-table2 tr td {
-  font-weight: bold;
-  border-bottom: 4px solid black;
-}
-.my-table2 .custom-td{
-	border-bottom:none;
-}
-</style>
+You don't need to know your entire CSS code base to understand whats the conflicting situations. These days ites easy enough to use the 'inspect element' functionality of any browser and see what ruels are being appled. For example..
 
-## Last thoughts...
+Here you can see the rule is crossed out because the other rule specifies the same property and with its higher specificy it wins. To get the rule you wrote to take effect you would have to do something like...
 
-There's always a reason why your rules don't take effect. You don't need to know your entire CSS code base to pinpoint the problem because making use of browser features such as 'inspect element'  can help narrow down and visualize the rules actually taking effect. 
-
-![An image](../.vuepress/public/images/posts/inspect-element-1.png)
-
-In this image you see the browser interpretation of the first problem where the `td` cell has the `.custom-td` class being overwritten by the more specific `.my-table tr td`. 
-
-A better approach to reducing these situations is by employing methodologies such as [B.E.M](http://getbem.com/) to help componentize your css blocks to affect only specified elements.  You can also do this through CSS pre-processors to help write 'scoped' rules which looks to be a feature for native functionality in a [future version of CSS](https://cssdb.org/)
+There's always a reason why your rules don't take effect. It's almost always a specificity issue that needs some element inspection to determine. A better way of getting around these situations is to use an establish methodoly such as B.E.M to help componentize your css blocks and affect only certain items. When you need to customize the element you can then just add to the existing scoped block.
 
 -Zano
+<Tweet />

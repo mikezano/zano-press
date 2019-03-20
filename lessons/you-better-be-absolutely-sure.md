@@ -9,6 +9,7 @@ tag: '#lessons'
 
 <Badge :text="$page.frontmatter.date" />
 <Badge :text="$page.frontmatter.tag" />
+<Tweet />
 
 How many times have you been tasked with positioning an element on a page and end up in this cycle...
 
@@ -120,6 +121,6 @@ With the html markup we started with you would then see...
 
 # ... and finally
 
-The solution presented here hopefully sheds some light on explaining the reason you may have been stuck trying the same thing in a different scenario. The better solution here is to use features like [flex layouts](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) and [grid layouts](https://css-tricks.com/snippets/css/complete-guide-grid/) to help you control positioning of elements.  If you don't or can't use those layouts then always be aware of what elements in the html define a `position` property in their styles and you'll have a better idea of what  positioning your element will result in.
+The solution presented here hopefully sheds some light on explaining the reason you may have been stuck trying the same thing in a different scenario. The better solution here is to use features like [flex layouts](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) and [grid layouts](https://css-tricks.com/snippets/css/complete-guide-grid/) to help you control positioning of elements. If you don't or can't use those layouts then always be aware of what elements in the html define a `position` property in their styles and you'll have a better idea of what positioning your element will result in.
 
 ~Zano
