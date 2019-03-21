@@ -44,13 +44,19 @@ export default {
 		}
 	},
 	mounted(){
-		this.generateKeyframe();
+
 		//this.listen();
 		var el = document.getElementById('ball');
-		debugger;
-		el.addEventListener('webkitAnimationEnd', ()=>{
+
+		el.addEventListener('webkitAnimationEnd', function(){
 			alert('done');
 		});
+		el.addEventListener('animationend', function(){
+			alert('done');
+		});
+		this.generateKeyframe();
+		el.style.WebKitAnimation = "spinIt 2s linear";
+		el.style.animation = "spinIt 2s linear";
 	}
 }
 </script>
@@ -67,6 +73,6 @@ export default {
 	position: absolute;
 	left: 20px;
 	top: 11rem;
-	animation: spinIt 1s linear infinite;
+
 }
 </style>
