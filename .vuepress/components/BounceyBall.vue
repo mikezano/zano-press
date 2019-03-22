@@ -4,61 +4,69 @@
 
 <script>
 export default {
-	data(){
-		return {};
+	data() {
+		return { x: 80 };
 	},
-	methods:{
-		generateKeyframe(){
+	methods: {
+		generateKeyframe(x) {
 			var style = document.createElement('style');
+			style.setAttribute('id', 'animate-style');
 			style.type = 'text/css';
-			var keyFrames = '\
-				@-webkit-keyframes spinIt {\
+			var keyFrames =
+				'\
+				@keyframes spinIt {\
 					100% {\
-						-webkit-transform: rotate(A_DYNAMIC_VALUE);\
+						transform: translate(A_DYNAMIC_VALUE);\
 					}\
 				}';
-			style.innerHTML = keyFrames.replace(/A_DYNAMIC_VALUE/g, "360deg");
+			style.innerHTML = keyFrames.replace(/A_DYNAMIC_VALUE/g, x + 'px');
 			document.getElementsByTagName('head')[0].appendChild(style);
+
+			var el = document.getElementById('ball');
+			el.style.animation = '';
+			el.style.animation = 'spinIt 2s linear';
 		},
-		listen(){
+		removeKeyframe() {
+			debugger;
+			document.getElementById('animate-style').outerHTML = '';
+			this.generateKeyframe(100);
+		},
+		listen() {
 			var transitionEvent = this.whichTransitionEvent();
-			document.addEventListener(transitionEvent, ()=>{
+			document.addEventListener(transitionEvent, () => {
 				alert('end');
 			});
 		},
-		whichTransitionEvent(){
+		whichTransitionEvent() {
 			var t;
 			var el = document.getElementById('ball');
 			var transitions = {
-				'animation':'animationend',
-				'OTransition':'oTransitionEnd',
-				'MozTransition':'transitionend',
-				'WebkitTransition':'webkitTransitionEnd'
-			}
+				animation: 'animationend',
+				OTransition: 'oTransitionEnd',
+				MozTransition: 'transitionend',
+				WebkitTransition: 'webkitTransitionEnd',
+			};
 			debugger;
-			for(t in transitions){
-				if( el.style[t] !== undefined ){
+			for (t in transitions) {
+				if (el.style[t] !== undefined) {
 					return transitions[t];
 				}
 			}
-		}
+		},
 	},
-	mounted(){
-
+	mounted() {
 		//this.listen();
 		var el = document.getElementById('ball');
 
-		el.addEventListener('webkitAnimationEnd', function(){
-			alert('done');
+		el.addEventListener('webkitAnimationEnd', () => {
+			this.removeKeyframe();
 		});
-		el.addEventListener('animationend', function(){
-			alert('done');
+		el.addEventListener('animationend', () => {
+			this.removeKeyframe();
 		});
-		this.generateKeyframe();
-		el.style.WebKitAnimation = "spinIt 2s linear";
-		el.style.animation = "spinIt 2s linear";
-	}
-}
+		this.generateKeyframe(80);
+	},
+};
 </script>
 
 
@@ -73,6 +81,6 @@ export default {
 	position: absolute;
 	left: 20px;
 	top: 11rem;
-
+	animation: spinIt 2s linear;
 }
 </style>
