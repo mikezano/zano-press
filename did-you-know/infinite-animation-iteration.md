@@ -5,7 +5,11 @@ date: 19.03.24
 tag: '#didyouknow'
 ---
 
-# Detecting when an animation ends
+# {{$page.frontmatter.title}}
+
+<Badge :text="$page.frontmatter.date" />
+<Badge :text="$page.frontmatter.tag" />
+<Tweet />
 
 The other day I set up a simple animation of an object moving in a direction and wanted to detect when it would end. This was the html/css:
 
@@ -66,7 +70,7 @@ var ball = document.grabElementById('ball');
 ball.addEventListener('animationend', function() {});
 ```
 
-But what happens ? Nothing.... The alert will not be trigerred after the animation. Why ? It may or may not be obvious but this animation is `infinite`. As a reult there is technically no end to the animation itself, only iterations. Luckily there exists exactly that, an `animationiteration` event you can hook into to know when the animation restarts
+But what happens ? Nothing.... The alert will not be trigerred after the animation. Why ? It may or may not be obvious but this animation is `infinite`. As a result there is technically no end to the animation itself, only iterations. Luckily there exists exactly that, an `animationiteration` event you can hook into to know when the animation restarts
 
 ```javascript
 var ball = document.grabElementById('babll');
