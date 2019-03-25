@@ -63,6 +63,8 @@ animation: move 1s linear infinite;
 
 If animation syntax is newer to you this says we have an animation called `move` with a duration of `1s` that moves in a `linear` fashion, and repeats an `infinite` amount of times.
 
+## When is it done ?
+
 The idea I had in mind was to detect when the animation was complete and trigger something else to happen afterwards. For this there is an `animationend` event you can listen to on the object as so:
 
 ```javascript
@@ -81,7 +83,7 @@ ball.addEventListener('animationiteration', function() {
 });
 ```
 
-In this example I keep updating a counter and displaying it on the moving red ball.
+In this example the _Do something cool_ is to display an iteration count value on the ball
 
 <style>
 #ball2{
@@ -104,10 +106,10 @@ In this example I keep updating a counter and displaying it on the moving red ba
 <div id="ball2">
 </div>
 
+## One more thing ...
+There also exists an `animationstart` event as well to use for whatever need you have, but it was new to me that `animationend` would not trigger after each iteration but it did make sense to then use the `animationiteraion` event. Below is a handy table of the 3 animation hooks available and what they do.  Hopefully this helps someone on their CSS animation journey !
 
-## How is this useful
 
-There also exists an `animationstart` event as well to use for whatever need you have, but it was new to me that `animationend` would not trigger after each iteration but it did make sense to then use the `animationiteraion` event. Below is a table of the 3 aniamtion hooks available and what they do.  Hopefully this helps someone on their CSS animation discoveries !
 | Event                |        Description        |
 | -------------------- | :-----------------------: |
 | `animationend`       |  CSS animation completes  |
