@@ -110,7 +110,7 @@ In this example the _Do something cool_ is to display an iteration count value o
 There also exists an `animationstart` event as well to use for whatever need you have, but it was new to me that `animationend` would not trigger after each iteration but it did make sense to then use the `animationiteraion` event. Below is a handy table of the 3 animation hooks available and what they do.  Hopefully this helps someone on their CSS animation journey !
 
 
-| Event                |        Triggers when...        |
+| Event                |      Triggers when...     |
 | -------------------- | :-----------------------: |
 | `animationend`       |  CSS animation completes  |
 | `animationiteration` | CSS animation is repeated |
