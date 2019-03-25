@@ -55,7 +55,7 @@ Which results in this:
 </style>
 <div id="ball1"></div>
 
-The key to this animation comes from this line in `.ball` style definition:
+The key to this animation comes from this line...
 
 ```css
 animation: move 1s linear infinite;
@@ -66,25 +66,67 @@ If animation syntax is newer to you this says we have an animation called `move`
 The idea I had in mind was to detect when the animation was complete and trigger something else to happen afterwards. For this there is an `animationend` event you can listen to on the object as so:
 
 ```javascript
-var ball = document.grabElementById('ball');
-ball.addEventListener('animationend', function() {});
+var ball = document.getElementById('ball');
+ball.addEventListener('animationend', function() { 
+	console.log('done'); 
+});
 ```
 
-But what happens ? Nothing.... The alert will not be trigerred after the animation. Why ? It may or may not be obvious but this animation is `infinite`. As a result there is technically no end to the animation itself, only iterations. Luckily there exists exactly that, an `animationiteration` event you can hook into to know when the animation restarts
+But what happens ? Nothing.... The `console.log` is never executed. Why ? It may or may not be obvious but this is a result of the `infinite` declaration on the animation. With that specification there is technically no end to the animation itself, only iterations. Luckily there exists exactly that, an `animationiteration` event you can hook into to know when the animation restarts...
 
 ```javascript
-var ball = document.grabElementById('babll');
-ball.addEventListener('animationiteration', function() {});
+var ball = document.getElementById('ball');
+ball.addEventListener('animationiteration', function() {
+	//Do something cool :)
+});
 ```
+
+In this example I keep updating a counter and displaying it on the moving red ball.
+
+<style>
+#ball2{
+	width:20px;
+	height:20px;
+	border-radius:20px;
+	background-color: red;
+	border: 1px solid black;
+	animation: move 1s linear infinite;
+	text-align: center;
+}
+
+    @keyframes move{
+    100%{
+    transform: translateX(40px);
+    }
+
+}
+</style>
+<div id="ball2">
+</div>
+
 
 ## How is this useful
 
+There also exists an `animationstart` event as well to use for whatever need you have, but it was new to me that `animationend` would not trigger after each iteration but it did make sense to then use the `animationiteraion` event. Below is a table of the 3 aniamtion hooks available and what they do.  Hopefully this helps someone on their CSS animation discoveries !
 | Event                |        Description        |
 | -------------------- | :-----------------------: |
 | `animationend`       |  CSS animation completes  |
 | `animationiteration` | CSS animation is repeated |
 | `animationstart`     |   CSS animation starts    |
 
-This could be useful when you are loading something and want to first get rid of the first item and wait for the next item to come in.
+~ Zano
 
-Animation ends can be detected with `animationed`. But if your animation specifies 'infinite' in its setup, this will never happen. Technicaly we know, but the flag on logically this never happens
+
+
+<script type="text/javascript">
+export default{
+
+	mounted(){
+		var count = 0;
+		var ball = document.getElementById('ball2');
+		ball.addEventListener('animationiteration', ()=> {
+			ball.innerText = count++;
+		});
+	}
+}
+</script>
