@@ -1,6 +1,6 @@
 ---
-title: Data attributes as selectors
-description: More ways than one to select that disabled element ;)
+title: Data and attributes as selectors
+description: Unique ways to select your elements ;)
 date: 19.04.07
 tag: '#didyouknow'
 ---
@@ -37,7 +37,7 @@ a[href=""]{
 
 <a href="https://google.com">Google</a>
 
-Do know what the selector is saying? It says... find any `a` tag that has a `href` attribute that starts with `^=` the value `https`. Neat!
+Do you know what the selector is saying? It says... find any `a` tag that has a `href` attribute that starts with `^=` the value `https`. Neat!
 
 Its a lesser-known piece of functionality that attributes and their values can be used as selectors in CSS but perhaps thats because its [performance is not that great](https://jsperf.com/attribute-vs-class-selectors). I wouldn't recommend using attribute selectors all over your code but here's a more practical example of using them, detecting broken links.
 
