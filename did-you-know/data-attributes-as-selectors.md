@@ -29,6 +29,10 @@ a[href^="https"] {
   font-size: 1rem;
   color: orange;
 }
+
+a[href=""]{
+	border:1px solid red;
+}
 </style>
 
 <a href="https://google.com">Google</a>
@@ -49,10 +53,12 @@ a[href=''] {
 
 By just adding this line of CSS you know will have a visual indication of a red box around broken anchor tags on your page.
 
+<a href="">Google</a>
+
 ## Also...
 
-We saw that you can do a 'starts with' type of selector in the `a[href^='https']` example and you'll be happy to know the other variants of 'ends with' `$=` and 'contains' `*=` exist too. A more complete list can be found [here](https://www.w3schools.com/CSS/css_attribute_selectors.asp). Try them out see what other uses you can come up with.
+You'll be happy to know the other variants of 'ends with' `$=` and 'contains' `*=` exist too. A more complete list of attribute selector variations can be found [here](https://www.w3schools.com/CSS/css_attribute_selectors.asp). Try them out and see what other uses you can come up with.
 
-Fun fact: If you're a Vue.js user you'll notice that attribute selectors are applied to components that use a 'scoped' block of CSS as a way of distinguishing markup you create specific to your component.
+Fun fact: If you're a [Vue.js](https://vuejs.org/) user you'll notice that attribute selectors are applied to components that use a 'scoped' block of CSS as a way of identifying markup that should have styles applied.
 
 ~ zan0
