@@ -1,0 +1,73 @@
+---
+title: CSS variables and their scopes
+description: A closer look at variables
+date: 19.04.01
+tag: '#lessons'
+---
+
+# {{$page.frontmatter.title}}
+
+<Badge :text="$page.frontmatter.date" />
+<Badge :text="$page.frontmatter.tag" />
+<Tweet />
+
+CSS variables have widespread browser support these days and need occasional reminders to developers about how they work  ;).   First, they can look like this...
+
+```css
+:root{
+    --width: 100px;
+}
+```
+
+`:root` is a pseudo element representing the root element of your document (in this case `<html>`). By declaring variables here you are essentially placing them in the global scope. In this case the variable `--width` is declared with a value of `100px`.  You can declare as many variables as you like and they can contain values that are numeric , percentages, string, colors and more.  Your first thought though is probably, two-dashes? Yuck 🤢. The internet has [pointed this out](https://softwareengineering.stackexchange.com/questions/311794/what-is-the-reason-that-css-variables-are-defined-using-two-hyphen-characters) but don't expect any changes.
+
+## So how do you use it?
+
+Like this:
+
+```css
+#my-button{
+    border:1px solid black;
+    background-color: orange;
+    width: var(--width);
+}
+```
+
+We 'call' a variable with the `var()` function and pass in the variable we want to use. And if we had this html...
+
+```html
+<button id="my-button">CSS Variables!</button>
+```
+
+You'd get this...
+ 
+<style>
+#my-button{
+    border:1px solid black;
+    background-color: orange;
+    width: var(--width);
+}
+</style>
+<button id="my-button">CSS Variables!</button>
+
+
+## Scope declaration
+
+What if the declaration of the `--width` variable happened inside  `#my-button` style declaration ?
+
+```css
+#my-button{
+    --width: 200px;
+    border:1px solid black;
+    background-color: orange;
+    width: var(--width);
+}
+```
+
+Would this result in a button of `200px` width or `100px` width ?  Answer:  `200px`.  The locally scoped variable wins :)
+
+# Why use variables in my CSS ?
+
+For the same reason you would in any other programming language, reduce repetition, modularize things. For example, how many times have you re-declare that same blue color for your buttons all over your html and decided you wanted to change it, but dreaded all the places you would have update it?  Variables would help you out there ;)
+
+~ zan0
