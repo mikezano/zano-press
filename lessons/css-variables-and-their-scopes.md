@@ -1,6 +1,6 @@
 ---
 title: CSS variables and their scopes
-description: A closer look at variables
+description: A reminder on css variables and how they work
 date: 19.04.13
 tag: '#lessons'
 ---
@@ -86,6 +86,6 @@ Would this result in a button of `200px` width as defined in this scope or `100p
 
 # Why use variables in my CSS ?
 
-For the same reason you would in any other programming language: reduce repetition, modularize styling, make things neat for the next developer. For example, how many times have you re-declared that same blue color for your buttons all over your html/css (maybe even inline-ing) and decided you wanted to change it, but dreaded all the places you would have update it?  Variables would help you out there ;)
+For the same reason you would in any other programming language: reduce repetition, modularize styling, make things neat for the next developer. For example, how many times have you re-declared that same blue color for your buttons all over your html/css (maybe even inline-ing) and decided you wanted to change it, but dreaded all the places you would have to update it?  Variables would help you out there ;)
 
 ~ zan0
