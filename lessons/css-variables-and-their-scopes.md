@@ -71,7 +71,7 @@ What if another declaration of the `--button-width` variable happened inside `#m
 }
 ```
 
-Would this result in a button of `200px` width as defined in this scope or `100px` width as defined in the `:root` ?  Answer:  `200px`.  The locally scoped variable wins :)
+Would this result in a button of `200px` width as defined in this scope or `100px` width as defined in the `:root` ?  Answer:  `200px`. Locally scoped variables have precedent :)
 
 <style>
 #my-button2{
