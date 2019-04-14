@@ -59,7 +59,7 @@ You'd get this...
 
 ## Scope declaration
 
-What if the declaration of the `--button-width` variable happened inside  `#my-button` style declaration ?
+What if another declaration of the `--button-width` variable happened inside `#my-button` style declaration ?
 
 ```css
 #my-button{
@@ -71,7 +71,7 @@ What if the declaration of the `--button-width` variable happened inside  `#my-b
 }
 ```
 
-Would this result in a button of `200px` width or `100px` width ?  Answer:  `200px`.  The locally scoped variable wins :)
+Would this result in a button of `200px` width as defined in this scope or `100px` width as defined in the `:root` ?  Answer:  `200px`.  The locally scoped variable wins :)
 
 <style>
 #my-button2{
