@@ -40,7 +40,9 @@ Are you writing your basic html layouts with markup/css similar to this?
 }
 ```
 
-Nothing wrong with it, but it is quite heavy on the `div` tags and absolutely positioned elements can be a nightmare if you're not careful. Perhaps we can make use of semantic tags from HTML5 with a little more modern CSS.
+[Full example on CodePen](https://codepen.io/_zan0/pen/oOOOZq)
+
+Nothing wrong with it , but it is quite heavy on the `div` tags and absolutely positioned elements can be a nightmare if you're not careful. Perhaps we can make use of semantic tags from HTML5 with a little more modern CSS.
 
 ## Instead of div tags...
 
@@ -60,7 +62,7 @@ Using these tags can take your basic layout to a more semantic level like so:
 </div>
 ```
 
-...and for the CSS using the `flex` value in your `display` property can get you out of absolute positioning.
+...and for the CSS using the `flex` value in your `display` property along with other flex mechanics can get you out of absolute positioning.
 
 ```css
 .container {
@@ -83,6 +85,8 @@ section {
 	background-color: #baffc9;
 }
 ```
+
+[Full example on CodePen](https://codepen.io/_zan0/pen/ROOOpe)
 
 ## Why do it?
 
