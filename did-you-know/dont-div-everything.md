@@ -23,26 +23,26 @@ Are you writing your basic html layouts with markup/css similar to this?
 
 ```css
 .container {
-	position: relative;
-	border: 1px solid gray;
-	width: 100px;
-	height: 200px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	bottom: 0;
+	width: 800px;
+	margin-left: -400px;
 }
 .header {
 	position: absolute;
 	top: 0;
-	z-index: 1;
 }
 .footer {
 	position: absolute;
 	bottom: 0;
-	z-index: 1;
 }
 ```
 
 [Full example on CodePen](https://codepen.io/_zan0/pen/oOOOZq)
 
-Nothing wrong with it , but it is quite heavy on the `div` tags and absolutely positioned elements can be a nightmare if you're not careful. Perhaps we can make use of semantic tags from HTML5 with a little more modern CSS.
+Nothing technically wrong with it , but it is quite heavy on the `div` tags and absolutely positioned elements can be a nightmare if you're not careful. Perhaps we can make use of semantic tags from HTML5 with a little more modern CSS.
 
 ## Instead of div tags...
 
@@ -69,20 +69,14 @@ Using these tags can take your basic layout to a more semantic level like so:
 	display: flex;
 	flex-direction: column;
 }
-header,
-footer {
-	height: 3rem;
-}
 header {
 	background-color: #ffb3ba;
 }
+section {
+	flex: auto;
+}
 footer {
 	background-color: #bae1ff;
-}
-section {
-	display: flex;
-	flex: auto;
-	background-color: #baffc9;
 }
 ```
 
@@ -90,5 +84,6 @@ section {
 
 ## Why do it?
 
-The end result may remain the same but with a semantic approach you are providing web crawlers, screen readers, document processors, etc with an easier way of analyzing your content. You as a developer will have a better idea of what each part of the pages is intended for making it easier to contribute.
+The end result may remain the same but with a semantic approach you are providing web crawlers, screen readers, document processors, etc with an easier way of analyzing your content. You as a developer will have a better idea of what each part of the page is intended for making it easier to contribute.
+
 ~ zan0
