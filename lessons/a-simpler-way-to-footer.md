@@ -25,7 +25,7 @@ Its used to be the case that you would do something like this to create a sticky
 }
 ```
 
-This takes a `.content` element that stretches across the viewport height and adds a negative `margin-bottom` value to make room for the footer. We place the `.footer` at the bottom by absolutely positioning it and giving it a `50px` height. See an example [here](https://codepen.io/_zan0/pen/JVBjqK) It's not a bad technique but using something like the `-50px` seems hacky, and absolutely positioned elements can be a slippery slope.
+This takes a `.content` element that stretches across the viewport height and adds a negative `margin-bottom` value to make room for the footer. We place the `.footer` at the bottom by absolutely positioning it and giving it a `50px` height. See an example [here](https://codepen.io/_zan0/pen/JVBjqK). It's not a bad technique but using something like the `margin-bottom: -50px` seems hacky, and absolutely positioned elements can be a slippery slope.
 
 # The vh unit
 
@@ -35,7 +35,7 @@ If we give a `.content` div a height of `100vh` with a `footer` element placed r
 
 # Math in your CSS
 
-Have you heard of `calc()` ? These days you can do math natively in your CSS and cook up some neat vodoo. In this case if we use `100vh` on the `.container` wouldn't it be nice if we could just shave off the necessary height to place the `footer` within visible range? We can :) . Look...
+Have you heard of `calc()` ? These days you can do math natively in your CSS and cook up some neat vodoo. In this case if we use `100vh` on the `.container` wouldn't it be nice if we could just shave off the necessary height mathematically to place the `footer` within visible range? We can :) . Look...
 
 ```css
 .content {
