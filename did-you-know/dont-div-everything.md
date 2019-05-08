@@ -13,6 +13,14 @@ tag: '#didyouknow'
 
 Are you writing your basic html layouts with markup/css similar to this?
 
+```html
+<div class="container">
+	<div class="header">HEADER</div>
+	<div class="content">CONTENT</div>
+	<div class="footer">FOOTER</div>
+</div>
+```
+
 ```css
 .container {
 	position: relative;
@@ -32,17 +40,9 @@ Are you writing your basic html layouts with markup/css similar to this?
 }
 ```
 
-```html
-<div class="container">
-	<div class="header"></div>
-	<div class="content"></div>
-	<div class="footer"></div>
-</div>
-```
+Nothing wrong with it, but it is quite heavy on the `div` tags and absolutely positioned elements can be a nightmare if you're not careful. Perhaps we can make use of semantic tags from HTML5 with a little more modern CSS.
 
-Nothing wrong with it, but it is quite heavy on the `div` tags. Perhaps we can make use of the newer tags that HTML5 uses.
-
-## Instead of div tags
+## Instead of div tags...
 
 Since the advent of HTML5 there are several tags in HTML I don't see get used a lot like...
 
@@ -51,6 +51,16 @@ Since the advent of HTML5 there are several tags in HTML I don't see get used a 
 - `<footer/>`
 
 Using these tags can take your basic layout to a more semantic level like so:
+
+```html
+<div class="container">
+	<header>HEADER</header>
+	<section>SECTION</section>
+	<footer>FOOTER</footer>
+</div>
+```
+
+...and for the CSS using the `flex` value in your `display` property can get you out of absolute positioning.
 
 ```css
 .container {
@@ -68,18 +78,13 @@ footer {
 	background-color: #bae1ff;
 }
 section {
+	display: flex;
 	flex: auto;
 	background-color: #baffc9;
-	display: flex;
 }
 ```
 
-```html
-<div class="container">
-	<header>HEADER</header>
-	<section>SECTION</section>
-	<footer>FOOTER</footer>
-</div>
-```
+## Why do it?
 
+The end result may remain the same but with a semantic approach you are providing web crawlers, screen readers, document processors, etc with an easier way of analyzing your content. You as a developer will have a better idea of what each part of the pages is intended for making it easier to contribute.
 ~ zan0
