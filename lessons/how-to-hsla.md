@@ -11,13 +11,42 @@ tag: '#lessons'
 <Badge :text="$page.frontmatter.tag" />
 <Tweet />
 
-Creating colors that work well together is hard. We can use hex values or RGBa values but would you off the top of your head what they would be ? Imagine if someone asks you, "I need a blue and orange color.We have the options to create colors with hex values like `#000000` which would be black . You can use RGBa values which control the amount of red green and blue mixed into your color, and HSLa.
+Creating colors that work well together is hard. We can use hex values or RGBa values like `#000` (hex) or `(0,0,0,1)` (RGBa) to get a black color and `#FFFFFF` or `(255,255,255,1)` to create white. Beyond that, changing any part of these values will most likely leave you guessing as to what kind of color you've created. Enter HSLa... the more programmatic approach to creating colors.
 
-The problem with hex values is that sure you could tell me a color that represents black, (you've probably had to type out the hex value a million times) but if I asked you to give me a color that was blue and then just a bit lighter/darker or more saturated, could you?
+## Hue, Saturation, Light, Alpha (HSLa)
 
-Its easier to create a set of values that work well with each other
+Creating a color with HSLa consists of three parts as described in the table below:
 
-Hue - A value from 0 - 360
-Saturation - A percent from 0 - 100%. This of this value representing how 'strong' the color is. If you are targeting a blue color 100% would mean you the purest version of blue, and 0% would represent the absence of color leaving you with gray.
-Lightness - A value from 0 - 100% representing how much light the color receives. 100% would be like having a flashlight directly on top of th color turning everything white.
-Alpha - can be either value from 0 - 1 with any decimal value in between or from 0 -100%
+| HSLa       | Description                                                                                                                                                                                                                                                            |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hue        | A value from 0 - 360 which comes from the following color wheel range. ![An image](../.vuepress/public/images/posts/hsla-hue.png) At 0 you have red. At 120 you have green and at 240 you have blue                                                                    |
+| Saturation | A percentage value from 0 - 100%. Represents how 'strong' the color would be, a value of `0` would leave you with no color (gray) and `100%` would be a strong version of the color.                                                                                   |
+| Light      | A percentage value from 0 - 100%. A value of 0 would represent no light at all, meaning you would get black. 100% would mean too much light and results in a white. Think of this value as what would happen if you move a flashlight towards and away from your color |
+| Alpha      | A value between 0 and 1 or percentage from 0% - 100%                                                                                                                                                                                                                   |
+
+Putting it all together this is how you might create the color black:
+
+```css
+color: hsla(0, 0%, 0%, 1);
+```
+
+...and the color white
+
+```css
+color: hsla(0, 0%, 100%, 1);
+```
+
+Here we see we the first value we chose was `0` which would represent. Our saturation value is 0% which would remove all color and leave us with gray. The light value is at 0% though and with no light, you get darkness, a.k.a black.
+
+Imagine if someone asks you, "I need a blue and orange color that work well together. You could more easily do that by finding your blue color first by selecing a value. Now for the saturation and light value you are no longer 'guessing' but 'adjusting' it to you liking. When you create the orange color, they only thing you will need to technically change is the hue value since you've already established a saturation and light value that work together, neat!
+
+## But I already know hex values and RGBa..
+
+Ok, can you make
+Yes, but if I have you two random colors, could you then modify the value to lighten the color ?
+
+```css
+color: hsla(20, 50%, 50%, 1);
+```
+
+Its supported in all the major browsers.
