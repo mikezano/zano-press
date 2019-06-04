@@ -11,7 +11,7 @@ tag: '#lessons'
 <Badge :text="$page.frontmatter.tag" />
 <Tweet />
 
-Creating colors that work well together is hard. We can use hex values and RGBa values like `#000000` (hex) or `(0,0,0,1)` (RGBa) to get a black color and `#FFFFFF` or `(255,255,255,1)` to create white. Beyond that, changing any part of these values will most likely leave you guessing as to what color you've created. Enter HSLa... the more programmatic approach to creating colors.
+Creating colors that work well together is hard. We commonly use hex values and RGBa values like `#000000` (hex) or `(0,0,0,1)` (RGBa) to get a black color and `#FFFFFF` or `(255,255,255,1)` to create white. Beyond that, changing any part of these values will most likely leave you guessing as to what color you've created. Enter HSLa... the more programmatic approach to creating colors.
 
 ## Hue, Saturation, Light, Alpha
 
@@ -121,7 +121,7 @@ If we keep the light value consistent at 50% and play with the saturation value 
 | Blue   | <span class="blue-1 wt bm">hsla(240, 90%, 50%, 1)</span> | <span class="blue-2 wt bm">hsla(240, 60%, 50%, 1)</span>   | <span class="blue-3 wt bm">hsla(240, 30%, 50%, 1)</span>   |
 | Purple | <span class="purple-1 bm">hsla(300, 90%, 50%, 1)</span>  | <span class="purple-2 wt bm">hsla(300, 60%, 50%, 1)</span> | <span class="purple-3 wt bm">hsla(300, 30%, 50%, 1)</span> |
 
-...You go from vibrant to muted (heading towards gray) colors :D
+...You go from vibrant to more muted (heading towards gray) colors :D
 
 With HSLa, there's less guessing and more adjusting being made. You have a better idea of what will happen with your colors as values change. You can make colors that work well together by keeping the saturation and light values the same and really just changing the hue value!
 
