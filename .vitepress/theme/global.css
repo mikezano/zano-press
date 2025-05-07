@@ -1,0 +1,124 @@
+/**
+ * Colors: Solid
+ * -------------------------------------------------------------------------- */
+
+ :root {
+    --vp-c-white: #ffffff;
+    --vp-c-black: #000000;
+  
+    --vp-c-neutral: var(--vp-c-black);
+    --vp-c-neutral-inverse: var(--vp-c-white);
+  }
+  
+  .dark {
+    --vp-c-neutral: var(--vp-c-white);
+    --vp-c-neutral-inverse: var(--vp-c-black);
+  }
+  
+  /**
+   * Colors: Palette
+   *
+   * The primitive colors used for accent colors. These colors are referenced
+   * by functional colors such as "Text", "Background", or "Brand".
+   *
+   * Each colors have exact same color scale system with 3 levels of solid
+   * colors with different brightness, and 1 soft color.
+   *
+   * - `XXX-1`: The most solid color used mainly for colored text. It must
+   *   satisfy the contrast ratio against when used on top of `XXX-soft`.
+   *
+   * - `XXX-2`: The color used mainly for hover state of the button.
+   *
+   * - `XXX-3`: The color for solid background, such as bg color of the button.
+   *    It must satisfy the contrast ratio with pure white (#ffffff) text on
+   *    top of it.
+   *
+   * - `XXX-soft`: The color used for subtle background such as custom container
+   *    or badges. It must satisfy the contrast ratio when putting `XXX-1` colors
+   *    on top of it.
+   *
+   *    The soft color must be semi transparent alpha channel. This is crucial
+   *    because it allows adding multiple "soft" colors on top of each other
+   *    to create a accent, such as when having inline code block inside
+   *    custom containers.
+   * -------------------------------------------------------------------------- */
+  
+  :root {
+    --vp-c-gray-1: #dddde3;
+    --vp-c-gray-2: #e4e4e9;
+    --vp-c-gray-3: #ebebef;
+    --vp-c-gray-soft: rgba(142, 150, 170, 0.14);
+  
+  /* Futuristic Indigo - Cooler, more vibrant blues */
+  --vp-c-indigo-1: #3e4fff;
+  --vp-c-indigo-2: #5266ff;
+  --vp-c-indigo-3: #6f7dff;
+  --vp-c-indigo-soft: rgba(80, 120, 255, 0.18);
+
+  /* Futuristic Purple - More neon/violet with pinkish glow */
+  --vp-c-purple-1: #a239ca;
+  --vp-c-purple-2: #c845e9;
+  --vp-c-purple-3: #e76cff;
+  --vp-c-purple-soft: rgba(200, 115, 255, 0.18);
+
+  /* Futuristic Green - Neon/tech green */
+  --vp-c-green-1: #00c896;
+  --vp-c-green-2: #00e0aa;
+  --vp-c-green-3: #00ffcc;
+  --vp-c-green-soft: rgba(0, 255, 204, 0.18);
+
+  /* Futuristic Yellow - Electric amber */
+  --vp-c-yellow-1: #ffb300;
+  --vp-c-yellow-2: #ffcb00;
+  --vp-c-yellow-3: #ffe600;
+  --vp-c-yellow-soft: rgba(255, 230, 0, 0.18);
+
+  /* Futuristic Red - Bright, alert-like crimson */
+  --vp-c-red-1: #ff2a4e;
+  --vp-c-red-2: #ff476c;
+  --vp-c-red-3: #ff718a;
+  --vp-c-red-soft: rgba(255, 71, 108, 0.18);
+  
+    --vp-c-sponsor: #db2777;
+  }
+  
+  .dark {
+    --vp-c-gray-1: #515c67;
+    --vp-c-gray-2: #414853;
+    --vp-c-gray-3: #32363f;
+    --vp-c-gray-soft: rgba(101, 117, 133, 0.16);
+  
+  /* Futuristic Indigo - Cooler, more vibrant blues */
+  --vp-c-indigo-1: #3e4fff;
+  --vp-c-indigo-2: #5266ff;
+  --vp-c-indigo-3: #6f7dff;
+  --vp-c-indigo-soft: rgba(80, 120, 255, 0.18);
+
+  /* Futuristic Purple - More neon/violet with pinkish glow */
+  --vp-c-purple-1: #a239ca;
+  --vp-c-purple-2: #c845e9;
+  --vp-c-purple-3: #e76cff;
+  --vp-c-purple-soft: rgba(200, 115, 255, 0.18);
+
+  /* Futuristic Green - Neon/tech green */
+  --vp-c-green-1: #00c896;
+  --vp-c-green-2: #00e0aa;
+  --vp-c-green-3: #00ffcc;
+  --vp-c-green-soft: rgba(0, 255, 204, 0.18);
+
+  /* Futuristic Yellow - Electric amber */
+  --vp-c-yellow-1: #ffb300;
+  --vp-c-yellow-2: #ffcb00;
+  --vp-c-yellow-3: #ffe600;
+  --vp-c-yellow-soft: rgba(255, 230, 0, 0.18);
+
+  /* Futuristic Red - Bright, alert-like crimson */
+  --vp-c-red-1: #ff2a4e;
+  --vp-c-red-2: #ff476c;
+  --vp-c-red-3: #ff718a;
+  --vp-c-red-soft: rgba(255, 71, 108, 0.18);
+  
+    --vp-c-sponsor: #db2777;
+  }
+
+  

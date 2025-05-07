@@ -1,0 +1,26 @@
+/* .vitepress/theme/prism-overrides.css */
+code[class*="language-css"],
+pre[class*="language-css"] {
+  color: #e5c07b; /* Base color */
+  background: #1e1e1e; /* Background */
+}
+
+.token.selector {
+  color: #d19a66;
+}
+
+.token.property {
+  color: #61afef;
+}
+
+.token.function {
+  color: #98c379;
+}
+
+.token.punctuation {
+  color: #abb2bf;
+}
+
+.token.string {
+  color: #c678dd;
+}

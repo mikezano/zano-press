@@ -1,19 +1,14 @@
 {
-  "name": "zano-press",
-  "version": "1.0.0",
-  "description": "Vuepress blogging",
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "node-sass": "^4.11.0",
-    "pug": "^2.0.3",
-    "pug-plain-loader": "^1.0.0",
-    "raw-loader": "^1.0.0",
-    "sass-loader": "^7.1.0",
-    "shelljs": "^0.8.3",
-    "typed.js": "^2.0.10"
+    "sass-embedded": "^1.87.0",
+    "typed.js": "^2.1.0",
+    "vite-plugin-prismjs": "^0.0.11",
+    "vite-plugin-pug": "^0.4.1",
+    "vitepress": "^1.6.3"
   },
   "scripts": {
-    "publish": "node scripts/publish-site.js"
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
   }
 }
