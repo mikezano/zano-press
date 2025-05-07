@@ -17,7 +17,6 @@ function getMarkdownFiles(dir: string): { text: string; link: string }[] {
     .readdirSync(fullPath)
     .filter((file) => file.endsWith(".md"))
     .map((file) => {
-      console.log("form", dir.replace("../src", ""), file);
       return {
         text: file.replace(".md", ""),
         link: dir.replace("../src", "") + "/" + file,
@@ -25,8 +24,9 @@ function getMarkdownFiles(dir: string): { text: string; link: string }[] {
     });
 }
 
-const postFiles = getMarkdownFiles("../src/lessons");
-console.log("postFiles", postFiles);
+const lessons = getMarkdownFiles("../src/lessons");
+const showcase = getMarkdownFiles("../src/showcase");
+const bugs = getMarkdownFiles("../src/bugs");
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -54,9 +54,16 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: "Examples",
-        items: postFiles,
+        text: "Lessons",
+        collapsed: true,
+        items: lessons,
       },
+      {
+        text: "Showcase",
+        collapsed: true,
+        items: showcase,
+      },
+      { text: "Bugs", collapsed: true, items: bugs },
     ],
 
     socialLinks: [
