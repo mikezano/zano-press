@@ -1,5 +1,3 @@
-import "./chunk-BUSYA2B4.js";
-
 // node_modules/typed.js/dist/typed.module.js
 function t() {
   return t = Object.assign ? Object.assign.bind() : function(t2) {
