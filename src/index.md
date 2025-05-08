@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "zan0"
+  name: "zan0.dev"
   text: "css IS awesome"
   tagline: Explaining the tough stuff
   actions:

@@ -1,0 +1,55 @@
+:root {
+    /* Base colors */
+    --neon-pink: hsla(315, 100%, 60%, 1);
+    --electric-blue: hsla(240, 100%, 60%, 1);
+  
+    /* Light variants */
+    --neon-pink-light: hsla(315, 100%, 75%, 1);
+    --electric-blue-light: hsla(240, 100%, 75%, 1);
+  
+    /* Dark variants */
+    --neon-pink-dark: hsla(315, 100%, 40%, 1);
+    --electric-blue-dark: hsla(240, 100%, 40%, 1);
+  }
+
+@property --title-start-gradient {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: hsla(315, 100%, 60%, 1);
+}
+
+@property --title-end-gradient {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: hsla(240, 100%, 75%, 1);
+}
+
+@keyframes gradiate {
+    0%{
+        background-position: 0% 100%;
+    }
+    100%{
+        background-position: 0% 0%;
+    }
+}
+
+.VPHero .heading .name {
+
+  margin:0;
+  height:100px;
+  background: linear-gradient(to top, var(--title-start-gradient), var(--title-end-gradient), var(--title-start-gradient));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-size:5rem;
+  /* font-size: 4rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;  */
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: 100% 300px;
+  animation: gradiate 10s linear infinite;
+}
+
