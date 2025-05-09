@@ -18,7 +18,7 @@ function getMarkdownFiles(dir: string): { text: string; link: string }[] {
     .filter((file) => file.endsWith(".md"))
     .map((file) => {
       return {
-        text: file.replace(".md", ""),
+        text: file.replace(".md", "").replace(/^\d{4}-\d{2}-\d{2}\s*/, ""),
         link: dir.replace("../src", "") + "/" + file,
       };
     });

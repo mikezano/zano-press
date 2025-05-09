@@ -3,16 +3,13 @@
 layout: home
 
 hero:
-  name: "zan0.dev"
-  text: "css IS awesome"
-  tagline: Explaining the tough stuff
+  name: "css IS awesome"
+
+  tagline: Figuring out css so you don't have to 🧠
   actions:
     - theme: brand
-      text: Latest
+      text: See Latest post ->
       link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
 
 features:
   - icon: 🖼️

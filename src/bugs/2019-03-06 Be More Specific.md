@@ -1,14 +1,14 @@
 ---
 title: Try being more specific
 description: For all those times you've wondered why an element does not apply your CSS.
-date: 19.03.06
-tag: "#itsnotworking"
+date: 2019.03.06
+tag: "#bug"
 ---
 
-# {{frontmatter.title}}
+# {{$frontmatter.title}}
 
-<Badge :text="frontmatter.date" />
-<Badge :text="frontmatter.tag" type="tag"/>
+<Badge :text="$frontmatter.date" />
+<Badge :text="$frontmatter.tag"/>
 
 The other day I ran into a situation where a co-worker was having problems getting their styles (you've probably heard this before 🙄) to appear on an element. Instead of to restorting evil **!important** statements, lets re-create a similar situation to resolve these types of problems.
 
@@ -37,10 +37,12 @@ Here we have an innocent looking table set up...
 Which would result in something like this...
 
 <table class="my-table">
-  <tr>
-    <td>Apple</td>
-    <td>Banana</td>
-  </tr>
+  <tbody>
+    <tr>
+      <td>Apple</td>
+      <td>Banana</td>
+    </tr>
+  </tbody>
 </table>
 
 <style>
@@ -76,11 +78,11 @@ A class was placed DIRECTLY on the table cell that needed to change and it didn'
 
 First, let's use this awesome [Specificity Calculator](https://specificity.keegan.st/) to help understand what's taking priority. In case you didn't know, all the rules you write in CSS have a secret value (cardinality) to them. When two different styles affect the same element, the one that is more 'specific' a.k.a has the higher value, wins. Plugging in the first style selector `.my-table tr td` to the calculator we get...
 
-![An image](../.vuepress/public/images/posts/specificity-calculator-1.png)
+![Specificity Calculator 1](/public/images/specificity-calculator-1.png)
 
 You can infer from the calculator that this produces a value of 12. One class and two elements. Whats the value of the `.custom-td` class ?
 
-![An image](../.vuepress/public/images/posts/specificity-calculator-2.png)
+![Specificity Calculator 2](/public/images/specificity-calculator-2.png)
 
 ... 10 ! and because 12 > 10 conflicting properties between the two rules will have the `.my-table tr td` selector ones take effect , hence why `border: none` doesn't work.
 
@@ -96,7 +98,7 @@ We need to write a selector that has a higher specifcity value than 12. In the c
 
 This will first select the `.my-table` element and look for `.custom-td` in it. It's value in the specifity calculator...
 
-![An image](../.vuepress/public/images/posts/specificity-calculator-3.png)
+![Specificity Calculator 3](/public/images/specificity-calculator-3.png)
 
 ...results in 20 which is greater than 12 from `.my-table tr td` meaning that our `border: none;` statement will actually work!
 

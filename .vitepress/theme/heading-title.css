@@ -26,22 +26,21 @@
 
 @keyframes gradiate {
     0%{
-        background-position: 0% 100%;
+        background-position: 0 0;
     }
     100%{
-        background-position: 0% 0%;
+        background-position: 100% 0
     }
 }
 
 .VPHero .heading .name {
 
   margin:0;
-  height:100px;
-  background: linear-gradient(to top, var(--title-start-gradient), var(--title-end-gradient), var(--title-start-gradient));
+  width:500px;
+  background: linear-gradient(to right, var(--title-start-gradient), var(--title-end-gradient), var(--title-start-gradient));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: transparent;
   font-size:5rem;
   /* font-size: 4rem;
   font-weight: bold;
@@ -49,7 +48,10 @@
   margin-bottom: 0.5rem;  */
   background-repeat: repeat;
   background-position: 0 0;
-  background-size: 100% 200px;
-  animation: gradiate 10s linear infinite;
+  background-size: 250px 100%;
+  animation: gradiate 5s linear infinite;
+
+
+  /* text-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--electric-blue), 0 0 15px var(--neon-pink), 0 0 20px var(--electric-blue), 0 0 25px var(--neon-pink), 0 0 30px var(--electric-blue), 0 0 35px var(--neon-pink); */
 }
 
