@@ -17,8 +17,11 @@ function getMarkdownFiles(dir: string): { text: string; link: string }[] {
     .readdirSync(fullPath)
     .filter((file) => file.endsWith(".md"))
     .map((file) => {
+      const result = file
+        .replace(/^(\d{4}-\d{2}-\d{2})\s+/, "<span>$1</span><br/>")
+        .replace(".md", "");
       return {
-        text: file.replace(".md", "").replace(/^\d{4}-\d{2}-\d{2}\s*/, ""),
+        text: result,
         link: dir.replace("../src", "") + "/" + file,
       };
     });
@@ -56,7 +59,7 @@ export default defineConfig({
       {
         text: "Lessons",
         collapsed: true,
-        items: lessons,
+        items: [{ text: "zano" }],
       },
       {
         text: "Showcase",

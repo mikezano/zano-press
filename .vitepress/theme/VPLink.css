@@ -1,0 +1,10 @@
+.VPLink{
+    margin:0;
+
+
+    & span{
+        font-size:0.7rem;
+        font-style:italic;
+        line-height:0;
+    }
+}
