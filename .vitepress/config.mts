@@ -22,9 +22,9 @@ function getMarkdownFiles(dir: string): { text: string; link: string }[] {
     .reverse();
 }
 
-const lessons = getMarkdownFiles("../src/lessons");
-const showcase = getMarkdownFiles("../src/showcase");
-const bugs = getMarkdownFiles("../src/bugs");
+const learningLessons = getMarkdownFiles("../src/markdown/learning-lessons");
+const showcase = getMarkdownFiles("../src/markdown/showcase");
+const bugs = getMarkdownFiles("../src/markdown/bugs");
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -52,16 +52,16 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: "Lessons",
-        collapsed: true,
-        items: lessons,
-      },
-      {
         text: "Showcase",
         collapsed: true,
         items: showcase,
       },
-      { text: "Bugs", collapsed: true, items: bugs },
+      {
+        text: "Experiments",
+        collapsed: true,
+        items: bugs,
+      },
+      { text: "Learning Lessons", collapsed: true, items: learningLessons },
     ],
 
     socialLinks: [

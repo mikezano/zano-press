@@ -4,7 +4,6 @@ layout: home
 
 hero:
   name: "css IS awesome"
-
   tagline: Figuring out css so you don't have to 🧠
   actions:
     - theme: brand
@@ -15,16 +14,16 @@ features:
   - icon: 🖼️
     title: Showcase
     details: Well thought out ideas put together in a solid piece
-    link: /markdown-examples
+    link: /markdown/learning-lessons
     linkText: Latest
   - icon: 🧪
     title: Experiments
-    details: Exploring new techniques
+    details: Exploring new techniques and seeing what is possible
     link: /markdown-examples
     linkText: Latest
   - icon: 🪲
-    title: Bugs
-    details: Problems you might have run into and the solution
+    title: Learning lessons
+    details: Going through fundamentals, talking about problems I've run across
     link: /markdown-examples
     linkText: Latest
 ---
