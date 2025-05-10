@@ -4,15 +4,9 @@ import prismjs from "vite-plugin-prismjs";
 import pugPlugin from "vite-plugin-pug";
 import { defineConfig } from "vitepress";
 
-//const markdown = import.meta.globEager("../src/lessons/*.md");
-// markdown = import.meta;
-//console.log("markdown", markdown);
-//Object.entries(markdown).forEach(([path, definition]) => {
-//const fileName = path.split("/").pop().replace(".md", "");
-//});
-
 function getMarkdownFiles(dir: string): { text: string; link: string }[] {
   const fullPath = path.resolve(__dirname, dir);
+
   return fs
     .readdirSync(fullPath)
     .filter((file) => file.endsWith(".md"))
@@ -24,7 +18,8 @@ function getMarkdownFiles(dir: string): { text: string; link: string }[] {
         text: result,
         link: dir.replace("../src", "") + "/" + file,
       };
-    });
+    })
+    .reverse();
 }
 
 const lessons = getMarkdownFiles("../src/lessons");
@@ -59,7 +54,7 @@ export default defineConfig({
       {
         text: "Lessons",
         collapsed: true,
-        items: [{ text: "zano" }],
+        items: lessons,
       },
       {
         text: "Showcase",
@@ -72,5 +67,17 @@ export default defineConfig({
     socialLinks: [
       { icon: "github", link: "https://github.com/vuejs/vitepress" },
     ],
+    search: {
+      provider: "local",
+      options: {
+        detailedView: true,
+        async _render(src, env, md) {
+          let html = await md.render(src);
+          html = html.replaceAll("{{$frontmatter.title}}", "");
+
+          return html;
+        },
+      },
+    },
   },
 });

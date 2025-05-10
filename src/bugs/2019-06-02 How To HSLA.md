@@ -2,14 +2,13 @@
 title: How to HSLAa
 description: A more programmatic way of creating colors
 date: 19.06.02
-tag: '#lessons'
+tag: "#lessons"
 ---
 
-# {{$page.frontmatter.title}}
+# {{$frontmatter.title}}
 
-<Badge :text="$page.frontmatter.date" />
-<Badge :text="$page.frontmatter.tag" />
-<Tweet />
+<Badge :text="$frontmatter.date" />
+<Badge :text="$frontmatter.tag" />
 
 Creating colors that work well together is hard. We commonly use hex values and RGBa values like `#000000` (hex) or `(0,0,0,1)` (RGBa) to get a black color and `#FFFFFF` or `(255,255,255,1)` to create white. Beyond that, changing any part of these values will most likely leave you guessing as to what color you've created. Enter HSLa... the more programmatic approach to creating colors.
 

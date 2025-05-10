@@ -1,6 +1,5 @@
-.VPLink{
+.VPLink.link.link:not(.VPNavBarMenuLink){
     margin:0;
-
 
     & span{
         font-size:0.7rem;
