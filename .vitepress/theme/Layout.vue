@@ -1,14 +1,14 @@
 <script setup>
-import DefaultTheme from 'vitepress/theme';
+import DefaultTheme from "vitepress/theme";
 
-
-const { Layout } = DefaultTheme
+const { Layout } = DefaultTheme;
 </script>
 
 <template>
-    <Layout>
-        <template #home-hero-image>
-            <!-- <CssSnips /> -->
-        </template>
-    </Layout>
+  <div id="bottom-right-dots"></div>
+  <Layout>
+    <template #home-hero-image>
+      <CssSnips />
+    </template>
+  </Layout>
 </template>

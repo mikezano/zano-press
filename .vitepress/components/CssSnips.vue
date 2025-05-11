@@ -56,11 +56,6 @@ const start = () => {
     });
 }
 
-
-
-onBeforeUnmount(() => {
-    clearInterval(interval);
-});
 </script>
 
 <style lang="scss">

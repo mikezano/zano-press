@@ -9,7 +9,7 @@
         line-height:0;
     }
 
-    & p{
+    & p.text{
         border-bottom:0.1rem solid transparent;
         line-height:1.2;
         transition: color 0.2s ease-in;
@@ -17,7 +17,7 @@
 
     }
 
-    & p::before{
+    & p.text::before{
         position: absolute;
         content: "";
 
@@ -25,7 +25,7 @@
         height:100%;
         border-bottom:0.1rem solid var(--vp-c-brand-1);
     }
-    & p:hover::before{
+    & p.text:hover::before{
         transition: width 0.2s ease-in-out;
         width:100%;
     }

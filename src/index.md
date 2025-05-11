@@ -7,23 +7,18 @@ hero:
   tagline: Figuring out css so you don't have to 🧠
   actions:
     - theme: brand
-      text: See Latest post ->
-      link: /markdown-examples
+      text: Latest post (Square Loader) ->
+      link: /markdown/showcase/2025-05-10 Square Loader
 
 features:
   - icon: 🖼️
     title: Showcase
     details: Well thought out ideas put together in a solid piece
-    link: /markdown/learning-lessons
+    link: /markdown/showcase/2019-04-01 Border Hover Effect
     linkText: Latest
-  - icon: 🧪
-    title: Experiments
-    details: Exploring new techniques and seeing what is possible
-    link: /markdown-examples
-    linkText: Latest
-  - icon: 🪲
+  - icon: 🧑‍🏫
     title: Learning lessons
     details: Going through fundamentals, talking about problems I've run across
-    link: /markdown-examples
+    link: /markdown/learning-lessons/2019-06-02 How To HSLA
     linkText: Latest
 ---
