@@ -24,7 +24,7 @@ function getMarkdownFiles(dir: string): { text: string; link: string }[] {
 
 const learningLessons = getMarkdownFiles("../src/markdown/learning-lessons");
 const showcase = getMarkdownFiles("../src/markdown/showcase");
-const bugs = getMarkdownFiles("../src/markdown/bugs");
+//const bugs = getMarkdownFiles("../src/markdown/bugs");
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -45,28 +45,17 @@ export default defineConfig({
   lastUpdated: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: "Home", link: "/" },
-      { text: "Examples", link: "/markdown-examples" },
-    ],
-
+    //nav: [],
     sidebar: [
       {
         text: "Showcase",
         collapsed: true,
         items: showcase,
       },
-      {
-        text: "Experiments",
-        collapsed: true,
-        items: bugs,
-      },
       { text: "Learning Lessons", collapsed: true, items: learningLessons },
     ],
 
-    socialLinks: [
-      { icon: "github", link: "https://github.com/vuejs/vitepress" },
-    ],
+    socialLinks: [{ icon: "github", link: "https://github.com/mikezano" }],
     search: {
       provider: "local",
       options: {

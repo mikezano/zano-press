@@ -1,3 +1,27 @@
 
 @import './VPHero.css';
 @import './VPLink.css';
+
+/* html.dark #bottom-right-dots{
+	background: 
+		var(--pattern, radial-gradient(closest-side, #aaa, transparent) 0/ 1em 1em space), 
+		var(--map, linear-gradient(0, black, #aaa));
+}
+
+#bottom-right-dots{
+	background: 
+		var(--pattern, radial-gradient(closest-side, #999, transparent) 0/ 1em 1em space), 
+		var(--map, linear-gradient(0, #aaa, white));
+	background-blend-mode: multiply;
+	filter: contrast(20); 
+	width:100vw;
+	height:100vh;;
+	position:fixed;
+    bottom:0;
+    right:0;
+} */
+
+/* body{
+
+background: linear-gradient(-45deg, var(--vp-c-brand-1) , transparent 20%, transparent 80%, var(--vp-c-brand-1) );
+} */
