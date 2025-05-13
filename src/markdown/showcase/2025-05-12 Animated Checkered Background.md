@@ -103,7 +103,7 @@ Just one div needed here 🤯. The magic will come in being able to defined mult
 
 ## CSS - initial background layer
 
-Let's start with one of the background layers and see what that looks like in isolated
+Let's start with one of the background layers and see what that looks like in isolation.
 
 ```css
 .animated-background {
@@ -120,7 +120,7 @@ Let's start with one of the background layers and see what that looks like in is
 }
 ```
 
-In the `background: linear-gradient` definition we start with an orientation of 45deg. This will slant the gradient going from bottom-left (0%) to top-right (100%). It starts with the color black and when is about ~25% through we start transitioning to the next color. In this case the "color" is transparent and starts at 25% as well. This causes transition between black and transparent to be immediate leaving a solid look triangle shape. We do the same towards the end of the gradient range to get a triangle shape on the top right.
+In the `background: linear-gradient` definition we start with an orientation of 45deg. This will slant the gradient going from bottom-left (0%) to top-right (100%). It starts with the color black and when is about ~25% through we start transitioning to the next color. In this case the "color" is transparent and starts at 25% as well. This causes transition between black and transparent to be immediate leaving a solid-looking triangle shape. We do the same towards the end of the gradient range to get a triangle shape on the top right.
 
 Note: The `.5%` added on the first black value helps in avoiding a very thin gap that can appear between it and the actual transparent value that only appears when all the pieces are put together.
 
@@ -135,13 +135,13 @@ Note: The `.5%` added on the first black value helps in avoiding a very thin gap
 }
 ```
 
-The initial size of our element is 200px by 200px. Using the `background-size` property we can shrink the "triangle" gradient to 100px by 100px and the "triangle" shapes repeated in each quadrant of the rectangle.
+The initial size of our `div` element is 200px by 200px. Using the `background-size` property we can shrink the "triangle" gradient to 100px by 100px to make the shapes repeat in each quadrant.
 
 <div class="animated-background layer-b"></div>
 
 ## CSS - multiple backgrounds
 
-`background` allows for multiple declarations to be defined with each being comma separated. We take advantage of that and other background properties in the following:
+As mentioned, `background` allows for multiple layers to be defined with each being comma separated. We take advantage of that to generate the following:
 
 ```css
 .animated-background {
@@ -161,7 +161,34 @@ The initial size of our element is 200px by 200px. Using the `background-size` p
 }
 ```
 
-`backgound` now has two `linear-gradient`'s defined with the second using green to better distinguish the triangles. `background-size` remains the same as before now applied to both layers to achieve the repetition in each quadrant of the element. `background-position` will control initial position of each layer in the `background`. The first remains the same and the second gets shifted in the x and y direction 50px and will yield:
+`background` now has two `linear-gradient`'s defined with the second using green to better distinguish the triangles in this example. `background-size` now has two layer values of 100px by 100px to acheive the same quadrant repetition from above. `background-position` will control initial position of each layer in the `background`. The first layer still stays at the bottom-left with `0,0` and the second gets shifted in the x and y direction 50px. Below on the left is the final result from the above changes, and on the right an animated visual to help understand how we get to this green-ish checkerboard.
 
-<div class="animated-background layer-c"></div>
+<div style="display:flex; gap:2rem">
+    <div class="animated-background layer-c" style="animation:none"></div>
+    <div class="animated-background layer-c"></div>
+</div>
+
+## CSS - moving the checkerboard
+
+All that remains is to add animation to the `background-position` to move everything in unison
+
+```css
+.animated-background {
+    ...
+    background: linear-gradient(...), linear-gradient(...), orange;
+    ...
+}
+@keyframes move {
+    100% {
+        background-position: 0 -400px, 50px -350px;
+    }
+}
 ```
+
+We do add one more layer `orange` to the `background` value so that there is a solid color behind all the transparent values from the `linear-gradient`'s defined before it. The `move` animation will simply pull everything 'upwards' on the screen mean that only the y-position value is moving. The value of 50px for the second layer comes from having to initially move that layer to acheive the checkerboard effect. The y value already started at 50px so it needs to move towards -350px to have the same net effect of moving updwards.
+
+<div class="animated-background"></div>
+
+[Full Demo on Codepen](https://codepen.io/_zan0/pen/GYpoKB?editors=0100)
+
+~ Zano
