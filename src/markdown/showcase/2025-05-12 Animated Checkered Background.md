@@ -95,7 +95,7 @@ A lot more than just solid colors and gradients are possible for backgrounds. Ho
 
 ## HTML setup
 
-Just one div needed here 🤯. The magic will come in being able to defined multiple backgrounds through CSS.
+Just one div needed here 🤯. The magic will come in being able to define multiple backgrounds on one element through CSS.
 
 ```html
 <div class="animated-background"></div>
@@ -120,7 +120,7 @@ Let's start with one of the background layers and see what that looks like in is
 }
 ```
 
-In the `background: linear-gradient` definition we start with an orientation of 45deg. This will slant the gradient going from bottom-left (0%) to top-right (100%). It starts with the color black and when is about ~25% through we start transitioning to the next color. In this case the "color" is transparent and starts at 25% as well. This causes transition between black and transparent to be immediate leaving a solid-looking triangle shape. We do the same towards the end of the gradient range to get a triangle shape on the top right.
+In the `background: linear-gradient(...)` definition we start with an orientation of 45deg. This will slant the gradient and go from bottom-left (0%) to top-right (100%). It starts with the color black and when it moves ~25% through we start transitioning to the next color. In this case the next "color" is transparent and starts at 25% as well. This causes an immediate transition between black and transparent value leaving a solid-looking triangle shape in place. We do the same towards the end of the gradient range to get a triangle shape on the top right.
 
 Note: The `.5%` added on the first black value helps in avoiding a very thin gap that can appear between it and the actual transparent value that only appears when all the pieces are put together.
 
@@ -141,20 +141,27 @@ The initial size of our `div` element is 200px by 200px. Using the `background-s
 
 ## CSS - multiple backgrounds
 
-As mentioned, `background` allows for multiple layers to be defined with each being comma separated. We take advantage of that to generate the following:
+Remember, `background` allows for multiple layers to be defined with each being comma separated. We take advantage of that to generate the following:
 
 ```css
 .animated-background {
     ...
-    background: linear-gradient(
-        45deg,
-        black 25.5%,
-        transparent 25%,
-        transparent 75%,
-        black 75%,
-        black 0
-    ), linear-gradient(45deg, green 25.5%, transparent 25%, transparent 75%, green
-        75%, green 0);
+    background:
+        linear-gradient( /* layer 1 */
+            45deg,
+            black 25.5%,
+            transparent 25%,
+            transparent 75%,
+            black 75%,
+            black 0
+        ),
+        linear-gradient( /* layer 2 */
+            45deg,
+            green 25.5%,
+            transparent 25%,
+            transparent 75%,
+            green 75%,
+            green 0);
     background-size: 100px 100px, 100px 100px;
     background-position: 0 0, 50px 50px;
 
@@ -185,7 +192,7 @@ All that remains is to add animation to the `background-position` to move everyt
 }
 ```
 
-We do add one more layer `orange` to the `background` value so that there is a solid color behind all the transparent values from the `linear-gradient`'s defined before it. The `move` animation will simply pull everything 'upwards' on the screen mean that only the y-position value is moving. The value of 50px for the second layer comes from having to initially move that layer to acheive the checkerboard effect. The y value already started at 50px so it needs to move towards -350px to have the same net effect of moving updwards.
+We do add one more layer `orange` to the `background` value so that there is a solid color behind all the transparent values from the `linear-gradient`'s defined before it. The `move` animation will simply pull everything 'upwards' on the screen by moving the y-position. The x value of 50px for the second layer comes from having to initially move that layer to acheive the checkerboard effect. The y value already started at 50px so it needs to move towards -350px to have the same net effect of moving updwards. The third solid color `orange` layer doesn't need any position properties specified since it will stay in place the entire time.
 
 <div class="animated-background"></div>
 

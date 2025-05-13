@@ -12,16 +12,16 @@ const showCase = [
 const loadedShowCase = showCase.map((name) => defineAsyncComponent(name));
 // console.log('loadedShowCase', loadedShowCase);
 
-// setInterval(() => {
-//     index.value = (index.value + 1) % showCase.length;
-// }, 5000);
+setInterval(() => {
+    index.value = (index.value + 1) % showCase.length;
+}, 5000);
 
 
 </script>
 
 <template>
     <Suspense>
-        <component :is="loadedShowCase[2]" />
+        <component :is="loadedShowCase[index]" />
     </Suspense>
 
 </template>

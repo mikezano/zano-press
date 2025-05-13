@@ -95,9 +95,9 @@ Let's look at what happens with the right side child element of the rectangle. F
 }
 ```
 
-- `position:absolute` lets us use `top` and `right` attributes with values that positionally would start inside the gray square. The `-1` multiplier here will help move the element on top of the right side edge of the parent `.loader` to behave as the animated border.
-- `width: var(--border-size)` makes it so that the `top`, `right` calculations size this element perfectly over the right side of the rectangle.
-- `background` creates a linear-gradient that uses the `var(--percent)` with a value of 50% in two adjacent parameters to which will cause an immediate color change.
+- `position:absolute` lets us use `top` and `right` attributes with values that positionally would start inside the gray square. The `-1` multiplier here will help move the element on top of the right side edge of the parent `.loader` to give color to the border.
+- `width: var(--border-size)` makes it so that this element perfectly fits over the right side of the rectangle.
+- `background` creates a linear-gradient that uses the `var(--percent)` with a value of 50% in two adjacent parameters which in effect make an immediate transition in color at the 50% mark.
 - `background-size` delcares the width and height of solely the background. The interesting piece here is height which is calculated to be twice the height of the element itself. The overflow of this element is hidden but is what allows us to animate it to simulate movement.
 
 With this in place (and animations turned off) the the square we start with now looks like:
