@@ -1,4 +1,4 @@
-.VPLink.link:not(.VPNavBarMenuLink){
+.VPLink.link:not(.VPNavBarMenuLink, .pager-link){
     margin:0;
 
 

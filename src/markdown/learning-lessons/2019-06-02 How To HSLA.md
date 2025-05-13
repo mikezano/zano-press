@@ -1,7 +1,7 @@
 ---
 title: How to HSLAa
 description: A more programmatic way of creating colors
-date: 19.06.02
+date: 2019.06.02
 tag: "#lessons"
 ---
 

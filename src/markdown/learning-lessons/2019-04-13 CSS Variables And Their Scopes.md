@@ -1,7 +1,7 @@
 ---
 title: CSS variables and their scopes
 description: A reminder on css variables and how they work
-date: 19.04.13
+date: 2019.04.13
 tag: "#lessons"
 ---
 

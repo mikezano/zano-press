@@ -34,9 +34,6 @@
 }
 
 .VPHero .heading .name {
-
-  margin:0;
-  width:500px;
   background: linear-gradient(to right, var(--title-start-gradient), var(--title-end-gradient), var(--title-start-gradient));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

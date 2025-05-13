@@ -1,8 +1,8 @@
 ---
 title: You better be absolutely sure
 description: Placing things on the right spot of the page is hard!
-date: 19.03.05
-tag: "#lessons"
+date: 2019.03.05
+tag: "#learning-lessons"
 ---
 
 # {{$frontmatter.title}}

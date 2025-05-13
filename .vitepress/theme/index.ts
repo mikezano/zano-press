@@ -8,7 +8,9 @@ export default {
   Layout,
   extends: DefaultTheme,
   enhanceApp({ app }) {
-    const components = import.meta.glob("../components/*.vue", { eager: true });
+    const components = import.meta.glob("../components/**/*.vue", {
+      eager: true,
+    });
     Object.entries(components).forEach(([path, definition]) => {
       const componentName = path.split("/").pop().replace(".vue", "");
       app.component(componentName, definition.default || definition);

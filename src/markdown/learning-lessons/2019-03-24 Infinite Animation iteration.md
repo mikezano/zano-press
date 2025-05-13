@@ -1,8 +1,8 @@
 ---
 title: Infinite animation iteration
 description: Will infinite animations trigger animationend ?
-date: 19.03.24
-tag: "#didyouknow"
+date: 2019.03.24
+tag: "#learning-lessons"
 ---
 
 # {{$frontmatter.title}}

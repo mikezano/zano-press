@@ -42,7 +42,6 @@ export default defineConfig({
   title: "zan0",
   description: "css IS awesome",
   srcDir: "./src",
-  lastUpdated: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     //nav: [],
