@@ -26,8 +26,7 @@ onMounted(() => {
     cssSnippets.value = rawCss.split('/**/');
     snippetsLength.value = cssSnippets.value.length;
 
-    console.log("rawCss", rawCss);
-    console.log("split", rawCss.split('/**/'));
+
     //console.log("cssSnippets.value", cssSnippets.value)
 
     const options = {

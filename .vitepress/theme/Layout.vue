@@ -8,7 +8,7 @@ const { Layout } = DefaultTheme;
   <div id="bottom-right-dots"></div>
   <Layout>
     <template #home-hero-image>
-      <ShowcaseComponents name="z" />
+      <ShowcaseComponents />
     </template>
   </Layout>
 </template>

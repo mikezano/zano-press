@@ -8,20 +8,21 @@ const showCase = [
     () => import('./showcase/SquareLoader.vue'),
     () => import('./showcase/CssSnips.vue'),
     () => import('./showcase/AnimatedBackground.vue'),
+    () => import('./showcase/ThreeDButton.vue'),
 ];
 const loadedShowCase = showCase.map((name) => defineAsyncComponent(name));
 // console.log('loadedShowCase', loadedShowCase);
 
-setInterval(() => {
-    index.value = (index.value + 1) % showCase.length;
-}, 5000);
+// setInterval(() => {
+//     index.value = (index.value + 1) % showCase.length;
+// }, 5000);
 
 
 </script>
 
 <template>
     <Suspense>
-        <component :is="loadedShowCase[index]" />
+        <component :is="loadedShowCase[3]" />
     </Suspense>
 
 </template>
