@@ -1,30 +1,29 @@
 <script setup>
 
 import { defineAsyncComponent, ref } from 'vue';
+import { showcaseComponents } from './ShowcaseComponents';
 
 const index = ref(0);
+const loadedShowCase =
+    showcaseComponents.map((component) =>
+        defineAsyncComponent(component.importPath)
+    );
 
-const showCase = [
-    () => import('./showcase/SquareLoader.vue'),
-    () => import('./showcase/CssSnips.vue'),
-    () => import('./showcase/AnimatedBackground.vue'),
-    () => import('./showcase/ThreeDButton.vue'),
-];
-const loadedShowCase = showCase.map((name) => defineAsyncComponent(name));
-// console.log('loadedShowCase', loadedShowCase);
-
-// setInterval(() => {
-//     index.value = (index.value + 1) % showCase.length;
-// }, 5000);
+setInterval(() => {
+    index.value = (index.value + 1) % showcaseComponents.length;
+}, 5000);
 
 
 </script>
 
 <template>
     <Suspense>
-        <component :is="loadedShowCase[3]" />
+        <component :is="loadedShowCase[index]" />
     </Suspense>
-
+    <a class="description" :href="showcaseComponents[index].link">
+        {{ showcaseComponents[index].name }}
+        {{ showcaseComponents[index].description }}
+    </a>
 </template>
 
 <style>
@@ -32,5 +31,13 @@ const loadedShowCase = showCase.map((name) => defineAsyncComponent(name));
     border: 0.1rem solid var(--vp-c-gray-3);
     background-color: var(--vp-c-bg-soft);
     border-radius: 0.4rem;
+}
+
+.VPHero .description {
+    position: absolute;
+    bottom: -2rem;
+    right: 0;
+    text-decoration: underline;
+    ;
 }
 </style>

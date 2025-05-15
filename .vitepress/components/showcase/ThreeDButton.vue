@@ -3,8 +3,6 @@
 </template>
 
 <style>
-:root {}
-
 .three-d,
 .three-d:before,
 .three-d:after {

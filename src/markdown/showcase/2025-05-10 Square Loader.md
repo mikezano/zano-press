@@ -143,7 +143,3 @@ Adding on to before it should look like:
 </div>
 
 ~ Zano
-
-```
-
-```
