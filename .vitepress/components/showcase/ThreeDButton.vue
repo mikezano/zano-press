@@ -17,6 +17,8 @@
 
 .three-d {
     --size: 10px;
+    --half-size: calc(var(--size) / 2);
+    --quarter-size: calc(var(--size) / 4);
     --deg: 45deg;
     --teal: hsla(180, 40%, 50%, 1);
     --plum: hsla(320, 45%, 45%, 1);
@@ -33,7 +35,7 @@
 }
 
 .three-d:before {
-    left: calc(var(--size) / 2);
+    left: var(--half-size);
     bottom: calc(-1 * var(--size));
     width: 100%;
     height: var(--size);
@@ -42,7 +44,7 @@
 }
 
 .three-d:after {
-    top: calc(var(--size) / 2);
+    top: var(--half-size);
     right: calc(-1 * var(--size));
     width: var(--size);
     height: 100%;
@@ -51,19 +53,18 @@
 }
 
 .three-d:active {
-    --half-size: calc(var(--size) / 2);
     transform: translate(var(--half-size), var(--half-size));
 }
 
-.three-d:active:after {
-    top: calc(var(--size) / 4);
-    right: calc(-1 * var(--size) / 2);
-    width: calc(var(--size) / 2);
+.three-d:active:before {
+    left: var(--quarter-size);
+    bottom: calc(-1 * var(--half-size));
+    height: var(--half-size);
 }
 
-.three-d:active:before {
-    left: calc(var(--size) / 4);
-    bottom: calc(-1 * var(--size) / 2);
-    height: calc(var(--size) / 2);
+.three-d:active:after {
+    top: var(--quarter-size);
+    right: calc(-1 * var(--half-size));
+    width: var(--half-size);
 }
 </style>

@@ -122,7 +122,7 @@ Let's start with one of the background layers and see what that looks like in is
 
 In the `background: linear-gradient(...)` definition we start with an orientation of 45deg. This will slant the gradient and go from bottom-left (0%) to top-right (100%). It starts with the color black and when it moves ~25% through we start transitioning to the next color. In this case the next "color" is transparent and starts at 25% as well. This causes an immediate transition between black and transparent value leaving a solid-looking triangle shape in place. We do the same towards the end of the gradient range to get a triangle shape on the top right.
 
-Note: The `.5%` added on the first black value helps in avoiding a very thin gap that can appear between it and the actual transparent value that only appears when all the pieces are put together.
+Note: The `.5%` added on the first black value helps in avoiding a very thin gap that can appear between it and the triangle from second layer that will be applied later on.
 
 <div class="animated-background layer-a"></div>
 
