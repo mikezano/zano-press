@@ -7,14 +7,14 @@ hero:
   tagline: Figuring out css so you don't have to 🧠
   actions:
     - theme: brand
-      text: Latest post (Square Loader) ->
-      link: /markdown/showcase/2025-05-10 Square Loader
+      text: Latest post (3D Button) ->
+      link: /markdown/showcase/2025-05-14 3D Button
 
 features:
   - icon: 🖼️
     title: Showcase
     details: Well thought out ideas put together in a solid piece
-    link: /markdown/showcase/2019-04-01 Border Hover Effect
+    link: /markdown/showcase/2025-05-14 3D Button
     linkText: Latest
   - icon: 🧑‍🏫
     title: Learning lessons

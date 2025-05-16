@@ -16,12 +16,12 @@ Creating colors that work well together is hard. We commonly use hex values and 
 
 Creating a color with HSLa consists of three parts as described in the table below:
 
-| HSLa       | Description                                                                                                                                                                                                                                                                            |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Hue        | A degree value from 0 - 360 which comes from the following color wheel range (displayed in linear fashion). ![An image](../.vuepress/public/images/posts/hsla-hue.png) Values near 0 or 360 will result in reds. Around the 120's you have greens and around the 240's you have blues. |
-| Saturation | A percentage value from 0 - 100%. Represents how 'strong' the color would be, a value of `0` would leave you with no color (gray) and `100%` would be a very vibrant version of the color.                                                                                             |
-| Light      | A percentage value from 0 - 100%. A value of 0 represents no light at all, meaning you would get black. 100% means too much light and results in white. Think of this value as what would happen if you move a flashlight towards and away from your color.                            |
-| Alpha      | A decimal value between 0 and 1 or percentage from 0% - 100%. Determines how 'see-through' (opaque) your value is.                                                                                                                                                                     |
+| HSLa       | Description                                                                                                                                                                                                                                                   |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hue        | A degree value from 0 - 360 which comes from the following color wheel range (displayed in linear fashion). ![An image](/images/hsla-hue.png) Values near 0 or 360 will result in reds. Around the 120's you have greens and around the 240's you have blues. |
+| Saturation | A percentage value from 0 - 100%. Represents how 'strong' the color would be, a value of `0` would leave you with no color (gray) and `100%` would be a very vibrant version of the color.                                                                    |
+| Light      | A percentage value from 0 - 100%. A value of 0 represents no light at all, meaning you would get black. 100% means too much light and results in white. Think of this value as what would happen if you move a flashlight towards and away from your color.   |
+| Alpha      | A decimal value between 0 and 1 or percentage from 0% - 100%. Determines how 'see-through' (opaque) your value is.                                                                                                                                            |
 
 <style>
 .wt{color:white;}
