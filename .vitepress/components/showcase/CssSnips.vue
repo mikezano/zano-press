@@ -8,7 +8,7 @@ div
 <script setup>
 import Typed from 'typed.js';
 import { onMounted, ref } from 'vue';
-const cssFiles = import.meta.glob('./CssSnips.css', { as: 'raw', eager: true });
+const cssFiles = import.meta.glob('./CssSnips.css', { query: '?raw', import: 'default' });
 const rawCss = cssFiles['./CssSnips.css'];
 
 

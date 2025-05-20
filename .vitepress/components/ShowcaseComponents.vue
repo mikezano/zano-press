@@ -1,12 +1,20 @@
 <script setup>
 
-import { defineAsyncComponent, defineComponent, h, ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 import { showcaseComponents } from './ShowcaseComponents';
 
 const index = ref(0);
-setInterval(() => {
-    index.value = (index.value + 1) % showcaseComponents.length;
-}, 5000);
+let intervalId;
+
+onMounted(() => {
+    intervalId = setInterval(() => {
+        index.value = (index.value + 1) % showcaseComponents.length;
+    }, 5000);
+});
+
+onUnmounted(() => {
+    clearInterval(intervalId);
+});
 
 </script>
 
