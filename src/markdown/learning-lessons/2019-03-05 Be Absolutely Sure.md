@@ -12,7 +12,7 @@ tag: "#learning-lessons"
 
 How many times have you been tasked with positioning an element on a page and end up in this cycle...
 
-![An image](../.vuepress/public/images/posts/family-guy.gif)
+![CSS Woes](/images/family-guy.gif)
 
 🤦‍♂️, right ? Let's recreate this face palming scenario and try to understand what might be happening in these situations. Let's start with this markup...
 

@@ -1,28 +1,31 @@
 export interface ShowcaseComponents {
   description: string;
   link: string;
-  importPath: () => Promise<any>;
+  component: string;
 }
 
-type ImportFunction = () => Promise<any>;
-
-const getImportPath = (path: string): ImportFunction => {
-  return () => import(`./showcase/${path}.vue`);
-};
+// export const createDynamicComponent = (componentName: string) => {
+//   return defineComponent({
+//     name: componentName,
+//     render() {
+//       return h(componentName);
+//     },
+//   });
+// };
 export const showcaseComponents: ShowcaseComponents[] = [
   {
     description: "Square Spinner",
-    importPath: getImportPath("SquareLoader"),
+    component: "SquareLoader",
     link: "/markdown/showcase/2025-05-10 Square Loader.html",
   },
   {
     description: "Animated Background",
-    importPath: getImportPath("AnimatedBackground"),
+    component: "AnimatedBackground",
     link: "/markdown/showcase/2025-05-10 Square Loader.html",
   },
   {
     description: "3D Button",
-    importPath: getImportPath("ThreeDButton"),
+    component: "ThreeDButton",
     link: "/markdown/showcase/2025-05-10 Square Loader.html",
   },
 ];

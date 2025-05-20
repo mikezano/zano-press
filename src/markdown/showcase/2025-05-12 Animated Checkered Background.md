@@ -91,7 +91,7 @@ background: linear-gradient(
 <Badge :text="$frontmatter.date" />
 <Badge :text="$frontmatter.tag" />
 
-A lot more than just solid colors and gradients are possible for backgrounds. How about a multi layered gradient background that can yield the following ? Practial ? Maybe not, but I do use something like this on my [personal website](michaelmanzano.com) Let's look at how it works...
+A lot more than just solid colors and gradients are possible for backgrounds. How about a multi layered gradient background that can yield the following ? Practial ? Maybe not, but I do use something like this on my [personal website](https://michaelmanzano.com) Let's look at how it works...
 
 <AnimatedBackground />
 
@@ -187,16 +187,17 @@ All that remains is to add animation to the `background-position` to move everyt
 .animated-background {
     ...
     background: linear-gradient(...), linear-gradient(...), orange;
+    animation: move-background 10s linear infinite;
     ...
 }
-@keyframes move {
+@keyframes move-background {
     100% {
         background-position: 0 -400px, 50px -350px;
     }
 }
 ```
 
-We do add one more layer `orange` to the `background` value so that there is a solid color behind all the transparent values from the `linear-gradient`'s defined before it. We also change the coloring on the triangles to `black` to make it look like a full square. The `move` animation will simply pull everything 'upwards' on the screen by moving the y-position. The x value of 50px for the second layer comes from having to initially move that layer to acheive the checkerboard effect. The y value of this second layer already started at 50px so it needs to move towards -350px to have the same net distance of moving updwards `400px` . The third solid color `orange` layer doesn't need any position properties specified since it will stay in place the entire time.
+We do add one more layer `orange` to the `background` value so that there is a solid color behind all the transparent values from the `linear-gradient`'s defined before it. We also change the coloring on the triangles to `black` to make it look like a full square. The `move-background` animation will simply pull everything 'upwards' on the screen by moving the y-position. The x value of 50px for the second layer comes from having to initially move that layer to acheive the checkerboard effect. The y value of this second layer already started at 50px so it needs to move towards -350px to have the same net distance of moving updwards `400px` . The third solid color `orange` layer doesn't need any position properties specified since it will stay in place the entire time.
 
 <div class="animated-background"></div>
 

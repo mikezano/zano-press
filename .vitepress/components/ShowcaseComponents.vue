@@ -1,24 +1,18 @@
 <script setup>
 
-import { defineAsyncComponent, ref } from 'vue';
+import { defineAsyncComponent, defineComponent, h, ref } from 'vue';
 import { showcaseComponents } from './ShowcaseComponents';
 
 const index = ref(0);
-const loadedShowCase =
-    showcaseComponents.map((component) =>
-        defineAsyncComponent(component.importPath)
-    );
-
 setInterval(() => {
     index.value = (index.value + 1) % showcaseComponents.length;
 }, 5000);
-
 
 </script>
 
 <template>
     <Suspense>
-        <component :is="loadedShowCase[index]" />
+        <component :is="showcaseComponents[index].component" />
     </Suspense>
     <a class="description" :href="showcaseComponents[index].link">
         {{ showcaseComponents[index].name }}
