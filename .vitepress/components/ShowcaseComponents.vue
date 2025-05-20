@@ -40,6 +40,5 @@ onUnmounted(() => {
     bottom: -2rem;
     right: 0;
     text-decoration: underline;
-    ;
 }
 </style>
