@@ -4,14 +4,6 @@ export interface ShowcaseComponents {
   component: string;
 }
 
-// export const createDynamicComponent = (componentName: string) => {
-//   return defineComponent({
-//     name: componentName,
-//     render() {
-//       return h(componentName);
-//     },
-//   });
-// };
 export const showcaseComponents: ShowcaseComponents[] = [
   {
     description: "Square Spinner",
