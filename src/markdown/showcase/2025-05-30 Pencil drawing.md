@@ -10,7 +10,7 @@ tag: "#showcase"
 <Badge :text="$frontmatter.date" />
 <Badge :text="$frontmatter.tag" />
 
-No javascript here, this little 'scribble' is actually a result of SVG animation via CSS using the `stroke-dashoffset` property.
+No javascript here, this little 'scribble' is actually a result of SVG animation via CSS using the `stroke-dashoffset` property. Check it out 👁️
 
 <div style="display:flex; gap:1rem">
 <AnimatedPathDrawing id="heart" path="M100 180 C 60 140, 20 100, 20 60 C 20 20, 60 20, 100 60 C 140 20, 180 20, 180 60 C 180 100, 140 140, 100 180 Z"/>
@@ -94,21 +94,20 @@ To ensure the drawing and pencil will actually remain on top of each other and c
 
 ## Drawing a straight line
 
-A single line svg path for our paper of of size`200px` can be expressed as follows:
+[Path expresssions](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch/Paths) in SVGs can be expressed through a combination of letters and numeric coordinates. A simple line can look as follows:
 
-`M 100 20 L 100 180 Z`
+`M 100 20 L 100 180`
 
-Here's what each piece means
+Funky lookin', but here's how it breaks down:
 
 | Command   | Description                                    |
 | --------- | ---------------------------------------------- |
 | M 100 20  | Move (without drawing) to coordinates (100,20) |
 | L 100 180 | Start drawing a line down to (100,180)         |
-| Z         | Stop drawing                                   |
 
 We plug this in at the mark up and have this on the `path` element
 
-`<path d="M 100 20 L 100 180 Z" pathLength="1" />`
+`<path d="M 100 20 L 100 180" pathLength="1" />`
 
 Here's how that would look when animated:
 
@@ -118,7 +117,7 @@ Here's how that would look when animated:
 
 </style>
 <div class="path-only">
-    <AnimatedPathDrawing id="line" path="M 100 20 L 100 180 Z"/>
+    <AnimatedPathDrawing id="line" path="M 100 20 L 100 180"/>
 </div>
 
 ## The actual origin of the SVG
