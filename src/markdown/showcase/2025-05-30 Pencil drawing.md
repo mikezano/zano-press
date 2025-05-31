@@ -1,11 +1,14 @@
 ---
-title: 3D Button
-description: Buttons can come off the page
-date: 2025.05.14
+title: "Hand drawn scribbles"
+description: SVG paths being drawin in
+date: 2025.05.31
 tag: "#showcase"
 ---
 
-# Hand drawn scribbles
+# "Hand" drawn scribbles
+
+<Badge :text="$frontmatter.date" />
+<Badge :text="$frontmatter.tag" />
 
 No javascript here, this little 'scribble' is actually a result of SVG animation via CSS using the `stroke-dashoffset` property.
 

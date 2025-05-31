@@ -7,8 +7,8 @@ hero:
   tagline: Figuring out css so you don't have to 🧠
   actions:
     - theme: brand
-      text: Latest post (3D Button) ->
-      link: /markdown/showcase/2025-05-14 3D Button
+      text: Latest post (Scibbler) ->
+      link: /markdown/showcase/2025-05-30 Pencil drawing
 
 features:
   - icon: 🖼️
