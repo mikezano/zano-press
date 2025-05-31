@@ -1,21 +1,26 @@
 <template>
-    <div id="paper">
-        <svg id="drawn-path" viewBox="0 0 200 200">
+    <div :class="`paper ${id}`">
+        <svg class=" drawn-path">
             <path :d="path" pathLength="1" />
         </svg>
-        <div id="pencil">✏️</div>
+        <div class="pencil">✏️</div>
     </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
 
-const props = defineProps<{
-    path: string;
-}>();
+interface Props {
+    path?: string;
+    id?: string;
+}
+const props = withDefaults(defineProps<Props>(), {
+    path: "M 90 60 L 90 80 L 110 100 L 130 80 L 130 60 L 90 20 L 50 60 L 50 80 L 90 120 L 90 140 L 90 120 L 70 100 L 50 120 L 50 150 L 90 180 L 130 150 L 130 120 L 110 100",
+    id: "cool-s"
+});
 
 onMounted(() => {
-    const paper = document.getElementById('paper');
+    const paper = document.querySelector(`.${props.id} .pencil`);
     if (paper) {
         //Can't set only the path value and use it later in offset-path wrapped in path
         //need to set the property with the whole function wrapped
@@ -28,7 +33,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
-#paper {
+.paper {
     --duration: 2s;
     --size: 200px;
     /* --path: ""; set in JS */
@@ -37,16 +42,15 @@ onMounted(() => {
     place-content: center;
     width: var(--size);
     height: var(--size);
-    box-shadow: 0 0 1rem #bbb;
+    box-shadow: 0 0 1rem hsla(0, 0%, 0%, 0.3);
 
-    background: linear-gradient(to bottom, white 10px, lightblue 11px, white 12px);
+    background: linear-gradient(to bottom, white 19px, deepskyblue 20px);
     background-size: 100% 20px;
     background-repeat: repeat-y;
-
 }
 
-#drawn-path,
-#pencil {
+.drawn-path,
+.pencil {
     position: absolute;
     grid-column: 1;
     grid-row: 1;
@@ -54,40 +58,34 @@ onMounted(() => {
     width: var(--size);
 }
 
-#drawn-path {
+.drawn-path {
     transform: translate(-50%, -50%);
 
     & path {
         fill: none;
         stroke: gray;
         stroke-width: 2;
-        stroke-linejoin: round;
         stroke-dasharray: 1;
         stroke-dashoffset: 1;
         animation: draw var(--duration) linear infinite;
+
     }
 }
 
-#pencil {
+.pencil {
     transform: translateY(-20px) translateX(-4px);
     offset-path: var(--path);
     offset-rotate: 0deg;
-    animation: move-me var(--duration) linear infinite;
-
+    offset-distance: 0;
+    animation: write var(--duration) linear infinite;
 }
 
 
-@keyframes move-me {
-    from {
-        offset-distance: 0%;
-    }
-
+@keyframes write {
     to {
         offset-distance: 100%;
     }
 }
-
-
 
 @keyframes draw {
     to {
