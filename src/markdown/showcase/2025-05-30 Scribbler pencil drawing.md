@@ -10,7 +10,7 @@ tag: "#showcase"
 <Badge :text="$frontmatter.date" />
 <Badge :text="$frontmatter.tag" />
 
-No javascript here, this little 'scribble' is actually a result of SVG animation via CSS using the `stroke-dashoffset` property. Check it out 👁️
+No javascript here, these little 'scribbles' are actually a result of SVG animation via CSS using the `stroke-dashoffset` property. Check it out 👁️
 
 <div style="display:flex; gap:1rem">
 <AnimatedPathDrawing id="heart" path="M100 180 C 60 140, 20 100, 20 60 C 20 20, 60 20, 100 60 C 140 20, 180 20, 180 60 C 180 100, 140 140, 100 180 Z"/>
@@ -33,7 +33,13 @@ No javascript here, this little 'scribble' is actually a result of SVG animation
 
 - `.paper` sets up a container that looks like actual notebook paper 📃.
 - The svg `.drawn-path` element is responsible for holding the `path` element which will specify what actually is drawn.
+- The `pathLength` attribute helps in saying "treat the entire length of this path as 1 unit". Without it you'll see the path broken up into segments.
 - The `.pencil` will be "following" the same path to make it look like a proper scribble.
+
+  **Note on the `<path />`**
+
+  - The path needs to be a single stroke as animating multiple strokes are not supported.
+  - You can't set this value via CSS , but you can specify SVG paths for other html elements such as the `.pencil` which we will see later
 
 ## Make .paper look like paper
 
@@ -76,7 +82,7 @@ Our piece of 'paper' has the following variables and containment definitions.
 
 ## Centering the drawing and pencil
 
-To ensure the drawing and pencil will actually remain on top of each other and centered we need the following:
+To ensure the drawing and pencil will actually remain on top of each other and centered while in motion we need to prep the following:
 
 ```css
 .drawn-path,
@@ -89,7 +95,7 @@ To ensure the drawing and pencil will actually remain on top of each other and c
 }
 ```
 
-- `grid-colum` and `grid-row` are key to having the same value so that these elements occupy the same cell of the grid
+- `grid-colum` and `grid-row` are key so that these elements occupy the same cell of the grid
 - Note that we do specify the `width` and `height` to be the same value to keep everything sized correctly
 
 ## Drawing a straight line
@@ -105,7 +111,7 @@ Funky lookin', but here's how it breaks down:
 | M 100 20  | Move (without drawing) to coordinates (100,20) |
 | L 100 180 | Start drawing a line down to (100,180)         |
 
-We plug this in at the mark up and have this on the `path` element
+We plug this in to the markup on the the `d` attribute of the `path` element
 
 `<path d="M 100 20 L 100 180" pathLength="1" />`
 
@@ -122,7 +128,7 @@ Here's how that would look when animated:
 
 ## The actual origin of the SVG
 
-(0,0) in our display's coordinate system usually means to start from the top-left corner. Our SVG line looks like it followed that principle but in reality for SVG (0,0) means start from the "middle" of something. If we let SVG do it's own thing the drawing would look 'shifted' and go off the page. We have to do some `translate` magic to acheive the affect we need and add some other CSS details demonstrated below:
+(0,0) in our display's coordinate system usually means to start from the top-left corner. Our SVG line looks like it followed that principle but in reality for SVG (0,0) means start from the "middle" in this case. If we let SVG do it's own thing the drawing would look 'shifted' and go off the page. We have to do some `translate` magic to acheive the affect we need and add some other CSS details demonstrated below:
 
 ```css
 .drawn-path {
@@ -148,13 +154,13 @@ Here's how that would look when animated:
 🔑 points:
 
 - The `transform` you see shifting the element `(-50%,-50%)` is the key ingredient that visually centers our scibble within the paper confines.
-- We use CSS nesting with the `& path` to better target the element we want to affect
+- We use CSS nesting with the `& path` to better target the SVG element
 - For `fill:none`, we only care about the 'edges' of our drawing, in the case of a line there is nothing to 'fill' in so, `none` is a good value for our scribbling purposes
 - `stroke` is the color of the line and `stroke-width` controls the thickness
-- Think of `stroke-dasharray` as the answer to "How many segments do you want your line to be composed of ?". In this case we want a solid single line therefore we use `1`
-- Think of `stroke-dashoffset` as the answer to "How much of the line do you want drawn in ?" It's range is 0 to 1 and in this case a positive value of 1 actually shifts things backwards so nothing will be drawn in. By animatin this with the `draw` animation we take the `stroke-dashoffset` value to 0 which essentially 'draws' it in
+- Think of `stroke-dasharray` as the answer to "How many segments do you want your line to be composed of ?". In this case we want a solid single line therefore we use `1` which also helps us stay in conjunction with the `pathLength` attribute that was set.
+- Think of `stroke-dashoffset` as the answer to "How much of the line do you want drawn in ?" In this case a positive value of 1 actually shifts things backwards so nothing will be drawn in. By animating this with the `draw` animation we take the `stroke-dashoffset` value to 0 which essentially 'draws' it back in.
 
-Here's a visual of what would happen if we didn't do the `transform: translate(...)`
+Here's a visual of what would happen if we didn't do the `transform: translate(...)` on a heart shape path.
 
 <style>
     .no-transform{margin-bottom:1rem;}
@@ -168,7 +174,7 @@ Here's a visual of what would happen if we didn't do the `transform: translate(.
 
 ## Make the pencil work
 
-Finally the pencil, not as complex as the SVG portion, but we want our pencil to essentially 'follow' the drawing. That can be acheived with this:
+Finally the pencil, not as complex as the SVG portion, but we want our pencil to essentially 'follow' the drawing. That can be acheived with:
 
 ```css
 .pencil {
@@ -188,14 +194,18 @@ Finally the pencil, not as complex as the SVG portion, but we want our pencil to
 
 🔑 points:
 
-- `transform` here is a bit of manual work just to get the pencil's tip right on the path of the svg drawing. No exact science here just kinda have to visually work it out.
+- `transform` here is a bit of manual work just to get the pencil's tip right on the path of the svg drawing. No exact science here just have to visually work it out.
 - `offset-path` this is what gives the pencil a path to follow. We use the same value used on the `path` element and supply to the CSS function `path(...)` [more info](https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path)
 - `offset-rotate` prevents the pencil from actually rotating along the path drawn. We want the pencil to stay upright while moving.
 - `offset-distance` is where in the path to start. We start at the beginning, hence `0`
-- Our animation `write` then takes care of the rest. It maches the duration, timing-function and repeats infintely to stay in sync with the svg being drawn in. The `offset-distance` is set to `100%` during its animationso the pencil start traveling.
+- Our animation `write` then takes care of the rest. It matches the duration, timing-function and repeats infintely to stay in sync with the svg being drawn in. The `offset-distance` is set to `100%` during its animation so the pencil starts moving.
 
 Put it all together and you can draw single stroke elements like the good ol' cool S :D
 
 <AnimatedPathDrawing />
+
+[Full demo on codepen](https://codepen.io/_zan0/pen/OPVywoR)
+
+And if you need a good editor to create some paths try out [svg-path-editor](https://yqnn.github.io/svg-path-editor/)
 
 -zan0
