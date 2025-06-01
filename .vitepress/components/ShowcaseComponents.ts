@@ -8,7 +8,7 @@ export const showcaseComponents: ShowcaseComponents[] = [
   {
     description: "Scribbler",
     component: "AnimatedPathDrawing",
-    link: "/markdown/showcase/2025-05-30 Pencil drawing.html",
+    link: "/markdown/showcase/2025-05-30 Scribbler pencil drawing.html",
   },
   {
     description: "3D Button",
