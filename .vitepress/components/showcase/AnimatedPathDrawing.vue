@@ -3,7 +3,8 @@
         <svg class=" drawn-path">
             <path :d="path" pathLength="1" />
         </svg>
-        <div class="pencil">.</div>
+        <img class="pencil"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAt9JREFUSEuNVktPE1EYPXc6zFigRWmIBRJCWyOaGInvuBAwwbgFY1zaBhdEDGyNe/kDoKi4sLN2UWNcaFxA6lLrwsSFUUmMSDGN0ZAwtsN0xsyjnXu5d4qTNL1zH9/jfOd8dwiaDwFgC97Y+WC/P3KX6T277ASv4ZvCgqDnCWwqPPYEEBakP/8/runM6KAJnSGXrRgPdpYAdvLBI1K+Oc0sUME1wXTT3APy3XCZ/fe1SDJ6Hf2dy+T5NdcJk3EQtcCyACLXgT+/sLiY75Xjx668bB+W+qIyfuhNJ94e4v75B8Ks0WwJ4tdXEoXXP2+fRHRooEeJlc49rAxLG7qMdX2ZlG/5cDUccDachQZc/NgqKnmoVtZSI2ulrcdy+XfXgLHxpzQ5v/1RXp/J0ll6GYRRmisy4BgnipXFPgtQLdSrytqLT3fl75XoyuzcbM7h6m7WiTEQGLeLah5qPesYdn+1CFAj+Kt3PWu/+GvSO8JCTdVA4IcKxXZgiVhZSAToNIE6gV2TQGqSRkZ2coHQ+I7AQkRH4Y/tYlseip1FxCGGDVIngEWAHWhk1AhgCSFiyxpwsGy1AXUAJtHIiJFrwEK3itY1oORsv1HycArq4K1YgOFhDkPSyIWdnNscm3xv9CLWPMMiuq7V1UxBjX6bCAoqATXJwV2TaFg4SFleMkVu+P6wMLEaGzqT6kssmUrHRtotZlUCDKJJI0au0U7ETTC0yMFCaX70rdzZrcePnB7sTdwz1XolDZ8tLe8MrsiMkr3VmauXD904Uf3sJCp3dBfjR08N9qlP3qtjX12e7x01rXxvP/OMXxqf2q/a03fOm2cBvGuLdW8fnyuMMSLiRMjD4sEoyCCTzhRT6VT+8IFIcenpqy8CQQvSEDigdNscJpMHezY3NyuOBfpuCI6HGfL3+4xiGyUlM07ulCbC+oz3mdAiA9oGHan4Ehf0AkFrYQQYdoSVS0BODi62eXIl+wdgD0cxMIk2FgAAAABJRU5ErkJggg==" />
     </div>
 </template>
 
@@ -27,7 +28,6 @@ onMounted(() => {
         //https://developer.mozilla.org/en-US/docs/Web/CSS/offset-path
         //paper.style.setProperty('--path', props.path);
         paper.style.setProperty('--path', `path("${props.path}")`);
-
     }
 });
 </script>
@@ -36,6 +36,7 @@ onMounted(() => {
 .paper {
     --duration: 2s;
     --size: 200px;
+    --half-size: calc(var(--size) / 2);
     /* --path: ""; set in JS */
     position: relative;
     display: grid;
@@ -54,6 +55,8 @@ onMounted(() => {
     position: absolute;
     grid-column: 1;
     grid-row: 1;
+    transform: translate(calc(-1 * var(--half-size)),
+            calc(-1 * var(--half-size)));
 }
 
 
@@ -61,7 +64,7 @@ onMounted(() => {
 .drawn-path {
     height: var(--size);
     width: var(--size);
-    transform: translate(-50%, -50%);
+
 
     & path {
         fill: none;
@@ -75,10 +78,10 @@ onMounted(() => {
 }
 
 .pencil {
-
-    width: 7px;
-    height: 24px;
-    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAYCAYAAADH2bwQAAAAAXNSR0IArs4c6QAAAdRJREFUOE9tkjtvE0EUhb8hfmQNHW4WEaREonRFg4AKiU0BLYVdIGio+SOho+EPRNBQh4bSQQIa0yVeOyKerJNgB+1slLWJL7qzxgTBSqt9nDPncWfMTCQ0G22LgGQTTDaBbMq30RE33jytGxEJZaNtDXhAXEEajI9Y2VTCTEJebltUQle7KWQ5++NjVjaf1c3CAlNYnCopZzA65rpXEAnjOLZBLcCljjRNcc5hraXVbBYWca9rg9plMiU4h3Mpg/0BzVbrgkJQ80ChkGLtAc2WKmiLYWRNuQr5EMktZpLQ311m9WE2b3H4wEqpiskTyA8gT+jHQUHwLQ4jy9IyTBQs7n43YPWRKsgslOG6NaWKByRPCotuwNofi8iiGSYJnFmfpd/VDKdFSIaRxSskhc1ZQi8OWPvLYt6CXBXU4mKLbmj5meh2La7vY6jfYd5i95onCIIRwMDoBK4qYdGiXPHe/8zBb7fOoVSFadFC8iF7iwzawg+q7AHjhzWv+b8Wv/eit6M1Xd1ooJ23d6Pzc7b0HREwhqVLsn7zcfu9P4oKdN692DLGRPp58mPy4d6TV/f1f0EAGo3GLRE+6dm8Uqne3v7y+aOCC8Kc9FyfXzud1+Lt4BfcN1azblSuCgAAAABJRU5ErkJggg==");
+    top: -6px;
+    left: 6px;
+    width: 21px;
+    height: 21px;
     offset-path: var(--path);
     offset-rotate: 0deg;
     offset-distance: 0;
