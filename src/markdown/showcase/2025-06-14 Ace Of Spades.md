@@ -16,9 +16,9 @@ How about some dual sided elements that make use of `backface-visibilty` to help
 <AceOfSpades />
 </div>
 
-# HTML Setup
+## HTML Setup
 
-Nothing we need to do semantically here, it does happen to be a bunch of `<divs/>` but the naming of the `class` values will help us make sense of what's what.
+Nothing we need to do semantically here, it does happen to be a bunch of `<divs/>` but the `class` values will help us make sense of what's what.
 
 ```html
 <div class="card-container">
@@ -35,9 +35,9 @@ Nothing we need to do semantically here, it does happen to be a bunch of `<divs/
 
 🔑 points:
 
-- Might seem like extra, but we do need the `.card-container` to set up a perspective to help the `.card` rotate propertly and look visibly correct in 3D space. More details in the next section.
+- Might seem extra, but we do need the `.card-container` element to set up a perspective to help the `.card` element rotate and look visibly correct in 3D space. More details in the next section.
 
-## Container
+## Container holds it all together
 
 ```css
 .card-container {
@@ -46,34 +46,41 @@ Nothing we need to do semantically here, it does happen to be a bunch of `<divs/
   height: 14rem;
   perspective: 1000px;
   ...;
-}
 ```
 
+- `Playfair is a google font that looks very "card-like", so lets go with that.
 - `perspective` is key here because it makes sure the 3D transformations are not "flat".
 
 ## Keeping everything centered
 
-We use modern centering techniques on the selements to make sure that
+We use modern centering techniques on several elements to make sure everything looks like one solid object
 
-```.card,
+```css
+.card,
 .face {
-    display: grid;
-    place-content: center;
+  display: grid;
+  place-content: center;
 }
 ```
 
 ## Front of the card
 
+For the front of the card was want to make sure the 'A♠️' shows up in the upper-left and lower-right along with the big centered ♠️
+
 ```css
 .card {
-  width: 10rem;
-  height: 14rem;
+  width: inherit;
+  height: inherit
   position: relative;
   transform-style: preserve-3d;
   animation: flip 5s linear infinite;
   ...;
 }
 ```
+
+🔑 points:
+
+- `position:relative` is going to help place the elements inside of it
 
 ## Front and Back
 
