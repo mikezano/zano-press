@@ -6,6 +6,11 @@ export interface ShowcaseComponents {
 
 export const showcaseComponents: ShowcaseComponents[] = [
   {
+    description: "Ace Of Spades",
+    component: "AceOfSpades",
+    link: "/markdown/showcase/2025-06-14 Ace Of Spades.html",
+  },
+  {
     description: "Scribbler",
     component: "AnimatedPathDrawing",
     link: "/markdown/showcase/2025-05-30 Scribbler pencil drawing.html",
