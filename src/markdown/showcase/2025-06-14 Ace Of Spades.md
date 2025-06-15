@@ -18,7 +18,7 @@ How about some dual sided elements that make use of `backface-visibilty` to help
 
 # HTML Setup
 
-Nothing we need to do semantically here, it does happen to be a bunch of `<divs/>` can help us get a good structure. Its the naming of the `class` values that helps us make sense of things here
+Nothing we need to do semantically here, it does happen to be a bunch of `<divs/>` but the naming of the `class` values will help us make sense of what's what.
 
 ```html
 <div class="card-container">
@@ -35,7 +35,7 @@ Nothing we need to do semantically here, it does happen to be a bunch of `<divs/
 
 🔑 points:
 
-- The `.card-container` will set up a `perspetive` to this card so that 3D transformations will have depth later on
+- Might seem like extra, but we do need the `.card-container` to set up a perspective to help the `.card` rotate propertly and look visibly correct in 3D space. More details in the next section.
 
 ## Container
 
