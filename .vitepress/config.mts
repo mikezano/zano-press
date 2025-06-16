@@ -22,8 +22,8 @@ function getMarkdownFiles(dir: string): { text: string; link: string }[] {
     .reverse();
 }
 
-const learningLessons = getMarkdownFiles("../src/markdown/learning-lessons");
-const showcase = getMarkdownFiles("../src/markdown/showcase");
+const learningLessons = getMarkdownFiles("../src/learning-lessons");
+const showcase = getMarkdownFiles("../src/showcase");
 //const bugs = getMarkdownFiles("../src/markdown/bugs");
 
 // https://vitepress.dev/reference/site-config
