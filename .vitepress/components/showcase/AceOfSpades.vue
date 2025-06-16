@@ -34,7 +34,6 @@
 .card {
     width: 10rem;
     height: 14rem;
-    position: relative;
     transform-style: preserve-3d;
     animation: flip 5s linear infinite;
 

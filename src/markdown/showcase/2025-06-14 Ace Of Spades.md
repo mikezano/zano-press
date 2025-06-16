@@ -10,11 +10,13 @@ tag: "#showcase"
 <Badge :text="$frontmatter.date" />
 <Badge :text="$frontmatter.tag" />
 
-How about some dual sided elements that make use of `backface-visibilty` to help acheive some realistic 3D effects ? Let's dive into how this ace of spades gets generated ♠️
+How about some dual sided elements that make use of `backface-visibilty` to help acheive realistic 3D effects ? Let's dive into how this ace of spades gets generated ♠️
 
-<div style="padding-top:1rem;">
+<div style="padding:1rem 0;">
 <AceOfSpades />
 </div>
+
+[Full demo on Codepen](https://codepen.io/_zan0/pen/gbpePWq)
 
 ## HTML Setup
 
@@ -77,13 +79,15 @@ We use modern centering techniques with CSS grid on several elements to make sur
 }
 ```
 
+- `.card` element will contain the front and back of the card
+- `.face` element will have the index of the card along with the big spade displyed in the center
+
 ## Card element
 
 ```css
 .card {
   width: 10rem;
   height: 14rem;
-  position: relative;
   transform-style: preserve-3d;
   animation: flip 5s linear infinite;
   .../* we nest more rules in here */;
@@ -92,10 +96,9 @@ We use modern centering techniques with CSS grid on several elements to make sur
 
 🔑 points:
 
-- `width` and `height` here give a size to give the card a good looking size.
-- `position:relative` will help later when we work with the `.front` and `.back` elements of the card.
+- `width` and `height` here give a size to give the card realistic looking proportions.
 - `transform-style: preserve-3d` is probably the **most** important part of this whole setup. It 'preserves' any 3D transformations done to child elements. Without it 3D transformations on `.front` and `.back` elements wouldn't actually look correct or work entirely.
-- The `animation` here is simply going to be a 360 degree turn that runs infinitely.
+- The `animation` here will keep the card rotating 360 degress infinitely.
 
 ## Front and Back
 
@@ -118,7 +121,7 @@ _Note_: We use CSS nesting (did you know you can already [nest](https://develope
 - To acheive this effect of hiding the back side of the card we use `backface-visibility: hidden`. Anytime during the rotation when the backside of something is displayed you'll see "nothing".
 - `border-radius` gives us nice rounded corners to the card.
 
-To demonstrate the `backface-visibility` on the left we have the `.front` element value as `visible` to that when it rotates around you it 'backwards' like a mirror-image. On the right the value is `hidden` to demonstrate how the whole element 'dissapears'. We hide the whole `.back` element so it doesn't interfere with the example.
+To demonstrate the `backface-visibility` on the left we have the `.front` element using a value of `visible` so that when it rotates around you see it 'backwards' in a mirror-image manner. On the right, the value is `hidden` to demonstrate how the whole element 'dissapears'. We hide the whole `.back` element of `.card` in this example so it doesn't appear during the demonstration.
 
 <style>
     .backface.first .front{
@@ -140,7 +143,7 @@ To demonstrate the `backface-visibility` on the left we have the `.front` elemen
 
 ## Front of the card (face)
 
-For the face of the card we still need a separate css grid to hold the top-left and bottom-right 'A♠️' text and the large ♠️ in the center. Let's do that with CSS grid
+For the face of the card we still need a separate css grid to hold the top-left and bottom-right 'A♠️' text and the large ♠️ in the center. Let's do that with CSS grid.
 
 ```css
 & .front {
@@ -156,12 +159,12 @@ For the face of the card we still need a separate css grid to hold the top-left 
 }
 ```
 
-- `grid-tempalate-rows` portions the card with enough space for the face values and the center spade ♠️
-- `transform` tips the card over to the side enough that it will eventually looks like its spinning on its corner
-- We give it a solid `background-color` to that nothing else bleeds through
-- The 'A♠️' is represented by the `.index` element and here we see we add one more class `.flipped` to express that the bottom right one needs to flip 180deg to turn upside down and in the correct corner.
+- `grid-tempalate-rows` portions the card with enough space for the face values and the center spade ♠️.
+- `transform` tips the card over to the side enough that it will eventually looks like its spinning on its corner.
+- We give it a solid `background-color` so that nothing else bleeds through.
+- The 'A♠️' is represented by the `.index` element and here we see we add one more class `.flipped` to express that the bottom right one needs to flip `180deg` to turn upside down and in the correct corner.
 
-Without the `rotateZ` transformation this is what our card looks like.
+Without the `rotateZ` transformation this is what a plain looking card looks like.
 
 <style>
 .front-only .card{animation:none;}
@@ -176,7 +179,7 @@ Without the `rotateZ` transformation this is what our card looks like.
 
 ## Set up the back
 
-While the back looks more complex, it actually a lot easier to setup since it only one element
+While the back looks more complex, it actually a lot easier to setup since it only one element.
 
 ```css
 & .back {
@@ -201,7 +204,7 @@ While the back looks more complex, it actually a lot easier to setup since it on
 }
 ```
 
-- `transform` has Z rotatation so that like the `.front` element it tilts over onto its corner. The Y rotation makes it so that we only see front face first and during the `.card` animation it then flips this backside toward the viewer.
+- `transform` has Z rotatation so that like the `.front` element it tilts over onto its corner. The Y rotation makes it so that we only see front face first (by 'hiding' the back) and during the `.card` animation it then flips this backside toward the viewer.
 - `border` is just a bit darker shade of red to distinguish it from the background pattern generated.
 - `background` and `background-size` set up a pattern very similar to what happens in the [Animated Checkered Background](../showcase/2025-05-12%20Animated%20Checkered%20Background.md) post but with some modifications to match what some card decks use.
 
