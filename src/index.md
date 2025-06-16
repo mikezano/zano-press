@@ -7,14 +7,14 @@ hero:
   tagline: Figuring out css so you don't have to 🧠
   actions:
     - theme: brand
-      text: Latest post (Scibbler) ->
-      link: /markdown/showcase/2025-05-30 Scribbler pencil drawing
+      text: Latest post (3D Ace) ->
+      link: /markdown/showcase/2025-06-14 Ace Of Spades
 
 features:
   - icon: 🖼️
     title: Showcase
     details: Well thought out ideas put together in a solid piece
-    link: /markdown/showcase/2025-05-30 Scribbler pencil drawing
+    link: /markdown/showcase/2025-06-14 Ace Of Spades
     linkText: Latest
   - icon: 🧑‍🏫
     title: Learning lessons
