@@ -30,11 +30,6 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
-    # Mark the job as a required check that must pass before merging
-    permissions:
-      contents: read
-      pull-requests: write
-      statuses: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
