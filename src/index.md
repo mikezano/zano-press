@@ -19,6 +19,6 @@ features:
   - icon: 🧑‍🏫
     title: Learning lessons
     details: Going through fundamentals, talking about problems I've run across
-    link: /learning-lessons/2019-06-02 How To HSLA
+    link: /learning-lessons/2019-06-02-How-To-HSLA
     linkText: Latest
 ---
