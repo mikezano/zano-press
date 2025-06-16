@@ -19,8 +19,6 @@
     font-family: "Playfair", serif;
     font-optical-sizing: auto;
     font-variation-settings: "wdth" 100;
-    width: 10rem;
-    height: 14rem;
     margin: 0;
     perspective: 1000px;
     --ratio: 1.4;
