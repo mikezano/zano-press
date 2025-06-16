@@ -7,7 +7,10 @@ on:
   # using the `master` branch as the default branch.
   push:
     branches: [main]
-
+  # Runs on pull requests targeting the main branch
+  pull_request:
+    branches: [main]
+    
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -27,6 +30,11 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    # Mark the job as a required check that must pass before merging
+    permissions:
+      contents: read
+      pull-requests: write
+      statuses: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
