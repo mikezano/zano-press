@@ -8,26 +8,26 @@ export const showcaseComponents: ShowcaseComponents[] = [
   {
     description: "Ace Of Spades",
     component: "AceOfSpades",
-    link: "/markdown/showcase/2025-06-14 Ace Of Spades.html",
+    link: "/showcase/2025-06-14-Ace-Of-Spades",
   },
   {
     description: "Scribbler",
     component: "AnimatedPathDrawing",
-    link: "/markdown/showcase/2025-05-30 Scribbler pencil drawing.html",
+    link: "/showcase/2025-05-30-Scribbler-pencil-drawing",
   },
   {
     description: "3D Button",
     component: "ThreeDButton",
-    link: "/markdown/showcase/2025-05-14 3D Button.html",
+    link: "/showcase/2025-05-14-3D-Button",
   },
   {
     description: "Animated Background",
     component: "AnimatedBackground",
-    link: "/markdown/showcase/2025-05-12 Animated Checkered Background.html",
+    link: "/showcase/2025-05-12-Animated-Checkered-Background",
   },
   {
     description: "Square Spinner",
     component: "SquareLoader",
-    link: "/markdown/showcase/2025-05-10 Square Loader.html",
+    link: "/showcase/2025-05-10-Square-Loader",
   },
 ];
