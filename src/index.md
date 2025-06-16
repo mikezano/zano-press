@@ -8,13 +8,13 @@ hero:
   actions:
     - theme: brand
       text: Latest post (3D Ace) ->
-      link: /showcase/2025-06-14 Ace Of Spades
+      link: /showcase/2025-06-14-Ace-Of-Spades
 
 features:
   - icon: 🖼️
     title: Showcase
     details: Well thought out ideas put together in a solid piece
-    link: /showcase/2025-06-14 Ace Of Spades
+    link: /showcase/2025-06-14-Ace-Of-Spades
     linkText: Latest
   - icon: 🧑‍🏫
     title: Learning lessons

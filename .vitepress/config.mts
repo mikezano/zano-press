@@ -12,7 +12,8 @@ function getMarkdownFiles(dir: string): { text: string; link: string }[] {
     .filter((file) => file.endsWith(".md"))
     .map((file) => {
       const result = file
-        .replace(/^(\d{4}-\d{2}-\d{2})\s+/, "<span>$1</span><br/>")
+        .replace(/^(\d{4}-\d{2}-\d{2})-/, "<span>$1</span><br/>")
+        .replace(/-/g, " ")
         .replace(".md", "");
       return {
         text: result,
@@ -42,6 +43,7 @@ export default defineConfig({
   title: "zan0",
   description: "css IS awesome",
   srcDir: "src",
+  cleanUrls: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     //nav: [],
