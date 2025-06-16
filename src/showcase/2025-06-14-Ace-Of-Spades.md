@@ -206,7 +206,7 @@ While the back looks more complex, it actually a lot easier to setup since it on
 
 - `transform` has Z rotatation so that like the `.front` element it tilts over onto its corner. The Y rotation makes it so that we only see front face first (by 'hiding' the back) and during the `.card` animation it then flips this backside toward the viewer.
 - `border` is just a bit darker shade of red to distinguish it from the background pattern generated.
-- `background` and `background-size` set up a pattern very similar to what happens in the [Animated Checkered Background](../showcase/2025-05-12%20Animated%20Checkered%20Background.md) post but with some modifications to match what some card decks use.
+- `background` and `background-size` set up a pattern very similar to what happens in the [Animated Checkered Background](../showcase/2025-05-12-Animated-Checkered-Background.md) post but with some modifications to match what some card decks use.
 
 <style>
 .back-only .card{animation:none; transform:rotateY(180deg);}
