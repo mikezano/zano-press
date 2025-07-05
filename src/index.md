@@ -7,8 +7,8 @@ hero:
   tagline: Figuring out css so you don't have to 🧠
   actions:
     - theme: brand
-      text: Latest post (3D Ace) ->
-      link: /showcase/2025-06-14-Ace-Of-Spades
+      text: Latest post (View Transitions) ->
+      link: /learning-lessons/2025-07-04-View-Transitions.md
 
 features:
   - icon: 🖼️
@@ -19,6 +19,6 @@ features:
   - icon: 🧑‍🏫
     title: Learning lessons
     details: Going through fundamentals, talking about problems I've run across
-    link: /learning-lessons/2019-06-02-How-To-HSLA
+    link: /learning-lessons/2025-07-04-View-Transitions.md
     linkText: Latest
 ---
