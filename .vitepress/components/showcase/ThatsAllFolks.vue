@@ -1,0 +1,74 @@
+<template>
+    <main id="container">
+        <div class="layer radial-circles"></div>
+        <div class="layer blue-circle"></div>
+        <svg class="layer" viewBox="0 0 100 100">
+            <path id="circlePath" display="none" d="M 50 60
+             m -40, 0
+             a 40,10 0 1,1 80,0" />
+            <text>
+                <textPath href="#circlePath" startOffset="10%">
+                    That's All Folks!
+                </textPath>
+            </text>
+        </svg>
+    </main>
+</template>
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+
+
+#container {
+    font-family: "Pacifico", cursive;
+    display: grid;
+    place-content: center;
+    width: 400px;
+    height: 400px;
+    border: 0.4rem solid #322;
+
+    & .layer {
+        grid-area: 1/1;
+        place-self: center;
+    }
+
+    & .radial-circles {
+        width: inherit;
+        height: inherit;
+        --inner-red: hsla(0, 80%, 45%);
+        --outer-red: hsla(0, 80%, 25%);
+
+        background: radial-gradient(circle at center,
+                transparent 40%,
+                var(--inner-red) 40%,
+                var(--outer-red) 50%,
+                var(--inner-red) 50%,
+                var(--outer-red) 60%,
+                var(--inner-red) 60%,
+                var(--outer-red) 70%,
+                var(--inner-red) 70%,
+                var(--outer-red) 80%,
+                var(--inner-red) 80%,
+                var(--outer-red) 90%,
+                var(--outer-red) 100%),
+            var(--outer-red);
+    }
+
+    & .blue-circle {
+        width: 50%;
+        height: 50%;
+        border-radius: 50%;
+        background-color: hsla(220, 60%, 25%, 1);
+    }
+
+    & .message {
+        color: white;
+    }
+
+    & text {
+        fill: white;
+        font-size: 0.6rem;
+    }
+}
+</style>
