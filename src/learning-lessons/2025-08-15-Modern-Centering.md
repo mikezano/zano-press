@@ -42,4 +42,19 @@ Centering elements comes in a variety ways , each with its postivies and negativ
 - `.blue-circle` is the centered circle where sometimes you'd see someone like Porky Pig pop out of.
 - `<svg />` - this element is the key to having our curved text written in
 
+## Place center
+
+There's a property in grid landia that lets you center things with `place-content: center`. Let's use that here
+
+```css
+#container {
+  display: grid;
+  place-content: center;
+  ...;
+}
+```
+
+- `display:grid` we are turning on the grid.
+- `place-content: center` - makes is so that in any grid cell the content wil be centered.
+
 ~ zan0
