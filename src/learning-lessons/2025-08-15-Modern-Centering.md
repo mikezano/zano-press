@@ -50,11 +50,17 @@ There's a property in grid landia that lets you center things with `place-conten
 #container {
   display: grid;
   place-content: center;
-  ...;
+
+  & .layer {
+    grid-area: 1/1;
+    place-self: center;
+  }
 }
 ```
 
 - `display:grid` we are turning on the grid.
 - `place-content: center` - makes is so that in any grid cell the content wil be centered.
+
+<ThatsAllFolks />
 
 ~ zan0
