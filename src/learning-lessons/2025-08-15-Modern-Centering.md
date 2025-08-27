@@ -12,7 +12,7 @@ tag: "#lessons"
 
 <ThatsAllFolks />
 
-Centering elements comes in a variety ways , each with its postivies and negatives, but there's definiltely ways that are outdated. Hopefully in 2025 you are not doing hard-coding pixel values into either padding or margins which immediately flow out the window once you resize your window.
+Centering elements comes in a variety ways , each with its postivies and negatives, but there's definiltely ways that are outdated. In 2025 you probably want ot avoid hard-coding pixel values which immediately incorrect with responsiveness considerations. Lets look at two properties that help in recreating this classic looney tunes looking outro with `place-content: center` and `place-self: center`
 
 ## Html Setup
 
@@ -38,13 +38,13 @@ Centering elements comes in a variety ways , each with its postivies and negativ
 ```
 
 - `.container` is holding everything together. We will use CSS grid to help align everything in a centered way
-- `.radial-circles` is the red rings
-- `.blue-circle` is the centered circle where sometimes you'd see someone like Porky Pig pop out of.
-- `<svg />` - this element is the key to having our curved text written in
+- `.radial-circles` - represents the red rings
+- `.blue-circle` represents centered circle where sometimes you'd see someone like Porky Pig pop out of.
+- `<svg />` - this element is the key to having our curved text written in.
 
 ## Place center
 
-There's a property in grid landia that lets you center things with `place-content: center`. Let's use that here
+There's a property in `grid`-landia that lets you center things with `place-content: center`. Let's use that here.
 
 ```css
 #container {
@@ -61,6 +61,10 @@ There's a property in grid landia that lets you center things with `place-conten
 - `display:grid` we are turning on the grid.
 - `place-content: center` - makes is so that in any grid cell the content wil be centered.
 
-<ThatsAllFolks />
+<style>
+  .basic svg{ display:none }
+  .basic .layer{ place-self: }
+</style>
+<ThatsAllFolks class="basic" />
 
 ~ zan0
