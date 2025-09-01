@@ -23,10 +23,9 @@
 #container {
     font-family: "Pacifico", cursive;
     display: grid;
-    place-content: center;
     width: 400px;
     height: 400px;
-    border: 0.4rem solid #322;
+
 
     & .layer {
         grid-area: 1/1;

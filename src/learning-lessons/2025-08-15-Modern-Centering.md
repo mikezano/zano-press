@@ -12,7 +12,7 @@ tag: "#lessons"
 
 <ThatsAllFolks />
 
-Centering elements comes in a variety ways , each with its postivies and negatives, but there's definiltely ways that are outdated. In 2025 you probably want ot avoid hard-coding pixel values which immediately incorrect with responsiveness considerations. Lets look at two properties that help in recreating this classic looney tunes looking outro with `place-content: center` and `place-self: center`
+Centering elements comes in a variety ways , each with its postivies and negatives, but there's definitely ways that one could consider outdated. In 2025 you probably want to avoid hard-coding pixel values which immediately become incorrect with responsiveness considerations. Lets look at two properties that help in recreating this classic looney tunes looking outro with which involves several centering layers with `place-content: center` and `place-self: center`
 
 ## Html Setup
 
@@ -66,5 +66,37 @@ There's a property in `grid`-landia that lets you center things with `place-cont
   .basic .layer{ place-self: }
 </style>
 <ThatsAllFolks class="basic" />
+
+<main id="grid">
+  <div class="layer-a"></div>
+  <div class="layer-b"></div> 
+</main>
+
+<style>
+:root{--size-demo:200px;}
+
+#grid{
+  display:grid;
+  width:var(--size-demo);
+  height:var(--size-demo);
+  border:1px solid black;
+}
+#grid .layer-a{
+  width:calc(var(--size-demo)/2);
+  height:calc(var(--size-demo)/2);
+  border:1px solid orange;
+}
+#grid .layer-b{
+  width:calc(var(--size-demo)/3);
+  height:calc(var(--size-demo)/3);
+  border:1px solid green;
+}
+
+#grid div.layer-a,#grid div.layer-b{
+  background-color:transparent;
+  grid-area:1/1;
+  place-self:center;
+}
+</style>
 
 ~ zan0
