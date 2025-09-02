@@ -67,36 +67,71 @@ There's a property in `grid`-landia that lets you center things with `place-cont
 </style>
 <ThatsAllFolks class="basic" />
 
-<main id="grid">
-  <div class="layer-a"></div>
-  <div class="layer-b"></div> 
-</main>
+## Basic example
+
+<div style="display:flex;gap:4rem; flex-wrap:wrap">
+  <main id="grid-centering" class="default">
+    <div class="layer-a"></div>
+    <div class="layer-b"></div> 
+  </main>
+
+  <main id="grid-centering" class="grid">
+    <div class="layer-a"></div>
+    <div class="layer-b"></div> 
+  </main>
+
+  <main id="grid-centering" class="place-content">
+    <div class="layer-a"></div>
+    <div class="layer-b"></div> 
+  </main>
+
+  <main id="grid-centering" class="place-self">
+    <div class="layer-a"></div>
+    <div class="layer-b"></div> 
+  </main>
+</div>
 
 <style>
 :root{--size-demo:200px;}
 
-#grid{
-  display:grid;
+#grid-centering{
   width:var(--size-demo);
   height:var(--size-demo);
   border:1px solid black;
 }
-#grid .layer-a{
-  width:calc(var(--size-demo)/2);
-  height:calc(var(--size-demo)/2);
+#grid-centering .layer-a{
+  width:calc(var(--size-demo)/1.5);
+  height:calc(var(--size-demo)/1.5);
   border:1px solid orange;
 }
-#grid .layer-b{
+#grid-centering .layer-b{
   width:calc(var(--size-demo)/3);
   height:calc(var(--size-demo)/3);
   border:1px solid green;
 }
-
-#grid div.layer-a,#grid div.layer-b{
-  background-color:transparent;
+#grid-centering.grid div.layer-a,
+#grid-centering.place-content div.layer-a,
+#grid-centering.place-self div.layer-a,
+#grid-centering.grid div.layer-b,
+#grid-centering.place-content div.layer-b,
+#grid-centering.place-self div.layer-b{
   grid-area:1/1;
+}
+
+#grid-centering.grid{
+  display:grid;
+}
+#grid-centering.place-content,
+#grid-centering.place-self{
+  display:grid;
+  place-content:center;
+}
+#grid-centering.place-self div.layer-a,
+#grid-centering.place-self div.layer-b{
   place-self:center;
 }
+
+
 </style>
 
 ~ zan0
