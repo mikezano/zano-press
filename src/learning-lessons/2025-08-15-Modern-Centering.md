@@ -69,28 +69,6 @@ There's a property in `grid`-landia that lets you center things with `place-cont
 
 ## Basic example
 
-<div style="display:flex;gap:4rem; flex-wrap:wrap">
-  <main id="grid-centering" class="default">
-    <div class="layer-a"></div>
-    <div class="layer-b"></div> 
-  </main>
-
-  <main id="grid-centering" class="grid">
-    <div class="layer-a"></div>
-    <div class="layer-b"></div> 
-  </main>
-
-  <main id="grid-centering" class="place-content">
-    <div class="layer-a"></div>
-    <div class="layer-b"></div> 
-  </main>
-
-  <main id="grid-centering" class="place-self">
-    <div class="layer-a"></div>
-    <div class="layer-b"></div> 
-  </main>
-</div>
-
 <style>
 :root{--size-demo:200px;}
 
@@ -134,4 +112,35 @@ There's a property in `grid`-landia that lets you center things with `place-cont
 
 </style>
 
+Let's have a look at the 'wireframe' of the that's all folks
+
+Step 1: We start with several div elements in the Container
+
+Step 2: We apply `display:grid` to the to the container and keep the inner boxes at `grid-area: 1/1`
+
+Step 3: We apply `place-content:center` to the container. But not that it centers it based on the larger square
+
+Step 4: to tryly center we use `place-self:center` on the elements so that they center in the grid
+
+<div style="display:flex;gap:4rem; flex-wrap:wrap">
+  <main id="grid-centering" class="default">
+    <div class="layer-a"></div>
+    <div class="layer-b"></div> 
+  </main>
+
+  <main id="grid-centering" class="grid">
+    <div class="layer-a"></div>
+    <div class="layer-b"></div> 
+  </main>
+
+  <main id="grid-centering" class="place-content">
+    <div class="layer-a"></div>
+    <div class="layer-b"></div> 
+  </main>
+
+  <main id="grid-centering" class="place-self">
+    <div class="layer-a"></div>
+    <div class="layer-b"></div> 
+  </main>
+</div>
 ~ zan0
