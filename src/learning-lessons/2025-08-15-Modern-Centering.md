@@ -114,33 +114,105 @@ There's a property in `grid`-landia that lets you center things with `place-cont
 
 Let's have a look at the 'wireframe' of the that's all folks
 
-Step 1: We start with several div elements in the Container
+Step 1:
 
-Step 2: We apply `display:grid` to the to the container and keep the inner boxes at `grid-area: 1/1`
+Step 2:
 
-Step 3: We apply `place-content:center` to the container. But not that it centers it based on the larger square
+Step 3:
 
 Step 4: to tryly center we use `place-self:center` on the elements so that they center in the grid
 
-<div style="display:flex;gap:4rem; flex-wrap:wrap">
+## 1. Starting point
+
+```html
+<main id="grid">
+  <div class="layer-a"></div>
+  <div class="layer-b"></div>
+</main>
+```
+
+```css
+#grid {
+  border: 1px solid black;
+  width: 200px;
+  height: 200px;
+}
+
+.layer-a {
+  border: 1px solid orange;
+  width: 133px;
+  height: 133px;
+}
+
+.layer-b {
+  border: 1px solid green;
+  width: 66px;
+  height: 66px;
+}
+```
+
+Will result in this
+
   <main id="grid-centering" class="default">
     <div class="layer-a"></div>
     <div class="layer-b"></div> 
   </main>
 
+## 2. Add CSS Grid
+
+```css
+#grid {
+  ...
+  display: grid;
+}
+
+.layer-a, .layer-b{
+  grid-area:1/1;
+}
+```
+
+- `display:grid` starts to shift elements into a grid we define.
+- `grid-area:1/1` essentially says "put both `layer-` elements into the same grid cell at row 1 column 1, which by default shifts them into the position we see below
+
   <main id="grid-centering" class="grid">
     <div class="layer-a"></div>
-    <div class="layer-b"></div> 
+    <div class="layer-b"></div>
   </main>
+
+## 3. Place content
+
+```css
+#grid{
+  ...
+  place-content:center
+}
+```
+
+- `place-content:center` this rule tells the grid to center align all its content. In this case there is only 1 cell (with two `layer-` elements) so we effectively shift the cell to the center.
 
   <main id="grid-centering" class="place-content">
     <div class="layer-a"></div>
-    <div class="layer-b"></div> 
+    <div class="layer-b"></div>
   </main>
+
+## 4. Place self
+
+```css
+.layer-a,
+.layer-b {
+  place-self: center;
+}
+```
+
+- `place-self:center` gets us the correct visual. Each `layer-` centers itself within the one cell of the grid. The orange square doesn't move since its
 
   <main id="grid-centering" class="place-self">
     <div class="layer-a"></div>
-    <div class="layer-b"></div> 
+    <div class="layer-b"></div>
   </main>
+
+<div style="display:flex;gap:4rem; flex-wrap:wrap">
+
 </div>
 ~ zan0
+```
