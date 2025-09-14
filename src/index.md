@@ -7,8 +7,8 @@ hero:
   tagline: Figuring out css so you don't have to 🧠
   actions:
     - theme: brand
-      text: Latest post (View Transitions) ->
-      link: /learning-lessons/2025-07-04-View-Transitions.md
+      text: Latest post (Modern Centering) ->
+      link: /learning-lessons/2025-08-15-Modern-Centering.md
 
 features:
   - icon: 🖼️
