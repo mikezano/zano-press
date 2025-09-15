@@ -1,12 +1,12 @@
 <template>
-    <main id="concentric-squares">
+    <main id="concentric-squares" class="showcase">
         <div class="layer-a"></div>
         <div class="layer-b"></div>
     </main>
 </template>
 
 <style>
-#concentric-squares {
+#concentric-squares.showcase {
     --size: 200px;
     display: grid;
     width: var(--size);

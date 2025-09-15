@@ -14,6 +14,61 @@ tag: "#lessons"
 
 Centering elements comes in a variety ways , each with its postivies and negatives, but there's definitely ways that one could consider outdated. In 2025 you probably want to avoid hard-coding pixel values which immediately become incorrect with responsiveness considerations. Lets look at two properties that would help in a situation as described below to create concentric squares on top of each other.
 
+<ConcentricSquares class="base" />
+<ConcentricSquares class="grid" />
+<ConcentricSquares class="place-content" />
+<ConcentricSquares class="place-self" />
+<ConcentricSquares class="grid-area" />
+
+<style>
+#concentric-squares.base{
+  display:block;
+  place-content:initial;
+
+  & .layer-a, & .layer-b{
+    grid-area:auto;
+    place-self:initial;
+  }
+}
+#concentric-squares.grid{
+  display:grid;
+  place-content:initial;
+
+  & .layer-a, & .layer-b{
+    grid-area:auto;
+    place-self:initial;
+  }
+}
+#concentric-squares.place-content{
+  display:grid;
+  place-content:center;
+
+  & .layer-a, & .layer-b{
+    grid-area:auto;
+    place-self:initial;
+  }
+}
+#concentric-squares.place-self{
+  display:grid;
+  place-content:initial;
+
+  & .layer-a, & .layer-b{
+    grid-area:auto;
+    place-self:center;
+  }
+}
+#concentric-squares.grid-area{
+  display:grid;
+  place-content:initial;
+
+  & .layer-a, & .layer-b{
+    grid-area:1/1;
+    place-self:center;
+  }
+}
+
+</style>
+
 ## 1. Starting point
 
 ```html
