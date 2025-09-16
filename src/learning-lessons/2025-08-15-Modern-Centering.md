@@ -10,15 +10,12 @@ tag: "#lessons"
 <Badge :text="$frontmatter.date" />
 <Badge :text="$frontmatter.tag" />
 
-<ConcentricSquares />
-
 Centering elements comes in a variety ways , each with its postivies and negatives, but there's definitely ways that one could consider outdated. In 2025 you probably want to avoid hard-coding pixel values which immediately become incorrect with responsiveness considerations. Lets look at two properties that would help in a situation as described below to create concentric squares on top of each other.
 
+<div style="display:flex;gap:1rem">
 <ConcentricSquares class="base" />
-<ConcentricSquares class="grid" />
-<ConcentricSquares class="place-content" />
-<ConcentricSquares class="place-self" />
-<ConcentricSquares class="grid-area" />
+<ConcentricSquares />
+</div>
 
 <style>
 #concentric-squares.base{
@@ -35,7 +32,7 @@ Centering elements comes in a variety ways , each with its postivies and negativ
   place-content:initial;
 
   & .layer-a, & .layer-b{
-    grid-area:auto;
+    grid-area:1/1;
     place-self:initial;
   }
 }
@@ -44,20 +41,11 @@ Centering elements comes in a variety ways , each with its postivies and negativ
   place-content:center;
 
   & .layer-a, & .layer-b{
-    grid-area:auto;
+    grid-area:1/1;
     place-self:initial;
   }
 }
 #concentric-squares.place-self{
-  display:grid;
-  place-content:initial;
-
-  & .layer-a, & .layer-b{
-    grid-area:auto;
-    place-self:center;
-  }
-}
-#concentric-squares.grid-area{
   display:grid;
   place-content:initial;
 
@@ -67,9 +55,14 @@ Centering elements comes in a variety ways , each with its postivies and negativ
   }
 }
 
+
 </style>
 
 ## 1. Starting point
+
+We start with this basic setup
+
+<ConcentricSquares class="base" />
 
 ```html
 <main id="grid">
@@ -98,14 +91,13 @@ Centering elements comes in a variety ways , each with its postivies and negativ
 }
 ```
 
-Will result in this
+- The smaller squares inside fit perfectly
 
-  <main id="grid-centering" class="default">
-    <div class="layer-a"></div>
-    <div class="layer-b"></div> 
-  </main>
+## 2. Add CSS Grid + grid-area
 
-## 2. Add CSS Grid
+Next you add in two properties to get us here:
+
+<ConcentricSquares class="grid" />
 
 ```css
 #grid {
@@ -119,14 +111,13 @@ Will result in this
 ```
 
 - `display:grid` starts to shift elements into a grid we define.
-- `grid-area:1/1` essentially says "put both `layer-` elements into the same grid cell at row 1 column 1, which by default shifts them into the position we see below
-
-  <main id="grid-centering" class="grid">
-    <div class="layer-a"></div>
-    <div class="layer-b"></div>
-  </main>
+- `grid-area:1/1` essentially says "put both `layer-` elements into the same grid cell at row 1 column 1, which by default shifts them into the position we see below (upper-left corner);
 
 ## 3. Place content
+
+We need to move these celss into the center
+
+<ConcentricSquares class="place-content" />
 
 ```css
 #grid{
@@ -136,11 +127,6 @@ Will result in this
 ```
 
 - `place-content:center` tells the grid to center align all its content. In this case there is only 1 cell (with two `layer-` elements) so we effectively shift the cell to the center.
-
-  <main id="grid-centering" class="place-content">
-    <div class="layer-a"></div>
-    <div class="layer-b"></div>
-  </main>
 
 ## 4. Place self
 
@@ -153,13 +139,10 @@ Will result in this
 
 - `place-self:center` gets us the correct visual we want. Each `layer-` centers itself within the one cell of the grid. The orange square doesn't move since its dictates the size of the cell based on its size.. The smaller green square does move towards the center and gives everything an even link
 
-  <main id="grid-centering" class="place-self">
-    <div class="layer-a"></div>
-    <div class="layer-b"></div>
-  </main>
+<ConcentricSquares class="place-self" />
 
-<div style="display:flex;gap:4rem; flex-wrap:wrap">
-
-</div>
 ~ zan0
+
+```
+
 ```
