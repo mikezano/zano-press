@@ -26,7 +26,7 @@ In 2025, how do you go from A --> B with just a few lines of CSS ?
 
 </div>
 
-Hopefully you're not hard-coding pixels values which for one, may not be a responsive solution, but instead are looking towards more modern solutions such as with css `grid`. A quick four steps will get us to the contentric squares .
+Hopefully you're not hard-coding pixels values which for one, may not be a responsive solution, but instead are looking towards more modern solutions such as with css `grid`. A quick four steps will get us to the contentric squares solution.
 
 <style>
 #concentric-squares.base{
@@ -105,12 +105,12 @@ We start with this basic setup:
 }
 ```
 
-- 3 elements with the `layer-a` and `layer-b` fitting inside of `grid`
-- We use the `--size` variable so we can calculate sizes for the perfect fit.
+- 3 elements with the `.layer-a` and `.layer-b` being children of `#grid`
+- We use the `--size` variable so we can calculate sizes that make the `.layer-` elements fit perfectly in `#grid`
 
 ## 2. Add CSS Grid + grid-area
 
-Next start to add grid and define the cells in it:
+Next, start to add `grid` and define the cells in it:
 
 <ConcentricSquares class="grid" />
 
@@ -125,8 +125,8 @@ Next start to add grid and define the cells in it:
 }
 ```
 
-- `display:grid` enables the grid meaning that anything inside `.layer-a` and `.layer-b` can be considered a "cell"
-- `grid-area:1/1` essentially says "put both `layer-` elements into the same grid cell at row 1 column 1, which by default shifts them into the position we see below (upper-left corner);
+- `display:grid` makes any child element inside of `#grid` become a "cell"
+- `grid-area:1/1` essentially says _put both `layer-` elements on top of each other in the same grid cell at row 1, column 1_. We have not defined any alignment properties yet so by default cells start in the upper-left corner.
 
 ## 3. Place content
 
