@@ -10,12 +10,23 @@ tag: "#lessons"
 <Badge :text="$frontmatter.date" />
 <Badge :text="$frontmatter.tag" />
 
-Centering elements comes in a variety ways , each with its postivies and negatives, but there's definitely ways that one could consider outdated. In 2025 you probably want to avoid hard-coding pixel values which immediately become incorrect with responsiveness considerations. Lets look at two properties that would help in a situation as described below to create concentric squares on top of each other.
+In 2025, how do you go from A --> B with just a few lines of CSS ?
 
+<table>
+  <tr style="border:none">
+    <td style="border:none"><ConcentricSquares class="base" /></td>
+    <td style="border:none"><ConcentricSquares /></td>
+  </tr>
+  <tr style="background-color:transparent;border:none">
+    <td style="border:none">A</td>
+    <td style="border:none">B</td>
+  </tr>  
+</table>
 <div style="display:flex;gap:1rem">
-<ConcentricSquares class="base" />
-<ConcentricSquares />
+
 </div>
+
+Hopefully you're not hard-coding pixels values which for one, may not be a responsive solution, but instead are looking towards more modern solutions such as with css `grid`. A quick four steps will get us to the contentric squares .
 
 <style>
 #concentric-squares.base{
@@ -60,7 +71,7 @@ Centering elements comes in a variety ways , each with its postivies and negativ
 
 ## 1. Starting point
 
-We start with this basic setup
+We start with this basic setup:
 
 <ConcentricSquares class="base" />
 
@@ -72,30 +83,34 @@ We start with this basic setup
 ```
 
 ```css
+:root {
+  --size: 200px;
+}
 #grid {
   border: 1px solid black;
-  width: 200px;
-  height: 200px;
+  width: var(--size);
+  height: var(--size);
 }
 
 .layer-a {
   border: 1px solid orange;
-  width: 133px;
-  height: 133px;
+  width: calc(var(--size) / 1.5);
+  height: calc(var(--size) / 1.5);
 }
 
 .layer-b {
   border: 1px solid green;
-  width: 66px;
-  height: 66px;
+  width: calc(var(--size) / 3);
+  height: calc(var(--size) / 3);
 }
 ```
 
-- The smaller squares inside fit perfectly
+- 3 elements with the `layer-a` and `layer-b` fitting inside of `grid`
+- We use the `--size` variable so we can calculate sizes for the perfect fit.
 
 ## 2. Add CSS Grid + grid-area
 
-Next you add in two properties to get us here:
+Next start to add grid and define the cells in it:
 
 <ConcentricSquares class="grid" />
 
@@ -110,12 +125,12 @@ Next you add in two properties to get us here:
 }
 ```
 
-- `display:grid` starts to shift elements into a grid we define.
+- `display:grid` enables the grid meaning that anything inside `.layer-a` and `.layer-b` can be considered a "cell"
 - `grid-area:1/1` essentially says "put both `layer-` elements into the same grid cell at row 1 column 1, which by default shifts them into the position we see below (upper-left corner);
 
 ## 3. Place content
 
-We need to move these celss into the center
+Let's move these entire grid content towards the middle:
 
 <ConcentricSquares class="place-content" />
 
@@ -126,9 +141,13 @@ We need to move these celss into the center
 }
 ```
 
-- `place-content:center` tells the grid to center align all its content. In this case there is only 1 cell (with two `layer-` elements) so we effectively shift the cell to the center.
+- `place-content:center` tells the grid to center align all its content. In this case there is only 1 cell (with two `layer-` elements) so we effectively shift the cells to the center.
 
 ## 4. Place self
+
+And finally, we center the `.layer-a` and `.layer-b` within
+
+<ConcentricSquares class="place-self" />
 
 ```css
 .layer-a,
@@ -138,8 +157,6 @@ We need to move these celss into the center
 ```
 
 - `place-self:center` gets us the correct visual we want. Each `layer-` centers itself within the one cell of the grid. The orange square doesn't move since its dictates the size of the cell based on its size.. The smaller green square does move towards the center and gives everything an even link
-
-<ConcentricSquares class="place-self" />
 
 ~ zan0
 
