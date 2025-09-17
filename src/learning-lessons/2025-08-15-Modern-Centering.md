@@ -159,7 +159,3 @@ And finally, we center the `.layer-a` and `.layer-b` within
 - `place-self:center` gets us the correct visual we want. Each `layer-` centers itself within the one cell of the grid. The orange square doesn't move since its dictates the size of the cell based on its size.. The smaller green square does move towards the center and gives everything an even link
 
 ~ zan0
-
-```
-
-```
