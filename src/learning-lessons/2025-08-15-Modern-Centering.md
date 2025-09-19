@@ -26,7 +26,7 @@ In 2025, how do you go from A --> B with just a few lines of CSS ?
 
 </div>
 
-Hopefully you're not hard-coding pixels values which for one, may not be a responsive solution, but instead are looking towards solutions such as with css `flex` or `grid`. A quick four steps below will get us to the contentric squares solution.
+Hopefully you're not hard-coding pixels values which for one, may not be a responsive solution, but instead are reaching towards css `flex` and `grid` features. Here's a quick 4 steps recepie on how to get to the concentric squares displayed in B above.
 
 <style>
 #concentric-squares.base{
