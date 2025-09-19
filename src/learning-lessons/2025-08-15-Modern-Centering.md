@@ -26,7 +26,7 @@ In 2025, how do you go from A --> B with just a few lines of CSS ?
 
 </div>
 
-Hopefully you're not hard-coding pixels values which for one, may not be a responsive solution, but instead are reaching towards css `flex` and `grid` features. Here's a quick 4 steps recepie on how to get to the concentric squares displayed in B above.
+Hopefully you're not hard-coding pixels values which for one, may not be a responsive solution, but instead are reaching towards css `flex` and `grid` functionality. Here's a quick 4 steps recepie on how to get to the concentric squares displayed in B above.
 
 <style>
 #concentric-squares.base{
@@ -87,26 +87,26 @@ We start with this basic setup:
   --size: 200px;
 }
 #grid {
-  border: 1px solid black;
+  border: 1px solid orange;
   width: var(--size);
   height: var(--size);
 }
 
 .layer-a {
-  border: 1px solid orange;
+  border: 1px solid green;
   width: calc(var(--size) / 1.5);
   height: calc(var(--size) / 1.5);
 }
 
 .layer-b {
-  border: 1px solid green;
+  border: 1px solid blue;
   width: calc(var(--size) / 3);
   height: calc(var(--size) / 3);
 }
 ```
 
-- 3 elements with the `.layer-a` and `.layer-b` being children of `#grid`
-- We use the `--size` variable so we can calculate sizes that make the `.layer-` elements fit perfectly in `#grid`
+- 3 elements with `.layer-a` and `.layer-b` being children of `#grid`
+- We use the `--size` variable so we can calculate sizes that make `.layer-` elements fit perfectly in `#grid`
 
 ## 2. Add CSS Grid + grid-area
 
@@ -126,11 +126,11 @@ Next, start to add `grid` details to define the cells in it:
 ```
 
 - `display:grid` is going to make any child element inside of `#grid` become a "cell"
-- `grid-area:1/1` essentially says _put both `layer-` in the same grid cell at row 1, column 1_. This effectively stacks them on top of each other and because we have not defined any alignment properties they start in the upper-left corner of the containing `#grid` element.
+- `grid-area:1/1` essentially says _put both `layer-` elements in the same grid cell at row 1, column 1_. This effectively stacks them on top of each other and because we have not defined any alignment properties they start in the upper-left corner of the containing `#grid` element.
 
 ## 3. Place content
 
-Let's move these entire grid content towards the middle:
+Let's center the cells as if they were all one object towards the of `#grid`:
 
 <ConcentricSquares class="place-content" />
 
@@ -145,7 +145,7 @@ Let's move these entire grid content towards the middle:
 
 ## 4. Place self
 
-And finally, we center the `.layer-a` and `.layer-b` with the one cell they are both a part of
+And finally, we center the `.layer-a` and `.layer-b` within their one cell:
 
 <ConcentricSquares class="place-self" />
 
