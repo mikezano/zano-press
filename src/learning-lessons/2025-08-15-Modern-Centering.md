@@ -158,4 +158,6 @@ And finally, we center the `.layer-a` and `.layer-b` within their one cell:
 
 - `place-self:center` gets us the correct visual we want. Each `layer-` centers itself within the one cell of the grid. The green square doesn't move since its the larger of the two `layer-` elements and dictates the size of the cell based on its size. The smaller blue square does move towards the center and gives everything a concentric look.
 
+Full demo on codepen
+
 ~ zan0
