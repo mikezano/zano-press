@@ -18,7 +18,7 @@ features:
     linkText: Latest
   - icon: 🧑‍🏫
     title: Learning lessons
-    details: Going through fundamentals, talking about problems I've run across
-    link: /learning-lessons/2025-07-04-View-Transitions.md
+    details: Going through fundamentals, generating lightbulb 💡 moment !
+    link: /learning-lessons/2025-08-15-Modern-Centering.md
     linkText: Latest
 ---

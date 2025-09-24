@@ -26,7 +26,7 @@ In 2025, how do you go from A --> B with just a few lines of CSS ?
 
 </div>
 
-Hopefully you're not hard-coding pixels values which for one, may not be a responsive solution, but instead are reaching towards css `flex` and `grid` functionality. Here's a quick 4 steps recepie on how to get to the concentric squares displayed in B above.
+Hopefully you're not hard-coding pixels values which for one, may not be a responsive solution, but instead are reaching towards css `flex` and `grid` functionality. Here's a quick 4 steps recepie on how to create the concentric squares displayed in B above.
 
 <style>
 #concentric-squares.base{
@@ -126,22 +126,22 @@ Next, start to add `grid` details to define the cells in it:
 ```
 
 - `display:grid` is going to make any child element inside of `#grid` become a "cell"
-- `grid-area:1/1` essentially says _put both `layer-` elements in the same grid cell at row 1, column 1_. This effectively stacks them on top of each other and because we have not defined any alignment properties they start in the upper-left corner of the containing `#grid` element.
+- `grid-area:1/1` essentially says _put both `layer-` elements in the same grid cell at row 1, column 1_. This effectively stacks them on top of each other and aligns them in the upper-left corner of the containing `#grid` element.
 
 ## 3. Place content
 
-Let's center the cells as if they were all one object towards the of `#grid`:
+Let's center the cells towards the middle of the `#grid`:
 
 <ConcentricSquares class="place-content" />
 
 ```css
 #grid{
   ...
-  place-content:center
+  place-content:center;
 }
 ```
 
-- `place-content:center` tells the grid to center align all its content (aka the 'cells' inside the `#grid`). In this case there is only 1 cell (with two `layer-` elements) so we effectively shift the cells to the center.
+- `place-content:center` tells the grid to center align all its content (aka the 'cells' inside the `#grid`). In this case there is only 1 cell (with two `.layer-` elements) so we effectively shift this one cell to the center.
 
 ## 4. Place self
 
@@ -156,8 +156,8 @@ And finally, we center the `.layer-a` and `.layer-b` within their one cell:
 }
 ```
 
-- `place-self:center` gets us the correct visual we want. Each `layer-` centers itself within the one cell of the grid. The green square doesn't move since its the larger of the two `layer-` elements and dictates the size of the cell based on its size. The smaller blue square does move towards the center and gives everything a concentric look.
+- `place-self:center` gets us the correct visual we want. Each `.layer-` centers itself within the one cell of the grid. The green square doesn't move since its the larger of the two `layer-` elements and dictates the size of the cell based on its size. The smaller blue square does move towards the center and gives everything a concentric look.
 
-Full demo on codepen
+[Full demo on Codepen](https://codepen.io/_zan0/pen/pvjQRqK)
 
 ~ zan0
