@@ -30,4 +30,9 @@ export const showcaseComponents: ShowcaseComponents[] = [
     component: "SquareLoader",
     link: "/showcase/2025-05-10-Square-Loader",
   },
+  {
+    description: "Concentric Squares",
+    component: "ConcentricSquares",
+    link: "/learning-lessons/2025-08-15-Modern-Centering",
+  },
 ];
