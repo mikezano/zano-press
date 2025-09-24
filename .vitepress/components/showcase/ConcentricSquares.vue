@@ -1,7 +1,7 @@
 <template>
     <main id="concentric-squares" class="showcase">
-        <div class="layer-a"></div>
-        <div class="layer-b"></div>
+        <div class="content-a"></div>
+        <div class="content-b"></div>
     </main>
 </template>
 
@@ -16,19 +16,19 @@
     padding: 0;
     margin: 0;
 
-    & .layer-a,
-    & .layer-b {
+    & .content-a,
+    & .content-b {
         grid-area: 1/1;
         place-self: center;
     }
 
-    & .layer-a {
+    & .content-a {
         border: 0.1rem solid green;
         width: calc(var(--size)/1.5);
         height: calc(var(--size)/1.5);
     }
 
-    & .layer-b {
+    & .content-b {
         border: 0.1rem solid blue;
         width: calc(var(--size)/3);
         height: calc(var(--size)/3);
