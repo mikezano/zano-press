@@ -119,8 +119,8 @@ Next, start to add `grid` details to define the cells in it:
 }
 ```
 
-- `display:grid` is going to make any child element inside of `#grid` become a "cell"
-- `grid-area:1/1` essentially says _put both `.content-` elements in the same grid cell at row 1, column 1_. This effectively stacks them on top of each other and aligns them in the upper-left corner of the containing `#grid` element.
+- `display:grid` is going to make any child element inside of `#grid` become a potential "cell"
+- `grid-area:1/1` essentially says _put both `.content-` elements in the same grid cell at row 1, column 1_. This will stack them on top of each other and aligns them in the upper-left corner of the containing `#grid` element.
 
 ## 3. Place content
 
