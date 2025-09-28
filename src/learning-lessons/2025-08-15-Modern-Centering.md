@@ -104,7 +104,7 @@ We start with this basic setup:
 
 ## 2. Add CSS Grid + grid-area
 
-Next, start to add `grid` details to define the cells in it:
+Next, start to add `grid` details to organize how cells should behave:
 
 <ConcentricSquares class="grid" />
 
@@ -119,7 +119,7 @@ Next, start to add `grid` details to define the cells in it:
 }
 ```
 
-- `display:grid` is going to make any child element inside of `#grid` become a potential "cell"
+- `display:grid` is going to make child elements inside of `#grid` conform to the column/grid definitions.
 - `grid-area:1/1` essentially says _put both `.content-` elements in the same grid cell at row 1, column 1_. This will stack them on top of each other and aligns them in the upper-left corner of the containing `#grid` element.
 
 ## 3. Place content
@@ -135,7 +135,7 @@ Let's center the cells towards the middle of the `#grid`:
 }
 ```
 
-- `place-content:center` tells the grid to center align all its content (aka the 'cells' inside the `#grid`). In this case there is only 1 cell (with two `.content-` elements) so we effectively shift this one cell to the center.
+- `place-content:center` tells the grid to center align all its content (the currently defined 'cells' inside the `#grid`). In this case both `.content-` elements are given rules to exist in the same cell, resulting in the centering we see.
 
 ## 4. Place self
 
@@ -150,7 +150,7 @@ And finally, we center the `.content-a` and `.content-b` within their one cell:
 }
 ```
 
-- `place-self:center` gets us the correct visual we want. Each `.content-` centers itself within the one cell of the grid. The green square doesn't move since its the larger of the two `.content-` elements and dictates the size of the cell based on its size. The smaller blue square does move towards the center and gives everything a concentric look.
+- `place-self:center` gets us the correct visual we want. Each `.content-` centers itself within the one cell of the grid they exist in. The green square doesn't move since it's the larger of the two `.content-` elements and dictates the size of the cell based on its size. The smaller blue square does move towards the center and gives everything a concentric look.
 
 [Full demo on Codepen](https://codepen.io/_zan0/pen/pvjQRqK)
 
