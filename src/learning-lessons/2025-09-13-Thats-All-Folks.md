@@ -12,7 +12,7 @@ tag: "#lessons"
 
 <ThatsAllFolks />
 
-Centering elements comes in a variety ways , each with its postivies and negatives, but there's definitely ways that one could consider outdated. In 2025 you probably want to avoid hard-coding pixel values which immediately become incorrect with responsiveness considerations. Lets look at two properties that help in recreating this classic looney tunes looking outro with which involves several centering layers with `place-content: center` and `place-self: center`
+In a previous post I was going over how you can center items in a more modern way and have taken that to another level with this recreation of a classic cartoon outro from the 50's for warner brothers. It looks complex but it really have the same essence of the previous
 
 ## Html Setup
 
