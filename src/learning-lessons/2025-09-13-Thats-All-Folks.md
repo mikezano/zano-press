@@ -42,6 +42,37 @@ In a previous post I was going over how you can center items in a more modern wa
 - `.blue-circle` represents centered circle where sometimes you'd see someone like Porky Pig pop out of.
 - `<svg />` - this element is the key to having our curved text written in.
 
+Let's look at what this would look like if we layer the parts like `.radial-circles`, `.blue-circle` , `svg`
+
+## Red Rings
+
+Let's layer
+
+```css
+& .radial-circles {
+  width: inherit;
+  height: inherit;
+  --inner-red: hsla(0, 80%, 45%);
+  --outer-red: hsla(0, 80%, 25%);
+
+  background: radial-gradient(
+      circle at center,
+      transparent 40%,
+      var(--inner-red) 40%,
+      var(--outer-red) 50%,
+      var(--inner-red) 50%,
+      var(--outer-red) 60%,
+      var(--inner-red) 60%,
+      var(--outer-red) 70%,
+      var(--inner-red) 70%,
+      var(--outer-red) 80%,
+      var(--inner-red) 80%,
+      var(--outer-red) 90%,
+      var(--outer-red) 100%
+    ), var(--outer-red);
+}
+```
+
 ## Place center
 
 There's a property in `grid`-landia that lets you center things with `place-content: center`. Let's use that here.
