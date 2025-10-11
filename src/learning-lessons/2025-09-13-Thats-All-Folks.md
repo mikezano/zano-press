@@ -12,7 +12,7 @@ tag: "#lessons"
 
 <ThatsAllFolks />
 
-In a previous post I was going over how you can center items in a more modern way and have taken that to another level with this recreation of a classic cartoon outro from the 50's for warner brothers. It looks complex but it really have the same essence of the previous
+In a previous post I was going over how you can center items in a more modern way and have taken that to another level with this recreation of a classic cartoon outro from the 50's for warner brothers. Looks more complex than it really is ;)
 
 ## Html Setup
 
@@ -37,16 +37,21 @@ In a previous post I was going over how you can center items in a more modern wa
 </main>
 ```
 
-- `.container` is holding everything together. We will use CSS grid to help align everything in a centered way
-- `.radial-circles` - represents the red rings
-- `.blue-circle` represents centered circle where sometimes you'd see someone like Porky Pig pop out of.
+- `.container` will hold everything together. We will use CSS grid to help align everything in a centered way
+- `.radial-circles` - the red rings
+- `.blue-circle` the centered circle where sometimes you'd see someone like Porky Pig pop out of.
 - `<svg />` - this element is the key to having our curved text written in.
 
-Let's look at what this would look like if we layer the parts like `.radial-circles`, `.blue-circle` , `svg`
+Let's slowly layer in the pieces in the order of `.radial-circles`, `.blue-circle` , `svg`
 
-## Red Rings
+## Red Ring Curtains
 
-Let's layer
+The red rings form the base of this object with a simple gradient of hard stops making it the transition between the rings
+
+<style>
+  .red-ring-only .blue-circle, .red-ring-only svg{display:none}
+</style>
+<ThatsAllFolks class="red-ring-only"/>
 
 ```css
 & .radial-circles {
@@ -72,6 +77,26 @@ Let's layer
     ), var(--outer-red);
 }
 ```
+
+What yu see happening is an alternating between the two shades of red every 10% which causes the solid change.
+
+## Blue Circle background
+
+We add a circle on top of the red rings to give this the effect of seeing through the red rings and into the blue distance
+
+```css
+& .blue-circle {
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  background-color: hsla(220, 60%, 25%, 1);
+}
+```
+
+<style>
+  .no-text svg{display:none}
+</style>
+<ThatsAllFolks class="no-text"/>
 
 ## Place center
 
@@ -143,107 +168,8 @@ There's a property in `grid`-landia that lets you center things with `place-cont
 
 </style>
 
-Let's have a look at the 'wireframe' of the that's all folks
-
-Step 1:
-
-Step 2:
-
-Step 3:
-
-Step 4: to tryly center we use `place-self:center` on the elements so that they center in the grid
-
-## 1. Starting point
-
-```html
-<main id="grid">
-  <div class="layer-a"></div>
-  <div class="layer-b"></div>
-</main>
-```
-
-```css
-#grid {
-  border: 1px solid black;
-  width: 200px;
-  height: 200px;
-}
-
-.layer-a {
-  border: 1px solid orange;
-  width: 133px;
-  height: 133px;
-}
-
-.layer-b {
-  border: 1px solid green;
-  width: 66px;
-  height: 66px;
-}
-```
-
-Will result in this
-
-  <main id="grid-centering" class="default">
-    <div class="layer-a"></div>
-    <div class="layer-b"></div> 
-  </main>
-
-## 2. Add CSS Grid
-
-```css
-#grid {
-  ...
-  display: grid;
-}
-
-.layer-a, .layer-b{
-  grid-area:1/1;
-}
-```
-
-- `display:grid` starts to shift elements into a grid we define.
-- `grid-area:1/1` essentially says "put both `layer-` elements into the same grid cell at row 1 column 1, which by default shifts them into the position we see below
-
-  <main id="grid-centering" class="grid">
-    <div class="layer-a"></div>
-    <div class="layer-b"></div>
-  </main>
-
-## 3. Place content
-
-```css
-#grid{
-  ...
-  place-content:center
-}
-```
-
-- `place-content:center` tells the grid to center align all its content. In this case there is only 1 cell (with two `layer-` elements) so we effectively shift the cell to the center.
-
-  <main id="grid-centering" class="place-content">
-    <div class="layer-a"></div>
-    <div class="layer-b"></div>
-  </main>
-
-## 4. Place self
-
-```css
-.layer-a,
-.layer-b {
-  place-self: center;
-}
-```
-
-- `place-self:center` gets us the correct visual we want. Each `layer-` centers itself within the one cell of the grid. The orange square doesn't move since its dictates the size of the cell based on its size.. The smaller green square does move towards the center and gives everything an even link
-
-  <main id="grid-centering" class="place-self">
-    <div class="layer-a"></div>
-    <div class="layer-b"></div>
-  </main>
-
-<div style="display:flex;gap:4rem; flex-wrap:wrap">
-
-</div>
 ~ zan0
+
+```
+
 ```
