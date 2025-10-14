@@ -123,51 +123,6 @@ There's a property in `grid`-landia that lets you center things with `place-cont
 </style>
 <ThatsAllFolks class="basic" />
 
-## Basic example
-
-<style>
-:root{--size-demo:200px;}
-
-#grid-centering{
-  width:var(--size-demo);
-  height:var(--size-demo);
-  border:1px solid black;
-}
-#grid-centering .layer-a{
-  width:calc(var(--size-demo)/1.5);
-  height:calc(var(--size-demo)/1.5);
-  border:1px solid orange;
-}
-#grid-centering .layer-b{
-  width:calc(var(--size-demo)/3);
-  height:calc(var(--size-demo)/3);
-  border:1px solid green;
-}
-#grid-centering.grid div.layer-a,
-#grid-centering.place-content div.layer-a,
-#grid-centering.place-self div.layer-a,
-#grid-centering.grid div.layer-b,
-#grid-centering.place-content div.layer-b,
-#grid-centering.place-self div.layer-b{
-  grid-area:1/1;
-}
-
-#grid-centering.grid{
-  display:grid;
-}
-#grid-centering.place-content,
-#grid-centering.place-self{
-  display:grid;
-  place-content:center;
-}
-#grid-centering.place-self div.layer-a,
-#grid-centering.place-self div.layer-b{
-  place-self:center;
-}
-
-
-</style>
-
 ~ zan0
 
 ```
