@@ -1,5 +1,5 @@
 ---
-title: Centering in 2025
+title: Merry Melodies Outro
 description: How to place things for centering
 date: 2025.08.17
 tag: "#lessons"
@@ -10,9 +10,11 @@ tag: "#lessons"
 <Badge :text="$frontmatter.date" />
 <Badge :text="$frontmatter.tag" />
 
+If you've ever watched old Bugs Bunnies cartoons the below might bring back some core memories 🐰
+
 <ThatsAllFolks />
 
-In a previous post I was going over how you can center items in a more modern way and have taken that to another level with this recreation of a classic cartoon outro from the 50's for warner brothers. Looks more complex than it really is ;)
+In a previous post I was going over how you can center items in a more modern way and I wanted to expand on that to show how that can be used to create the classic Merry Melodies Outro 😀
 
 ## Html Setup
 
