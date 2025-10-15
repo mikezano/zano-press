@@ -14,7 +14,7 @@ If you've ever watched old Bugs Bunnies cartoons the below might bring back some
 
 <ThatsAllFolks />
 
-In a previous post I was going over how you can center items in a more modern way and I wanted to expand on that to show how to create the above Merry Melodies Outro 😀
+In a previous post I was going over how you can center items in a more modern way and I wanted to expand on that to show how to create the above Merry Melodies outro 😀
 
 ## Html Setup
 
@@ -80,11 +80,11 @@ The red rings are formed with 2 shades of red in a radial gradient that draws yo
 }
 ```
 
-In the `radial-gradient` you see an alternating between the two shades of red every 10% which causes the ring effect. There's actually 2 layers to this `background` with the bottom being a solid `var(--outer-red)` so that we don't have white bleeding through.
+In the `radial-gradient` you see an alternating between the two shades of red every 10% which causes the ring effect. There's actually 2 layers to this `background` with the bottom being a solid `var(--outer-red)` so that we don't have other elements bleed through.
 
 ## Blue Circle background
 
-We add a circle on top of the red rings to give this the effect of seeing through the red rings and into the blue distance
+We add a circle on top of the red rings in its 'empty' center to give this the effect of seeing through into a blue distance.
 
 ```css
 & .blue-circle {
@@ -99,6 +99,11 @@ We add a circle on top of the red rings to give this the effect of seeing throug
   .no-text svg{display:none}
 </style>
 <ThatsAllFolks class="no-text"/>
+
+## Curved Text
+
+Our curved text comes into play now with two elements driving its creation `svg` and `text`
+<ThatsAllFolks />
 
 ## Place center
 
