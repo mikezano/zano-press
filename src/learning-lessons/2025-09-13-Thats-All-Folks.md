@@ -10,11 +10,11 @@ tag: "#lessons"
 <Badge :text="$frontmatter.date" />
 <Badge :text="$frontmatter.tag" />
 
-If you've ever watched old Bugs Bunnies cartoons the below might bring back some core memories 🐰
+If you've ever watched old Bugs Bunnies cartoons the below might bring back some core memories to you 🐰
 
 <ThatsAllFolks />
 
-In a previous post I was going over how you can center items in a more modern way and I wanted to expand on that to show how that can be used to create the classic Merry Melodies Outro 😀
+In a previous post I was going over how you can center items in a more modern way and I wanted to expand on that to show how to create the above Merry Melodies Outro 😀
 
 ## Html Setup
 
@@ -40,15 +40,15 @@ In a previous post I was going over how you can center items in a more modern wa
 ```
 
 - `.container` will hold everything together. We will use CSS grid to help align everything in a centered way
-- `.radial-circles` - the red rings
-- `.blue-circle` the centered circle where sometimes you'd see someone like Porky Pig pop out of.
+- `.radial-circles` - the red ring curtains
+- `.blue-circle` the centered circle where sometimes you'd see someone like Porky Pig 🐷 pop out of.
 - `<svg />` - this element is the key to having our curved text written in.
 
 Let's slowly layer in the pieces in the order of `.radial-circles`, `.blue-circle` , `svg`
 
 ## Red Ring Curtains
 
-The red rings form the base of this object with a simple gradient of hard stops making it the transition between the rings
+The red rings are formed with 2 shades of red in a radial gradient that draws your eyes to the center.
 
 <style>
   .red-ring-only .blue-circle, .red-ring-only svg{display:none}
@@ -80,7 +80,7 @@ The red rings form the base of this object with a simple gradient of hard stops 
 }
 ```
 
-What yu see happening is an alternating between the two shades of red every 10% which causes the solid change.
+In the `radial-gradient` you see an alternating between the two shades of red every 10% which causes the ring effect. There's actually 2 layers to this `background` with the bottom being a solid `var(--outer-red)` so that we don't have white bleeding through.
 
 ## Blue Circle background
 
