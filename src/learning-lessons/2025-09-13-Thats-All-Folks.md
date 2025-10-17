@@ -14,7 +14,7 @@ If you've ever watched old Bugs Bunnies cartoons the below might bring back some
 
 <ThatsAllFolks />
 
-In a previous post I was going over how you can center items in a more modern way and I wanted to expand on that to show how to create the above Merry Melodies outro 😀
+In a [previous post](2025-08-15-Modern-Centering) I was going over how you can center items in a more modern way and I wanted to expand on that to show how to create the above Merry Melodies outro 😀
 
 ## Html Setup
 
@@ -44,7 +44,25 @@ In a previous post I was going over how you can center items in a more modern wa
 - `.blue-circle` the centered circle where sometimes you'd see someone like Porky Pig 🐷 pop out of.
 - `<svg />` - this element is the key to having our curved text written in.
 
-Let's slowly layer in the pieces in the order of `.radial-circles`, `.blue-circle` , `svg`
+## CSS Setup
+
+This is the starting set of css what we will use.
+
+```css
+#container {
+  font-family: "Pacifico", cursive;
+  display: grid;
+  width: 400px;
+  height: 400px;
+
+  & .layer {
+    grid-area: 1/1;
+    place-self: center;
+  }
+}
+```
+
+Let's slowly layer in the pieces in the order of `.radial-circles`, `.blue-circle` , `svg` and add CSS to them.
 
 ## Red Ring Curtains
 
