@@ -35,4 +35,9 @@ export const showcaseComponents: ShowcaseComponents[] = [
     component: "ConcentricSquares",
     link: "/learning-lessons/2025-08-15-Modern-Centering",
   },
+  {
+    description: "That's all folks!",
+    component: "ThatsAllFolks",
+    link: "/showcase/2025-09-13-Thats-All-Folks",
+  },
 ];
