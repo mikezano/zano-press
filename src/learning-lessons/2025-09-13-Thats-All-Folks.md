@@ -96,7 +96,7 @@ The red rings are formed with 2 shades of red in a radial gradient that draws yo
 }
 ```
 
-In the `radial-gradient` you see an alternating between the two shades of red every 10% that starts at the 40% mark from the center out. This creates the ring effect we see and to fill in the 'center' of this we actually have a 2nd layer on the `background` of a solid `var(--outer-red)` so that we don't have other elements bleed through.
+In the `radial-gradient` you see an alternating between the two shades of red every 10% that starts at the 40% mark from the center out. This creates the ring effect we see and to fill in the 'center' of this we actually have a 2nd layer on the `background` of a solid `var(--outer-red)` so that we don't have other possible background elements bleed through.
 
 ## Blue Circle background
 
@@ -137,21 +137,31 @@ The `svg` element that draws text deserves a little deeper explanation of its ma
 
 - `<path />` defines an svg path for elements to use as a basis of their shape. In this case the path defined by `d` is an arch shape which our written text will align on
 - `<text />` is a standard element for adding text in SVG. We do a
-  something a little more fancy by using the `<textPath />` element inside.
+  something a little more fancy by using the `<textPath />` element inside
 - `<textPath />` is capable of using a `<path/>`, as its name implies, to draw text on.
   In this case we refer to our previous path with `href='circlePath'`. The text "That's All Folks!" gets written here to give it the curvature
 
-  The `<path/>` element is hidden in this case but if we turn it on you would see its odd looking shape with a black fill by default:
+The `<path/>` element is hidden in this case but if we turn it on you would see this shape with a color black fill:
 
 <style>
   .show-path svg path{display:block !important}
 </style>
 <ThatsAllFolks class="show-path"/>
 
+The only CSS we do have here is a text color fill to make the text white.
+
+```css
+& text {
+  fill: white;
+  font-size: 0.6rem;
+}
+```
+
 ## Final Result
 
-Not too far from the original, right ? Probably could be another fun excercise with svg animations if the words could be drawn in as they are in the actual Merry Melodies outro 🎶
+Somewhat resembles the original, right 😄? Probably could be another fun excercise with svg animations if the words could be drawn in as they are in the actual Merry Melodies outro 🎶
 
+![Merry Melodies](/images/merry-melodies.jpg)
 <ThatsAllFolks />
 
 ~ zan0
