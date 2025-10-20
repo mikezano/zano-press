@@ -14,7 +14,7 @@ If you've ever watched old Bugs Bunnies cartoons the below might bring back some
 
 <ThatsAllFolks />
 
-In a [previous post](2025-08-15-Modern-Centering) I was going over how you can center items in a more modern way and I wanted to expand on that to show how to create the above Merry Melodies outro 😀
+In a [previous post](../learning-lessons/2025-08-15-Modern-Centering) I was going over how you can center items in a more modern way and I wanted to expand on that to show how to create the above Merry Melodies outro 😀
 
 ## Html Setup
 
@@ -60,7 +60,7 @@ In a [previous post](2025-08-15-Modern-Centering) I was going over how you can c
 }
 ```
 
-This starting setup is the same as the [modern centering post](2025-08-15-Modern-Centering) which will make all the `.layer` elements stack on top of each other in a centered manner. Let's slowly layer in the pieces in the order of `.radial-circles`, `.blue-circle` , `svg` and add CSS to them.
+This starting setup is the same as the [modern centering post](../learning-lessons/2025-08-15-Modern-Centering) which will make all the `.layer` elements stack on top of each other in a centered manner. Let's slowly layer in the pieces in the order of `.radial-circles`, `.blue-circle` , `svg` and add CSS to them.
 
 ## Red Ring Curtains
 
