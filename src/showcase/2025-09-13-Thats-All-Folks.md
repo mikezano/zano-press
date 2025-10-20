@@ -159,7 +159,7 @@ The only CSS we do have here is a text color fill to make the text white.
 
 ## Final Result
 
-Somewhat resembles the original, right 😄? Probably could be another fun excercise with svg animations if the words could be drawn in as they are in the actual Merry Melodies outro 🎶
+Somewhat resembles the original, right 😄? Probably could be another fun excercise with svg animations if the words could be drawn in as they are in the actual Merry Melodies outro 🎶 [Full demo on Codepen](https://codepen.io/_zan0/pen/MYKrNLe)
 
 ![Merry Melodies](/images/merry-melodies.jpg)
 <ThatsAllFolks />
