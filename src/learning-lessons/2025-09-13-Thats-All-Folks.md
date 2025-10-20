@@ -39,14 +39,12 @@ In a [previous post](2025-08-15-Modern-Centering) I was going over how you can c
 </main>
 ```
 
-- `.container` will hold everything together. We will use CSS grid to help align everything in a centered way
+- `.container` will hold everything together. It uses CSS grid to help align everything in a centered way
 - `.radial-circles` - the red ring curtains
-- `.blue-circle` the centered circle where sometimes you'd see someone like Porky Pig 🐷 pop out of.
-- `<svg />` - this element is the key to having our curved text written in.
+- `.blue-circle` the centered circle where sometimes you'd see someone like Porky Pig 🐷 pop out of
+- `<svg />` - this element is the key to having our curved text
 
 ## CSS Setup
-
-This is the starting set of css what we will use.
 
 ```css
 #container {
@@ -62,7 +60,7 @@ This is the starting set of css what we will use.
 }
 ```
 
-Let's slowly layer in the pieces in the order of `.radial-circles`, `.blue-circle` , `svg` and add CSS to them.
+This starting setup is the same as the [modern centering post](2025-08-15-Modern-Centering) which will make all the `.layer` elements stack on top of each other in a centered manner. Let's slowly layer in the pieces in the order of `.radial-circles`, `.blue-circle` , `svg` and add CSS to them.
 
 ## Red Ring Curtains
 
@@ -98,11 +96,11 @@ The red rings are formed with 2 shades of red in a radial gradient that draws yo
 }
 ```
 
-In the `radial-gradient` you see an alternating between the two shades of red every 10% which causes the ring effect. There's actually 2 layers to this `background` with the bottom being a solid `var(--outer-red)` so that we don't have other elements bleed through.
+In the `radial-gradient` you see an alternating between the two shades of red every 10% that starts at the 40% mark from the center out. This creates the ring effect we see and to fill in the 'center' of this we actually have a 2nd layer on the `background` of a solid `var(--outer-red)` so that we don't have other elements bleed through.
 
 ## Blue Circle background
 
-We add a circle on top of the red rings in its 'empty' center to give this the effect of seeing through into a blue distance.
+We add a circle on top of the red rings in its 'empty' center to give this the effect of seeing through into a dark blue distance.
 
 ```css
 & .blue-circle {
@@ -114,42 +112,46 @@ We add a circle on top of the red rings in its 'empty' center to give this the e
 ```
 
 <style>
-  .no-text svg{display:none}
+  .layer-blue-circle svg{display:none}
 </style>
-<ThatsAllFolks class="no-text"/>
+<ThatsAllFolks class="layer-blue-circle"/>
 
 ## Curved Text
 
-Our curved text comes into play now with two elements driving its creation `svg` and `text`
-<ThatsAllFolks />
+The `svg` element that draws text deserves a little deeper explanation of its markup which is as follows
 
-## Place center
-
-There's a property in `grid`-landia that lets you center things with `place-content: center`. Let's use that here.
-
-```css
-#container {
-  display: grid;
-  place-content: center;
-
-  & .layer {
-    grid-area: 1/1;
-    place-self: center;
-  }
-}
+```html
+<svg class="layer" viewBox="0 0 100 100">
+  <path
+    id="circlePath"
+    display="none"
+    d="M 50 60
+             m -40, 0
+             a 40,10 0 1,1 80,0"
+  />
+  <text>
+    <textPath href="#circlePath" startOffset="10%">That's All Folks!</textPath>
+  </text>
+</svg>
 ```
 
-- `display:grid` we are turning on the grid.
-- `place-content: center` - makes is so that in any grid cell the content wil be centered.
+- `<path />` defines an svg path for elements to use as a basis of their shape. In this case the path defined by `d` is an arch shape which our written text will align on
+- `<text />` is a standard element for adding text in SVG. We do a
+  something a little more fancy by using the `<textPath />` element inside.
+- `<textPath />` is capable of using a `<path/>`, as its name implies, to draw text on.
+  In this case we refer to our previous path with `href='circlePath'`. The text "That's All Folks!" gets written here to give it the curvature
+
+  The `<path/>` element is hidden in this case but if we turn it on you would see its odd looking shape with a black fill by default:
 
 <style>
-  .basic svg{ display:none }
-  .basic .layer{ place-self: }
+  .show-path svg path{display:block !important}
 </style>
-<ThatsAllFolks class="basic" />
+<ThatsAllFolks class="show-path"/>
+
+## Final Result
+
+Not too far from the original, right ? Probably could be another fun excercise with svg animations if the words could be drawn in as they are in the actual Merry Melodies outro 🎶
+
+<ThatsAllFolks />
 
 ~ zan0
-
-```
-
-```
