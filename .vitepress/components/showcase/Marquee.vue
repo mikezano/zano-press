@@ -1,0 +1,176 @@
+<template>
+    <div class="marquee">
+        <div class="corner top-left"></div>
+        <div class="lights-top">
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+        </div>
+        <div class="corner top-right"></div>
+        <div class="lights-left">
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+        </div>
+        <div class="marquee-content">
+            <p>🎼CSS: The Musical 🎺</p>
+        </div>
+        <div class="lights-right">
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+        </div>
+        <div class="corner bottom-left"></div>
+        <div class="lights-bottom">
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+            <div class="light"></div>
+        </div>
+        <div class="corner bottom-right"></div>
+    </div>
+</template>
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Limelight&display=swap");
+
+:root {
+    --marquee-bg: hsla(355, 80%, 30%, 1);
+    --marquee-content: hsla(48, 50%, 72%, 1);
+    --marquee-content-light: hsla(48, 50%, 92%, 1);
+    --marquee-light: hsla(48, 100%, 75%, 1);
+    --marquee-light-dim: hsla(30, 90%, 55%, 1);
+}
+
+
+.marquee {
+    font-family: "Limelight", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    display: grid;
+    grid-template-rows: 50px 1fr, 50px;
+    grid-template-columns: 50px 1fr 50px;
+    width: 550px;
+    background-color: var(--marquee-bg);
+}
+
+.corner {
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+}
+
+.corner.top-left {
+    clip-path: circle(100% at 0% 0%);
+}
+
+.corner.top-right {
+    clip-path: circle(100% at 100% 0%);
+}
+
+.corner.bottom-left {
+    clip-path: circle(100% at 0% 100%);
+}
+
+.corner.bottom-right {
+    clip-path: circle(100% at 100% 100%);
+}
+
+.lights-top,
+.lights-bottom,
+.lights-left,
+.lights-right {
+    display: flex;
+    background-color: var(--marquee-bg);
+}
+
+.marquee-content {
+    place-content: center center;
+    display: grid;
+    font-size: 2.3rem;
+    background: radial-gradient(circle 50px at 100% 0px,
+            var(--marquee-bg) 50%,
+            transparent 50%),
+        radial-gradient(circle 50px at 0 0, var(--marquee-bg) 50%, transparent 50%),
+        radial-gradient(circle 50px at 0 100%,
+            var(--marquee-bg) 50%,
+            transparent 50%),
+        radial-gradient(circle 50px at 100% 100%,
+            var(--marquee-bg) 50%,
+            transparent 50%),
+        radial-gradient(var(--marquee-content-light), var(--marquee-content)),
+        hsla(48, 50%, 92%, 1);
+
+    /* background: radial-gradient(
+      circle 50px at 0 0,
+      var(--marquee-bg) 50%,
+      white 50%
+    ),
+    radial-gradient(circle 100px at 200px 0px, red, yellow); */
+}
+
+.lights-left,
+.lights-right {
+    flex-direction: column;
+}
+
+.lights-bottom {
+    flex-direction: row-reverse;
+}
+
+.lights-left {
+    flex-direction: column-reverse;
+}
+
+.light {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.lights-top .light:nth-child(3n),
+.lights-bottom .light:nth-child(3n),
+.lights-left .light:nth-child(3n),
+.lights-right .light:nth-child(3n) {
+    animation: pulse 0.6s linear infinite;
+}
+
+.lights-top .light:nth-child(3n + 1),
+.lights-bottom .light:nth-child(3n + 1),
+.lights-left .light:nth-child(3n + 1),
+.lights-right .light:nth-child(3n + 1) {
+    animation: pulse 0.6s 0.2s linear infinite;
+}
+
+.lights-top .light:nth-child(3n + 2),
+.lights-bottom .light:nth-child(3n + 2),
+.lights-left .light:nth-child(3n + 2),
+.lights-right .light:nth-child(3n + 2) {
+    animation: pulse 0.6s 0.4s linear infinite;
+}
+
+@keyframes pulse {
+
+    10%,
+    33% {
+        background-color: hsla(48, 100%, 75%, 1);
+    }
+
+    0%,
+    44% {
+        background-color: hsla(48, 50%, 35%, 0.5);
+    }
+}
+</style>
