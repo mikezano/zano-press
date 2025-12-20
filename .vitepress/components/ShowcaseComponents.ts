@@ -16,6 +16,11 @@ export const showcaseComponents: ShowcaseComponents[] = [
     link: "/showcase/2025-05-30-Scribbler-pencil-drawing",
   },
   {
+    description: "Marquee",
+    component: "Marquee",
+    link: "/showcase/2025-12-05-Marquee",
+  },
+  {
     description: "3D Button",
     component: "ThreeDButton",
     link: "/showcase/2025-05-14-3D-Button",
