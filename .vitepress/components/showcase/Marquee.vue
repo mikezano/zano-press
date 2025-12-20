@@ -68,7 +68,12 @@
 .corner {
     width: 50px;
     height: 50px;
-    background-color: #333;
+    background-color: white;
+}
+
+.dark .corner {
+    background-color: var(--vp-c-bg);
+    ;
 }
 
 .corner.top-left {
@@ -111,13 +116,10 @@
             transparent 50%),
         radial-gradient(var(--marquee-content-light), var(--marquee-content)),
         hsla(48, 50%, 92%, 1);
+}
 
-    /* background: radial-gradient(
-      circle 50px at 0 0,
-      var(--marquee-bg) 50%,
-      white 50%
-    ),
-    radial-gradient(circle 100px at 200px 0px, red, yellow); */
+.dark .marquee-content {
+    color: black;
 }
 
 .lights-left,
