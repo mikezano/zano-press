@@ -12,6 +12,10 @@ tag: "#lessons"
 
 In 2026, do you now how to control your border radius
 
+You can even to different shape per corner
+
+Path is limited to pixels but new shape can mix units and calcs
+
 <style>
     
 #bevel, #notch, #scoop, #squircle, #regular{
@@ -34,6 +38,20 @@ In 2026, do you now how to control your border radius
 <div id="scoop"></div>
 <div id="squircle"></div>
 <div id="regular"></div>
+
+# Bevel
+
+This is one that makes the buttons look like smarthphone eseq
+
+# Notch
+
+This helps in cutton out a square piece from the corner
+
+# Swoop
+
+This create an inwards swoop similar to the marquee created a while ago
+
+# Squircle
 
 [Full demo on Codepen](https://codepen.io/_zan0/pen/pvjQRqK)
 
