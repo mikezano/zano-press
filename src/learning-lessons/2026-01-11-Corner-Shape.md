@@ -32,12 +32,13 @@ Path is limited to pixels but new shape can mix units and calcs
 #squircle{corner-shape:squircle}
 
 </style>
-
+<div style="display:flex">
 <div id="bevel"></div>
 <div id="notch"></div>
 <div id="scoop"></div>
 <div id="squircle"></div>
 <div id="regular"></div>
+</div>
 
 # Bevel
 
