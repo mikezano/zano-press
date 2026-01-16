@@ -24,12 +24,18 @@ Path is limited to pixels but new shape can mix units and calcs
   height:100px;
   margin:10px;
   border-radius:20px;
+
+  --pastel-blue:   hsl(210, 70%, 85%);
+  --pastel-green:  hsl(140, 60%, 85%);
+  --pastel-yellow: hsl(50, 80%, 88%);
+  --pastel-pink:   hsl(330, 70%, 88%);
+  --pastel-purple: hsl(260, 60%, 88%);
 }
 
-#bevel{corner-shape:bevel}
-#notch{corner-shape:notch}
-#scoop{corner-shape:scoop}
-#squircle{corner-shape:squircle}
+#bevel{corner-shape:bevel; background-color:var(--pastel-blue)}
+#notch{corner-shape:notch; background-color:var(--pastel-green)}
+#scoop{corner-shape:scoop; background-color:var(--pastel-yellow)}
+#squircle{corner-shape:squircle; background-color:var(--pastel-pink)}
 
 </style>
 <div style="display:flex">
