@@ -25,11 +25,11 @@ Path is limited to pixels but new shape can mix units and calcs
   margin:10px;
   border-radius:20px;
 
-  --pastel-blue:   hsl(210, 70%, 85%);
-  --pastel-green:  hsl(140, 60%, 85%);
-  --pastel-yellow: hsl(50, 80%, 88%);
-  --pastel-pink:   hsl(330, 70%, 88%);
-  --pastel-purple: hsl(260, 60%, 88%);
+  --pastel-blue:   hsl(210, 70%, 65%);
+  --pastel-green:  hsl(140, 60%, 65%);
+  --pastel-yellow: hsl(50, 80%, 68%);
+  --pastel-pink:   hsl(330, 70%, 68%);
+  --pastel-purple: hsl(260, 60%, 68%);
 }
 
 #bevel{corner-shape:bevel; background-color:var(--pastel-blue)}
