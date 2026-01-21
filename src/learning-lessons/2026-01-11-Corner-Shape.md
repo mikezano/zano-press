@@ -18,7 +18,7 @@ Path is limited to pixels but new shape can mix units and calcs
 
 <style>
     
-#bevel, #notch, #scoop, #squircle, #regular{
+#bevel-ex, #notch-ex, #scoop-ex, #squircle-ex, #regular-ex{
   background-color:blue;
   width:100px;
   height:100px;
@@ -32,33 +32,50 @@ Path is limited to pixels but new shape can mix units and calcs
   --pastel-purple: hsl(260, 60%, 68%);
 }
 
-#bevel{corner-shape:bevel; background-color:var(--pastel-blue)}
-#notch{corner-shape:notch; background-color:var(--pastel-green)}
-#scoop{corner-shape:scoop; background-color:var(--pastel-yellow)}
-#squircle{corner-shape:squircle; background-color:var(--pastel-pink)}
+#bevel-ex{corner-shape:bevel; background-color:var(--pastel-blue)}
+#notch-ex{corner-shape:notch; background-color:var(--pastel-green)}
+#scoop-ex{corner-shape:scoop; background-color:var(--pastel-yellow)}
+#squircle-ex{corner-shape:squircle; background-color:var(--pastel-pink)}
+
 
 </style>
 <div style="display:flex">
-<div id="bevel"></div>
-<div id="notch"></div>
-<div id="scoop"></div>
-<div id="squircle"></div>
-<div id="regular"></div>
+<div id="bevel-ex" />
+<div id="notch-ex"/>
+<div id="scoop-ex"/>
+<div id="squircle-ex" />
+<div id="regular-ex" />
 </div>
 
-# Bevel
+## Bevel
 
-This is one that makes the buttons look like smarthphone eseq
+Bevel makes a 45 degree straight edge out of the corner, possible easy way of making an octagon.
 
-# Notch
+<div id="bevel-ex" />
 
-This helps in cutton out a square piece from the corner
+```css
+#bevel {
+  corner-shape: bevel;
+}
+```
 
-# Swoop
+## Notch
+
+In laymen terms this essentially takes out a square of the corners
+
+<div id="notch-ex" />
+
+```css
+#bevel {
+  corner-shape: notch;
+}
+```
+
+## Swoop
 
 This create an inwards swoop similar to the marquee created a while ago
 
-# Squircle
+## Squircle
 
 [Full demo on Codepen](https://codepen.io/_zan0/pen/pvjQRqK)
 
