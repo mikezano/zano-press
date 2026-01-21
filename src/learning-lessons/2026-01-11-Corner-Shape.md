@@ -24,9 +24,9 @@ Path is limited to pixels but new shape can mix units and calcs
 #notch-ex-1,
 #notch-ex-2,
 #notch-ex-3,
-#scoop-ex, 
-#squircle-ex, 
-#regular-ex{
+#scoop-ex-1, 
+#squircle-ex-1, 
+#regular-ex-1{
   background-color:blue;
   width:100px;
   height:100px;
@@ -69,17 +69,17 @@ Path is limited to pixels but new shape can mix units and calcs
   width:200px;
   height:50px;
 }
-#scoop-ex{corner-shape:scoop; background-color:var(--pastel-yellow)}
-#squircle-ex{corner-shape:squircle; background-color:var(--pastel-pink)}
+#scoop-ex-1{corner-shape:scoop; background-color:var(--pastel-yellow)}
+#squircle-ex-1{corner-shape:squircle; background-color:var(--pastel-pink)}
 
 
 </style>
 <div style="display:flex">
-<div id="bevel-ex" />
-<div id="notch-ex"/>
-<div id="scoop-ex"/>
-<div id="squircle-ex" />
-<div id="regular-ex" />
+<div id="bevel-ex-1" />
+<div id="notch-ex-1"/>
+<div id="scoop-ex-1"/>
+<div id="squircle-ex-1" />
+<div id="regular-ex-1" />
 </div>
 
 #### Bevel
@@ -107,13 +107,13 @@ Path is limited to pixels but new shape can mix units and calcs
 
 `corner-shape: swoop` -This create an inwards swoop similar to the marquee created a while ago
 
-<div id="scoop-ex" />
+<div id="scoop-ex-1" />
 
 #### Squircle
 
 `corner-shape: squircle` - Makes rounder corners but more conforming to how apps work
 
-<div id="squircle-ex" />
+<div id="squircle-ex-1" />
 
 [Full demo on Codepen](https://codepen.io/_zan0/pen/pvjQRqK)
 
