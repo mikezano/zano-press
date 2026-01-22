@@ -26,7 +26,10 @@ Path is limited to pixels but new shape can mix units and calcs
 #notch-ex-3,
 #scoop-ex-1, 
 #squircle-ex-1, 
-#regular-ex-1{
+#regular-ex-1,
+#scoop-ex-1,
+#scoop-ex-2,
+#scoop-ex-3{
   background-color:blue;
   width:100px;
   height:100px;
@@ -57,6 +60,23 @@ Path is limited to pixels but new shape can mix units and calcs
   border-radius:20px;
 }
 
+#scoop-ex-1, #scoop-ex-2, #scoop-ex-3{
+ background-color:var(--pastel-yellow);
+ corner-shape:scoop;
+}
+#scoop-ex-2 {
+  border-radius:40px;
+  background-color:var(--pastel-yellow);
+  width:200px;
+  height:80px;
+}
+#scoop-ex-3{
+   background-color:var(--pastel-yellow);
+  width:80px;
+  height:80px;
+  border-radius:20px;
+}
+
 #notch-ex-1, #notch-ex-2, #notch-ex-3{
   corner-shape:notch; 
   background-color:var(--pastel-green);
@@ -69,7 +89,7 @@ Path is limited to pixels but new shape can mix units and calcs
   width:200px;
   height:50px;
 }
-#scoop-ex-1{corner-shape:scoop; background-color:var(--pastel-yellow)}
+
 #squircle-ex-1{corner-shape:squircle; background-color:var(--pastel-pink)}
 
 
@@ -107,7 +127,11 @@ Path is limited to pixels but new shape can mix units and calcs
 
 `corner-shape: swoop` -This create an inwards swoop similar to the marquee created a while ago
 
+<div style="display:flex">
 <div id="scoop-ex-1" />
+<div id="scoop-ex-2" />
+<div id="scoop-ex-3" />
+</div>
 
 #### Squircle
 
