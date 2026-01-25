@@ -7,8 +7,8 @@ hero:
   tagline: Figuring out css so you don't have to 🧠
   actions:
     - theme: brand
-      text: Latest post (Marquee) ->
-      link: /showcase/2025-12-04-Marquee
+      text: Latest post (Corner-Shape) ->
+      link: /learning-lessons/2026-01-11-Corner-Shape.md
 
 features:
   - icon: 🖼️
@@ -19,6 +19,6 @@ features:
   - icon: 🧑‍🏫
     title: Learning lessons
     details: Going through fundamentals, generating lightbulb 💡 moment !
-    link: /learning-lessons/2025-08-15-Modern-Centering.md
+    link: /learning-lessons/2026-01-11-Corner-Shape.md
     linkText: Latest
 ---
