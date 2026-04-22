@@ -7,3 +7,5 @@ Built with [vitepress](https://vitepress.dev) this site is a personal blog about
 CSS still seems to be the frontier that scares away many devs from exploring further. I enjoy exploring the latest functionality to see how it can improve the overall user experience to a site.
 
 ~zan0
+
+podman build --build-arg NODE_ENV=production -t zano-press:latest .

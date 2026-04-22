@@ -3,6 +3,12 @@ import path from "path";
 import prismjs from "vite-plugin-prismjs";
 import pugPlugin from "vite-plugin-pug";
 import { defineConfig } from "vitepress";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const isProduction = process.env.NODE_ENV === "production";
+const base = isProduction ? "/zano-press/" : "/";
 
 function getMarkdownFiles(dir: string): { text: string; link: string }[] {
   const fullPath = path.resolve(__dirname, dir);
@@ -29,6 +35,7 @@ const showcase = getMarkdownFiles("../src/showcase");
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base,
   vite: {
     plugins: [
       pugPlugin(),
@@ -64,7 +71,6 @@ export default defineConfig({
         async _render(src, env, md) {
           let html = await md.render(src);
           html = html.replaceAll("{{$frontmatter.title}}", "");
-
           return html;
         },
       },

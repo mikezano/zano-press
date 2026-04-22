@@ -1,12 +1,17 @@
 # Stage 1: Build the VitePress site
 FROM node:24 AS builder
 
+# Set the NODE_ENV environment variable (default to production)
+ARG VITEPRESS_ENV=production
+ENV VITEPRESS_ENV=$NODE_ENV
+
 WORKDIR /app
 
-# Copy only the necessary files
+# Copy necessary files
 COPY package*.json ./
 COPY src ./src
 COPY .vitepress ./.vitepress
+COPY .env ./.env
 
 # Install dependencies and build the site
 RUN npm install && npm run build

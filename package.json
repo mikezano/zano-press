@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "dotenv": "^17.4.2",
     "sass-embedded": "^1.87.0",
     "typed.js": "^2.1.0",
     "vite-plugin-prismjs": "^0.0.11",
